@@ -8,20 +8,59 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css2?family=Galada&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   </head>
 
   <body>
   <header>
-    <h1 class="logo">Mayby</h1>
+    <h1 class="logo"><%= link_to("Mayby","/")  %></h1>
     <ul class="header-menu">
-      <li>Maybyとは</li>
-      <li>新規登録</li>
-      <li>Mayby一覧</li>
-      <li>Mayby投稿</li>
-      <li>ログイン</li>
-      <li>ログアウト</li>
+      <li><%= link_to("Maybyとは","/about") %></li>
+      <li><%= link_to("新規登録","/") %></li>
+      <li><%= link_to("Mayby一覧","/") %></li>
+      <li><%= link_to("Mayby投稿","/") %></li>
+      <li><%= link_to("ログイン","/") %></li>
+      <li><%= link_to("ログアウト","/") %></li>
     </ul>
+    <div class="bars"><div></div><div></div><div></div></label>
   </header>
+    <div class="overlay"></div>
+  <nav>
+    <ul class="burger-menu">
+      <li><%= link_to("Maybyとは","/about") %></li>
+      <li><%= link_to("新規登録","/") %></li>
+      <li><%= link_to("Mayby一覧","/") %></li>
+      <li><%= link_to("Mayby投稿","/") %></li>
+      <li><%= link_to("ログイン","/") %></li>
+      <li><%= link_to("ログアウト","/") %></li>
+    </ul>
+  </nav>
+
     <%= yield %>
+    <script>
+    $('.bars').on('click',function(){
+  if($(this).hasClass('active')){
+    $(this).removeClass('active');
+  } else {
+    $(this).addClass('active');
+    $('nav').addClass('open');
+    $('.overlay').addClass('open');
+    $('.close').addClass('open');
+  }
+});
+$('.overlay').on('click',function(){
+  if($(this).hasClass('open')){
+    $(this).removeClass('open');
+    $('nav').removeClass('open');      
+  }
+});
+$('.close').on('click',function(){
+  if($(this).hasClass('open')){
+  $(this).removeClass('open');
+  $('nav').removeClass('open');
+  $('.overlay').removeClass('open');
+  }
+});
+    </script>
   </body>
 </html>

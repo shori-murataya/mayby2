@@ -26,6 +26,7 @@
  }
  a{
    text-decoration: none;
+   color: rgba(0, 0, 0, 0.932);
 }
 
 header{
@@ -55,4 +56,62 @@ header .header-menu li{
 header .header-menu li:hover{
   background-color: rgba(198, 233, 141, 0.993);
   transition: all 0.2s;
+}
+.bars div{
+  width: 20px;
+  height: 3px;
+  background-color: black;
+  margin: 3px;
+}
+.bars{
+  display: none;
+  position: relative;
+  right: 10px;
+}
+.burger-menu li{
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin: 15px;
+}
+.overlay{
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.overlay.open{
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+nav{
+  width: 200px;
+  height: 100%;
+  padding-top: 100px;
+  background-color: rgba(241, 241, 235, 0.767);
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  transform: translate(200px);
+  transition: all .2s;
+}
+nav.open{
+  transform: translateZ(0);
+}
+
+@media(max-width:1000px){
+  header .header-menu{
+    display: none;
+  }
+  .bars{
+    display: block;
+  }
 }
