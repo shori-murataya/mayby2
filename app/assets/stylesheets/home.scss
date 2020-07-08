@@ -1,0 +1,43 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// top
+.background{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image:url("/amusement-3834885_1920.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+.title-box{
+  padding: 25px;
+  background-color:rgba(207, 207, 207, 0.5);
+  color: rgba(0, 0, 0, 0.966);
+  border-radius: 5px;
+  text-align: center;
+}
+.title-box .intro-box .catch1{
+  font-size: 25px;
+}
+.title-box .intro-box h1{
+  font-size: 45px;
+  letter-spacing: 5px;
+  padding: 30px;
+  font-family: 'Galada', cursive;
+}
+.new-btn{
+  padding: 15px;
+  margin: 0 auto;
+  width: 200px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: rgba(231, 250, 200, 0.719);
+  cursor: pointer;
+}
+.new-btn:hover{
+  background-color: rgba(215, 255, 151, 0.993);
+  transition: all 0.2s;
+}

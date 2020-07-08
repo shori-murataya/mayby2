@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>Mayby ~Make Your Hobby~</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Galada&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+  <header>
+    <h1 class="logo">Mayby</h1>
+    <ul class="header-menu">
+      <li>Maybyとは</li>
+      <li>新規登録</li>
+      <li>Mayby一覧</li>
+      <li>Mayby投稿</li>
+      <li>ログイン</li>
+      <li>ログアウト</li>
+    </ul>
+  </header>
+    <%= yield %>
+  </body>
+</html>
