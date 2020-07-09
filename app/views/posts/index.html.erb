@@ -1,0 +1,13 @@
+<div class="posts-index-background">
+  <div class="index-box">
+    <h1>Mayby一覧</h1>
+    <% @posts.each do |post| %>
+      <div class="post-box">
+        <p class="post">Maybyの名前</p>
+        <p class="post"><%= post.name %></p>
+        <p class="post">遊び方</p>
+        <p class="last-post"><%= post.howto %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
