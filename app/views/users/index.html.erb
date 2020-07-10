@@ -1,0 +1,15 @@
+<div class="posts-index-background">
+  <div class="index-box">
+    <h1>ユーザー 一覧</h1>
+    <% @users.each do |user| %>
+      <div class="post-box">
+        <p class="post">お名前</p>
+        <p class="post"><%= user.name %></p>
+        <p class="post">メールアドレス</p>
+        <p class="post"><%= user.email %></p>
+        <%= link_to("消す","/users/#{user.id}/destroy",{method:"post"}) %>
+        <%= link_to("詳細","/users/#{user.id}/show")  %>
+      </div>
+    <% end %>
+  </div>
+</div>

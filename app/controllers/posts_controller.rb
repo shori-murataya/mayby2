@@ -8,8 +8,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(name: params[:name],howto: params[:howto])
-    @post.save
-    redirect_to("/posts/index")
+    if @post.save
+      redirect_to("/posts/index")
+    else
+      render("posts/new")
+    end
   end
 
   def destroy

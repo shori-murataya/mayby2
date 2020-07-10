@@ -1,0 +1,14 @@
+<div class="new-background">
+<div class="form-box">
+<h1 class="new-mayby">新規登録</h1>
+<%= form_tag("/users/create") do%>
+  <p>お名前</p>
+  <input type="text" class="user-name" name="name">
+  <p>メールアドレス</p>
+  <input type="text" class="email" name="email">
+  <p>パスワード</p>
+  <input type="password" class="pass" name="pass">
+  <input class="send-btn" type="submit" value="登録">
+<% end %>
+</div>
+</div>
