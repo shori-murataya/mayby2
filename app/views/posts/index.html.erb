@@ -6,7 +6,9 @@
         <p class="post">Maybyの名前</p>
         <p class="post"><%= post.name %></p>
         <p class="post">遊び方</p>
-        <p class="last-post"><%= post.howto %></p>
+        <p class="post"><%= post.howto %></p>
+        <%= link_to("消す","/posts/#{post.id}/destroy",{method:"post"}) %>
+        <%= link_to("詳細","/posts/#{post.id}/show")  %>
       </div>
     <% end %>
   </div>

@@ -3,10 +3,10 @@
 <h1 class="new-mayby">新しいMaybyをつくる</h1>
 <%= form_tag("/posts/create") do%>
   <p>Maybyの名前</p>
-  <input type="text" name="name">
+  <input class="name" type="text" name="name">
   <p>遊び方</p>
-  <textarea name="howto"></textarea>
-  <input type="submit" value="Maybyを作る">
+  <textarea class="howto" name="howto"></textarea>
+  <input class="send-btn" type="submit" value="Maybyを作る">
 <% end %>
 </div>
 </div>
