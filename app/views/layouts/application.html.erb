@@ -16,29 +16,44 @@
   <body>
   <header>
     <h1 class="logo"><%= link_to("Mayby","/")  %></h1>
+    <% if @current_user %>
+    <li><%= link_to("#{@current_user.name}さん", "/users/#{@current_user.id}/show") %></li>
+    <% end %>
     <ul class="header-menu">
-      <li><%= link_to("Maybyとは","/about") %></li>
-      <li><%= link_to("新規登録","/users/new") %></li>
+    <% if @current_user %>
       <li><%= link_to("ユーザー一覧","/users/index") %></li>
       <li><%= link_to("Mayby一覧","/posts/index") %></li>
       <li><%= link_to("Mayby投稿","/posts/new") %></li>
-      <li><%= link_to("ログイン","/") %></li>
-      <li><%= link_to("ログアウト","/") %></li>
+      <li><%= link_to("ログアウト","/users/logout",{method:"post"}) %></li>
+    <% else %>  
+      <li><%= link_to("Maybyとは","/about") %></li>
+      <li><%= link_to("新規登録","/users/new") %></li>
+      <li><%= link_to("ログイン","/users/login") %></li>
+    <% end %>
     </ul>
     <div class="bars"><div></div><div></div><div></div></label>
   </header>
     <div class="overlay"></div>
   <nav>
     <ul class="burger-menu">
-      <li><%= link_to("Maybyとは","/about") %></li>
-      <li><%= link_to("新規登録","/users/new") %></li>
+    <% if @current_user %>
+      <li><%= link_to("#{@current_user.name}さん", "/users/#{@current_user.id}/show") %></li>
       <li><%= link_to("ユーザー一覧","/users/index") %></li>
       <li><%= link_to("Mayby一覧","/posts/index") %></li>
       <li><%= link_to("Mayby投稿","/posts/new") %></li>
-      <li><%= link_to("ログイン","/") %></li>
-      <li><%= link_to("ログアウト","/") %></li>
+      <li><%= link_to("ログアウト","/users/logout",{method:"post"}) %></li>
+    <% else %>  
+      <li><%= link_to("Maybyとは","/about") %></li>
+      <li><%= link_to("新規登録","/users/new") %></li>
+      <li><%= link_to("ログイン","/users/login") %></li>
+    <% end %>
     </ul>
   </nav>
+      <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
 
     <%= yield %>
     <script>

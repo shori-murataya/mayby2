@@ -3,6 +3,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+  end
+
   def new
   end
 
@@ -24,5 +27,25 @@ class UsersController < ApplicationController
     redirect_to("/users/index")
   end
 
+  def login
+  end
+  
+  def in
+    @user = User.find_by(email: params[:email])
+      if @user && @user.authenticate(params[:pass])
+        session[:user_id] = @user.id
+        flash[:notice] = "ログインしました"
+        redirect_to("/users/index")
+      else
+        flash[:notice] = "ログイン失敗"        
+        render("users/login")
+      end
+  end
+
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "ログアウトしました"
+    redirect_to("/")
+  end
 
 end
