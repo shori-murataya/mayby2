@@ -16,6 +16,9 @@
  html{
   scroll-behavior: smooth;
 }
+body{
+  min-height:100％ ;
+}
 *,*::before,*::after{
   box-sizing: border-box;
 }
@@ -37,7 +40,7 @@ header{
   height: 40px;
   color: rgba(0, 0, 0, 0.932);
   background-color: rgba(231, 250, 200, 0.719);
-  position: fixed;
+  /* position: fixed; */
 }
 header .logo{
   padding: 0 50px;
@@ -110,10 +113,9 @@ nav.open{
 
 .flash{
   width: 100%;
-  margin-top: 40px;
-  padding: 0 0 20px 0;
-  background-color: rgba(231, 250, 200, 0.719);
-  position: fixed;
+  /* margin-top: 40px; */
+  padding: 10px 0;
+  background-color: rgb(250, 195, 195);
   text-align: center;
 }
 @media(max-width:1000px){
@@ -126,7 +128,5 @@ nav.open{
   }
 }
 @media(max-width:674px){
-header{
-  height: 40px;
-}
+
 }
