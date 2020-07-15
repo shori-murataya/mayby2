@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      post: Mayby
+    attributes:
+      post:
+        name: Maybyの名前
+        howto: Maybyの遊び方

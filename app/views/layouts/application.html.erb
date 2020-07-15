@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mayby ~Make Your Hobby~</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
+    <%= csp_meta_tag %> 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css2?family=Galada&display=swap" rel="stylesheet">
@@ -16,11 +15,9 @@
   <body>
   <header>
     <h1 class="logo"><%= link_to("Mayby","/")  %></h1>
-    <% if @current_user %>
-    <li><%= link_to("#{@current_user.name}さん", "/users/#{@current_user.id}/show") %></li>
-    <% end %>
     <ul class="header-menu">
     <% if @current_user %>
+      <li><%= link_to("#{@current_user.name}さん", "/users/#{@current_user.id}/show") %></li>
       <li><%= link_to("ユーザー一覧","/users/index") %></li>
       <li><%= link_to("Mayby一覧","/posts/index") %></li>
       <li><%= link_to("Mayby投稿","/posts/new") %></li>
@@ -70,7 +67,8 @@
 $('.overlay').on('click',function(){
   if($(this).hasClass('open')){
     $(this).removeClass('open');
-    $('nav').removeClass('open');      
+    $('nav').removeClass('open'); 
+    $('.bars').removeClass('active');
   }
 });
 $('.close').on('click',function(){
@@ -78,6 +76,7 @@ $('.close').on('click',function(){
   $(this).removeClass('open');
   $('nav').removeClass('open');
   $('.overlay').removeClass('open');
+  $('.bars').removeClass('active');
   }
 });
     </script>

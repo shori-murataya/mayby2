@@ -1,11 +1,14 @@
 <div class="new-background">
 <div class="form-box">
 <h1 class="new-mayby">新しいMaybyをつくる</h1>
+<% @post.errors.full_messages.each do |message| %>
+  <p style="color:red;"><%= message %></p>
+<% end %>
 <%= form_tag("/posts/create") do%>
   <p>Maybyの名前</p>
-  <input class="name" type="text" name="name">
+  <input class="name" type="text" name="name" value="<%= @post.name %>">
   <p>遊び方</p>
-  <textarea class="howto" name="howto"></textarea>
+  <textarea class="howto" name="howto"><%= @post.howto %></textarea>
   <input class="send-btn" type="submit" value="Maybyを作る">
 <% end %>
 </div>

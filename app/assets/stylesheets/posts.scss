@@ -4,7 +4,7 @@
 
 // new
 .new-background{
-  background-image: url("/hall-1929422_1280.jpg");
+  background-image: url("/background/hall-1929422_1280.jpg");
   background-size: cover;
   width: 100%;
   height: 100vh;
@@ -15,7 +15,7 @@
 .form-box{
   background-color: rgba(255, 255, 255, 0.774);
   width: 80%;
-  height: 80%;
+  height: auto;
   text-align: center;
 }
 .new-mayby{
@@ -35,15 +35,13 @@ textarea.howto{
 }
 input.send-btn{
   display: block;
-  position: absolute;
-  right: 45%;
   padding: 5px;
-  margin: 5px;
+  margin: 10px auto;
   background-color: rgba(231, 250, 200, 0.836);
   }
 // index
 .posts-index-background{
-  background-image: url("/weathered-1576519_1280.jpg");
+  background-image: url("/background/weathered-1576519_1280.jpg");
   width: 100%;
   min-height: 100vh;
   height: 100%;
