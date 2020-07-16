@@ -128,5 +128,7 @@ nav.open{
   }
 }
 @media(max-width:674px){
-
+  .new-mayby {
+    font-size: 20px;
+  }
 }
