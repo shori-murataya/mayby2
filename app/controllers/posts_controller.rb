@@ -24,6 +24,23 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find_by(id: params[:id])
+  end
+
+  def update
+    @post = Post.find_by(id: params[:id])
+    @post.name = params[:name]
+    @post.howto = params[:howto]
+    if @post.save
+      flash[:notice] = "編集完了"
+      redirect_to("/posts/index")
+    else
+      flash[:notice] = "編集失敗"
+      render("posts/edit")
+    end
+  end
+
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy

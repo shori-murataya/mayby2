@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find_by(id: params[:id])
   end
 
   def new
@@ -42,10 +43,11 @@ class UsersController < ApplicationController
     image = params[:image]
     File.binwrite("public/user_images/#{@user.image_name}",image.read)
     end
-
     if @user.save
+    flash[:notice] = "編集完了"
     redirect_to("/users/index")
     else
+    flash[:notice] = "編集失敗"
     render("users/edit")
     end
   end

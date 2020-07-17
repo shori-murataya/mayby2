@@ -7,8 +7,11 @@
         <p class="post"><%= post.name %></p>
         <p class="post">遊び方</p>
         <p class="post"><%= post.howto %></p>
-        <%= link_to("消す","/posts/#{post.id}/destroy",{method:"post"}) %>
         <%= link_to("詳細","/posts/#{post.id}/show")  %>
+        <% if @current_user.id == post.user_id %>
+        <%= link_to("編集","/posts/#{post.id}/edit") %>
+        <%= link_to("消す","/posts/#{post.id}/destroy",{method:"post"}) %>
+        <% end %>
       </div>
     <% end %>
   </div>
