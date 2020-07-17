@@ -9,8 +9,8 @@
         <%= link_to("詳細","/users/#{user.id}/show")%>
         <% if @current_user.id == user.id %>
         <%= link_to("編集","/users/#{user.id}/edit")%>
-        <% end %>
         <%= link_to("消す","/users/#{user.id}/destroy",{method:"post"}) %>
+        <% end %>
       </div>
     <% end %>
   </div>

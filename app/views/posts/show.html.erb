@@ -5,9 +5,9 @@
 
     <p class="show-mayby"><%= @post.name %>は、<%= @user.name %>さんの発案したMayby</p>
     <p class="show-mayby"><%=@post.count%>で<%=@post.difficulty%>遊ぶ人に向いているよ！</p>
+    <%= link_to("←戻る","/posts/index") %>
       <% if @current_user.id == @post.user_id %>
         <%= link_to("編集","/posts/#{@post.id}/edit") %>
-        <%= link_to("消す","/posts/#{@post.id}/destroy",{method:"post"}) %>
       <% end %>
   </div>
 </div>
