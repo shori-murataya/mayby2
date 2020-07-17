@@ -18,6 +18,7 @@ class UsersController < ApplicationController
       password:params[:pass],
       image_name:"default_image.jpg")
     if @user.save
+      session[:user_id] = @user.id
       redirect_to("/users/index")
     else
       render("users/new")

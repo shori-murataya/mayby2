@@ -16,7 +16,10 @@ class PostsController < ApplicationController
     @post = Post.new(
       name: params[:name],
       howto: params[:howto],
-      user_id: @current_user.id)
+      user_id: @current_user.id,
+      count: params[:count],
+      difficulty: params[:difficulty]
+      )
     if @post.save
       redirect_to("/posts/index")
     else

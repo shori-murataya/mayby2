@@ -31,7 +31,14 @@ input.name{
 textarea.howto{
   font-size: 20px;
   width: 50%;
-  height: 40vh;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+.radio{
+  margin: 10px auto;
+  width: 300px;
+  text-align: left;
 }
 input.send-btn{
   display: block;
@@ -56,7 +63,7 @@ input.send-btn{
   text-align: center;
 }
 .index-box h1{
-  padding: 50px 0 50px 0;
+  padding: 13px 0;
 }
 .post-box{
   border:1px solid rgba(0, 0, 0, 0.788);
@@ -69,7 +76,7 @@ input.send-btn{
   border-bottom:1px solid rgba(0, 0, 0, 0.788);
   margin: 10px auto;
 }
-.post-box a{
+.post-box a,.index-box a{
   display: inline-block;
   width: 145px;
   margin: 5px;
@@ -80,4 +87,10 @@ input.send-btn{
 .post-box a:hover{
   background-color: rgba(233, 137, 137, 0.863);
 }
-
+.index-box a:hover{
+  background-color: rgba(233, 137, 137, 0.863);
+}
+// show
+.show-mayby{
+  padding: 15px;
+}

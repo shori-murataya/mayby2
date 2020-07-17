@@ -2,6 +2,12 @@
   <div class="index-box">
     <h1>Maybyの詳細</h1>
     <img class="user_image" src="<%="/user_images/#{@user.image_name}"%>">
-    <p><%= @user.name %>さん</p>
+
+    <p class="show-mayby"><%= @post.name %>は、<%= @user.name %>さんの発案したMayby</p>
+    <p class="show-mayby"><%=@post.count%>で<%=@post.difficulty%>遊ぶ人に向いているよ！</p>
+      <% if @current_user.id == @post.user_id %>
+        <%= link_to("編集","/posts/#{@post.id}/edit") %>
+        <%= link_to("消す","/posts/#{@post.id}/destroy",{method:"post"}) %>
+      <% end %>
   </div>
 </div>
