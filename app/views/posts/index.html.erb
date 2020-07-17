@@ -1,18 +1,31 @@
 <div class="posts-index-background">
   <div class="index-box">
     <h1>Mayby一覧</h1>
+    <form class="sort">
+      <select onChange="top.location.href=value">
+        <option value="#">--並べ替え--</option>
+        <option value="<%="/posts/desc"%>">新しいMayby順</option>
+        <option value="<%="/posts/asc"%>">古いMayby順</option>
+      </select>
+    </form>
     <% @posts.each do |post| %>
-      <div class="post-box">
-        <p class="post">Maybyの名前</p>
-        <p class="post"><%= post.name %></p>
-        <p class="post">遊び方</p>
-        <p class="post"><%= post.howto %></p>
-        <p class="post"><%= post.count %>/<%= post.difficulty %></p>
-        <%= link_to("詳細","/posts/#{post.id}/show")  %>
-        <% if @current_user.id == post.user_id %>
-        <%= link_to("編集","/posts/#{post.id}/edit") %>
-        <%= link_to("消す","/posts/#{post.id}/destroy",{method:"post"}) %>
-        <% end %>
+      <div class="layout-box">
+        <h3 class="mayby_title"><%= post.name %></h3>
+        <div class="all">
+          <div class="play">
+            <p class="howtoplay">遊び方</p>
+            <p class="howtoplay_p"><%= post.howto %></p>
+          </div>
+          <div class="det">
+            <p class="post"><%= post.count %>/<%= post.difficulty %></p>
+            <p class="post"><%= post.created_at %></p>
+            <%= link_to("詳細","/posts/#{post.id}/show")  %>
+            <% if @current_user.id == post.user_id %>
+            <%= link_to("編集","/posts/#{post.id}/edit") %>
+            <%= link_to("消す","/posts/#{post.id}/destroy",{method:"post"}) %>
+            <% end %>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>

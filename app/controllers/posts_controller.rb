@@ -49,4 +49,15 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to("/posts/index")
   end
+
+  def desc
+    @posts = Post.all.order(created_at: :desc)
+    render("posts/index")
+  end
+
+  def asc
+    @posts = Post.all.order(created_at: :asc)
+    render("posts/index")
+  end
+
 end

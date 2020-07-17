@@ -94,3 +94,30 @@ input.send-btn{
 .show-mayby{
   padding: 15px;
 }
+
+// 投稿一覧のレイアウト
+.layout-box{
+  border:1px solid rgba(0, 0, 0, 0.788);
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.mayby_title{
+  text-align: center;
+  border-bottom:1px solid black ;
+  padding: 5px;
+}
+.all{
+  display: flex;
+}
+.play{
+  flex: 1;
+  border-right:1px solid black ;
+}
+.det{
+  flex: 1;
+}
+.howtoplay{
+  padding: 5px;
+  border-bottom:1px solid black ;
+}

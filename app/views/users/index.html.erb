@@ -1,6 +1,13 @@
 <div class="posts-index-background">
   <div class="index-box">
     <h1>ユーザー 一覧</h1>
+      <form class="sort">
+        <select onChange="top.location.href=value">
+          <option value="#">--並べ替え--</option>
+          <option value="<%="/users/desc"%>">新しいメンバー順</option>
+          <option value="<%="/users/asc"%>">古い順メンバー順</option>
+        </select>
+      </form>
     <% @users.each do |user| %>
       <div class="post-box">
         <img class="user_image" src="<%="/user_images/#{user.image_name}"%>">

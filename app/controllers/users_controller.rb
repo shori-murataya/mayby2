@@ -74,4 +74,14 @@ class UsersController < ApplicationController
     redirect_to("/")
   end
 
+  def desc
+    @users = User.all.order(created_at: :desc)
+    render("users/index")
+  end
+
+  def asc
+    @users = User.all.order(created_at: :asc)
+    render("users/index")
+  end
+
 end
