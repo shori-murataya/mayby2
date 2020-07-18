@@ -1,4 +1,14 @@
 class PostsController < ApplicationController
+  before_action :access_right_post,{only:[:create,:edit]}
+
+  def access_right_post
+    @post = Post.find_by(id: params[:id])
+    if @post.user_id != @current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to("/posts/index")
+    end
+  end
+
   def show
     @post = Post.find_by(id: params[:id])
     @user = User.find_by(id: @post.user_id)

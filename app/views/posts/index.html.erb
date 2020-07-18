@@ -10,7 +10,13 @@
     </form>
     <% @posts.each do |post| %>
       <div class="layout-box">
-        <h3 class="mayby_title"><%= post.name %></h3>
+        <div class="title_image_box">
+          <div class="profile_image_box">
+          <img class="mini_user_image" src="<%="/user_images/#{post.user.image_name}"%>">
+          <p class="profile_name"><%= post.user.name %>さん</p>
+          </div>
+          <h3 class="mayby_title"><%= post.name %></h3>
+        </div>
         <div class="all">
           <div class="play">
             <p class="howtoplay">遊び方</p>
