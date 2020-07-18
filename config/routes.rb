@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  post 'likes/:post_id/create' => "likes#create"
+  post 'likes/:post_id/destroy' => "likes#destroy"
+
   post 'users/logout' => "users#logout"
   post 'users/in' => "users#in"
   get 'users/login' => "users#login"
@@ -26,4 +29,5 @@ Rails.application.routes.draw do
   get "about" => "home#about"
   get "posts/:id/edit" => "posts#edit"
   post "posts/:id/update" => "posts#update"
+
 end

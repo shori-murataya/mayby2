@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :access_right,{only:[:create,:edit]}
+  before_action :access_right_user,{only:[:edit]}
   before_action :login_user,{only:[:new]}
+  
 
-  def access_right
+  def access_right_user
     @user = User.find_by(id: params[:id])
     if @user.id != @current_user.id
       flash[:notice] = "権限がありません"
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
       redirect_to("/users/index")
     end
   end
+
   
 
   def index

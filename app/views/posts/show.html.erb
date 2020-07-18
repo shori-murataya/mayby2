@@ -9,5 +9,15 @@
       <% if @current_user.id == @post.user_id %>
         <%= link_to("編集","/posts/#{@post.id}/edit") %>
       <% end %>
+      
+    <div class="like_box">
+      <% if Like.find_by(user_id: @current_user.id,post_id: params[:id])%>
+        <%= link_to("いいね済","/likes/#{@post.id}/destroy",{method:"post"})%>
+        <%= Like.where(params[:id]).count %>
+      <% else %>
+        <%= link_to("いいね","/likes/#{@post.id}/create",{method:"post"})%>
+        <%= Like.where(params[:id]).count %>
+      <% end %>
+    </div>
   </div>
 </div>
