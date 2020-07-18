@@ -1,18 +1,18 @@
-<div class="new-background">
-<div class="form-box">
-<h1 class="new-mayby">編集ページ</h1>
-<% @user.errors.full_messages.each do |message| %>
-  <p style="color:red;"><%= message %></p>
-<% end %>
-<%= form_tag("/users/#{@user.id}/update",{multipart:true}) do%>
-  <p>お名前</p>
-  <input type="text" class="user-name" name="name" value="<%= @user.name %>">
-  <p>メールアドレス</p>
-  <input type="text" class="email" name="email" value="<%= @user.email %>">
-  <p>画像</p>
-  <input type="file" name="image"> 
+<div class="user-edit-background">
+  <div class="users-index-box">
+    <h1 class="user-edit-mayby">編集ページ</h1>
+    <% @user.errors.full_messages.each do |message| %>
+      <p style="color:red;"><%= message %></p>
+    <% end %>
+    <%= form_tag("/users/#{@user.id}/update",{multipart:true}) do%>
+      <p>お名前</p>
+      <input type="text" class="user-edit-name" name="name" value="<%= @user.name %>">
+      <p>メールアドレス</p>
+      <input type="text" class="user-edit-email" name="email" value="<%= @user.email %>">
+      <p>画像</p>
+      <input type="file" name="image"> 
 
-  <input class="send-btn" type="submit" value="変更">
-<% end %>
-</div>
+      <input class="user-edit-btn" type="submit" value="変更">
+    <% end %>
+  </div>
 </div>

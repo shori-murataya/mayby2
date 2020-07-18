@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // new
-.new-background{
+.post-new-background,.post-edit-background{
   background-image: url("/background/hall-1929422_1280.jpg");
   background-size: cover;
   width: 100%;
@@ -12,42 +12,43 @@
   justify-content: center;
   align-items: center;
 }
-.form-box{
+.post-new-formbox,.post-edit-formbox{
   background-color: rgba(255, 255, 255, 0.774);
   width: 80%;
   height: 100%;
   text-align: center;
 }
-.new-mayby{
+h1.post-new-mayby,.post-edit-mayby{
   padding: 20px;
 }
 form p{
   padding: 10px;
 }
-input.name{
+input.post-new-name,.post-edit-name,.post-edit-email{
   font-size: 20px;
   width: 50%;
 }
-textarea.howto{
+textarea.post-new-howto,.post-edit-howto{
   font-size: 20px;
   width: 50%;
   height: auto;
   margin: 0 auto;
   display: block;
 }
-.radio{
-  margin: 10px auto;
+.post-new-radio{
+  margin: 15px auto;
   width: 300px;
   text-align: left;
 }
-input.send-btn{
+input.post-new-btn,.post-edit-btn{
   display: block;
   padding: 5px;
   margin: 10px auto;
   background-color: rgba(231, 250, 200, 0.836);
   }
+
 // index
-.posts-index-background{
+.posts-index-background,.posts-show-background{
   background-image: url("/background/weathered-1576519_1280.jpg");
   width: 100%;
   min-height: 100vh;
@@ -56,75 +57,101 @@ input.send-btn{
   justify-content: center;
   align-items: center;
 }
-.index-box{
+.post-index-box,.post-show-box{
   width: 80%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.788);
   text-align: center;
 }
-.index-box h1{
-  padding: 13px 0;
+.post-index-title{
+  padding-top: 20px;
 }
-.post-box{
+.post-index-sort{
+  padding: 5px 0;
+}
+.post-index-layout{
   border:1px solid rgba(0, 0, 0, 0.788);
   width: 90%;
-  margin: 30px auto;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.post-index-mayby{
+  border-bottom:1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.post-index-mayby .profile_name{
+  font-size: 4px;
+}
+.post-index-mayby .mini_user_image{
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  margin: 10px;
+  max-width: 50px;
+  max-width: 50px;
+}
+.howto-and-detail{
+  display: flex;
+}
+.howto-box{
+  flex: 1;
+  border-right:1px solid black ;
+}
+.howto-box .howto-title{
+  padding: 5px;
+  border-bottom:1px solid black ;
+}
+.details{
+  flex: 1;
+  padding-bottom: 10px;
 }
 .post{
   width: 80%;
   border-bottom:1px solid rgba(0, 0, 0, 0.788);
   margin: 10px auto;
 }
-.post-box a,.index-box a{
+a.post-link{
   display: inline-block;
-  width: 145px;
-  margin: 5px;
-  padding: 5px;
-  background-color: rgba(190, 190, 190, 0.836);
+  padding: 5px 10px;
+  background-color: rgba(231, 250, 200, 0.719);
   transition: all 0.2s;
 }
-.post-box a:hover{
-  background-color: rgba(233, 137, 137, 0.863);
+a.post-link:hover{
+  background-color: rgba(198, 233, 141, 0.993);
 }
-.index-box a:hover{
-  background-color: rgba(233, 137, 137, 0.863);
+a.post-delite{
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: rgba(255, 161, 161, 0.719);
+  transition: all 0.2s;
+}
+a.post-delite:hover{
+  background-color: rgb(255, 87, 87);
+}
+a.post-like{
+  background-color: rgba(178, 184, 178, 0.808);
+}
+a.post-nolike{
+  background-color: rgb(255, 251, 32);
 }
 // show
-.show-mayby{
-  padding: 15px;
+.post-show-box .user_image{
+  border-radius: 50%;
+  width: 25%;
+  height: auto;
+  margin: 10px;
+  max-width: 210px;
+  max-width: 210px;
+}
+.post-show-box p{
+  padding: 10px;
 }
 
-// 投稿一覧のレイアウト
-.layout-box{
-  border:1px solid rgba(0, 0, 0, 0.788);
-  width: 90%;
-  margin: 0 auto;
-  margin-bottom: 30px;
-}
-.title_image_box{
-  border-bottom:1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.profile_name{
-  font-size: 4px;
-}
-.mayby_title{
-  text-align: center;
-  padding: 5px;
-}
-.all{
-  display: flex;
-}
-.play{
-  flex: 1;
-  border-right:1px solid black ;
-}
-.det{
-  flex: 1;
-}
-.howtoplay{
-  padding: 5px;
-  border-bottom:1px solid black ;
-}
+
+
+
+
+
+

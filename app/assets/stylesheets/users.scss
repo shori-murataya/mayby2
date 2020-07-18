@@ -2,7 +2,69 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user_image{
+// new //login
+.user-new-background,.user-login-background,.user-edit-background{
+  background-image: url("/background/hall-1929422_1280.jpg");
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-new-formbox,.user-login-formbox{
+  background-color: rgba(255, 255, 255, 0.774);
+  width: 80%;
+  height: 100%;
+  text-align: center;
+}
+h1.user-new-mayby,.user-login-mayby,.user-edit-mayby{
+  padding: 20px;
+}
+form p{
+  padding: 10px;
+}
+input.user-new-name,.user-new-email,
+.user-new-pass,.user-login-email,
+.user-login-pass,.user-edit-name,
+.user-edit-email{
+  font-size: 20px;
+  width: 40%;
+}
+input.user-new-btn,.user-login-btn,.user-edit-btn{
+  display: block;
+  padding: 5px;
+  margin: 10px auto;
+  background-color: rgba(231, 250, 200, 0.836);
+  }
+
+// index
+.users-index-background,.users-show-background,.users-edit-background{
+  background-image: url("/background/weathered-1576519_1280.jpg");
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.users-index-box,.users-show-box{
+  width: 80%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.788);
+  text-align: center;
+}
+.users-index-title,.users-show-title{
+  padding-top: 20px;
+}
+.users-index-sort{
+  padding: 5px 0;
+}
+.users-index-lists{
+  border-top: 1px solid black;
+  padding-bottom: 10px;
+}
+.users-index-lists .user_image{
   border-radius: 50%;
   width: 25%;
   height: auto;
@@ -10,11 +72,40 @@
   max-width: 210px;
   max-width: 210px;
 }
-.mini_user_image{
+.post{
+  width: 80%;
+  border-bottom:1px solid rgba(0, 0, 0, 0.788);
+  margin: 10px auto;
+}
+a.users-link{
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: rgba(231, 250, 200, 0.719);
+  transition: all 0.2s;
+}
+a.users-link:hover{
+  background-color: rgba(198, 233, 141, 0.993);
+}
+a.users-delite{
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: rgba(255, 161, 161, 0.719);
+  transition: all 0.2s;
+}
+a.users-delite:hover{
+  background-color: rgb(255, 87, 87);
+}
+
+// show
+.users-show-box .user_image{
   border-radius: 50%;
-  width: 100%;
+  width: 25%;
   height: auto;
   margin: 10px;
-  max-width: 50px;
-  max-width: 50px;
+  max-width: 210px;
+  max-width: 210px;
 }
+.users-show-layout{
+  padding: 10px;
+}
+

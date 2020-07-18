@@ -1,13 +1,13 @@
-<div class="posts-index-background">
-  <div class="index-box">
-    <h1>ユーザーの詳細</h1>
+<div class="users-show-background">
+  <div class="users-show-box">
+    <h1 class="users-show-title">ユーザーの詳細</h1>
     <img class="user_image" src="<%="/user_images/#{@user.image_name}"%>">
     <p><%= @user.name %>さん</p>
-
-  <% @user.posts.each do |post|%>
-    <p><%= post.name %></p>
-    <p><%= post.howto%></p>
-  <% end %>
-
+    <% @user.posts.each do |post|%>
+      <div class="users-show-layout">
+        <p class="users-show-title"><%= post.name %></p>
+        <p class="users-show-contents"><%= post.howto%></p>
+      </div>
+    <% end %>
   </div>
 </div>

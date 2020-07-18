@@ -1,7 +1,7 @@
 <div class="posts-index-background">
-  <div class="index-box">
-    <h1>Mayby一覧</h1>
-    <form class="sort">
+  <div class="post-index-box">
+    <h1 class="post-index-title">Mayby一覧</h1>
+    <form class="post-index-sort">
       <select onChange="top.location.href=value">
         <option value="#">--並べ替え--</option>
         <option value="<%="/posts/desc"%>">新しいMayby順</option>
@@ -9,26 +9,38 @@
       </select>
     </form>
     <% @posts.each do |post| %>
-      <div class="layout-box">
-        <div class="title_image_box">
-          <div class="profile_image_box">
-          <img class="mini_user_image" src="<%="/user_images/#{post.user.image_name}"%>">
-          <p class="profile_name"><%= post.user.name %>さん</p>
+      <div class="post-index-layout">
+        <div class="post-index-mayby">
+          <div class="profile-and-image">
+            <%=link_to("/users/#{post.user.id}/show") do%>
+              <img class="mini_user_image" src="<%="/user_images/#{post.user.image_name}"%>">
+              <p class="profile_name"><%= post.user.name %>さん</p>
+            <% end %>
           </div>
-          <h3 class="mayby_title"><%= post.name %></h3>
+          <h3><%= post.name %></h3>
         </div>
-        <div class="all">
-          <div class="play">
-            <p class="howtoplay">遊び方</p>
-            <p class="howtoplay_p"><%= post.howto %></p>
+        <div class="howto-and-detail">
+          <div class="howto-box">
+            <p class="howto-title">遊び方</p>
+            <p class="howtoplay_content"><%= post.howto %></p>
           </div>
-          <div class="det">
-            <p class="post"><%= post.count %>/<%= post.difficulty %></p>
-            <p class="post"><%= post.created_at %></p>
-            <%= link_to("詳細","/posts/#{post.id}/show") %>    
+          <div class="details">
+            <p class="post waimoku"><%= post.count %>/<%= post.difficulty %></p>
+            <p class="post times"><%= post.created_at.strftime('%Y/%m/%d') %></p>
+            <%= link_to("詳細","/posts/#{post.id}/show",{class: "post-link"}) %>
             <% if @current_user.id == post.user_id %>
-            <%= link_to("編集","/posts/#{post.id}/edit") %>
-            <%= link_to("消す","/posts/#{post.id}/destroy",{method:"post"}) %>
+              <%= link_to("編集","/posts/#{post.id}/edit",{class: "post-link"}) %>
+              <%= link_to("消す","/posts/#{post.id}/destroy",{method:"post",class:"post-delite"}) %>
+            <% end %>
+
+            <% if Like.find_by(user_id: @current_user.id,post_id: post.id)%>
+              <%= link_to("/likes/#{post.id}/destroy",{method:"post",class: "post-nolike"}) do%>
+                <span>いいね済</span><%= Like.where(post_id:post.id).count %>
+              <% end %>
+              <% else %>
+              <%= link_to("/likes/#{post.id}/create",{method:"post",class: "post-like"}) do%>
+                <span>いいね</span><%= Like.where(post_id:post.id).count %>
+              <% end %>
             <% end %>
           </div>
         </div>

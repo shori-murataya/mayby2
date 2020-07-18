@@ -1,15 +1,15 @@
-<div class="new-background">
-<div class="form-box">
-<h1 class="new-mayby">編集ページ</h1>
+<div class="post-edit-background">
+<div class="post-edit-formbox">
+<h1 class="post-edit-mayby">編集ページ</h1>
 <% @post.errors.full_messages.each do |message| %>
   <p style="color:red;"><%= message %></p>
 <% end %>
 <%= form_tag("/posts/#{@post.id}/update") do%>
   <p>Maybyの名前</p>
-  <input type="text" class="mayby-name" name="name" value="<%= @post.name %>">
+  <input type="text" class="post-edit-name" name="name" value="<%= @post.name %>">
   <p>遊び方</p>
-  <input type="text" class="email" name="howto" value="<%= @post.howto %>">
-  <input class="send-btn" type="submit" value="変更">
+  <textarea type="text" class="post-edit-email" name="howto"><%= @post.howto %></textarea>
+  <input class="post-edit-btn" type="submit" value="変更">
 <% end %>
 </div>
 </div>

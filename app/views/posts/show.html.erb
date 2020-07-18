@@ -1,22 +1,22 @@
-<div class="posts-index-background">
-  <div class="index-box">
+<div class="posts-show-background">
+  <div class="post-show-box">
     <h1>Maybyの詳細</h1>
     <img class="user_image" src="<%="/user_images/#{@user.image_name}"%>">
-
-    <p class="show-mayby"><%= @post.name %>は、<%= @user.name %>さんの発案したMayby</p>
-    <p class="show-mayby"><%=@post.count%>で<%=@post.difficulty%>遊ぶ人に向いているよ！</p>
-    <%= link_to("←戻る","/posts/index") %>
-      <% if @current_user.id == @post.user_id %>
-        <%= link_to("編集","/posts/#{@post.id}/edit") %>
-      <% end %>
-      
+    <p><%= @post.name %>は、<%= @user.name %>さんの発案したMayby</p>
+    <p><%=@post.count%>で<%=@post.difficulty%>遊ぶ人に向いているよ！</p>
+    <%= link_to("←戻る","/posts/index",{class: "post-link"}) %>
+    <% if @current_user.id == @post.user_id %>
+      <%= link_to("編集","/posts/#{@post.id}/edit",{class: "post-link"}) %>
+    <% end %>  
     <div class="like_box">
       <% if Like.find_by(user_id: @current_user.id,post_id: @post.id)%>
-        <%= link_to("いいね済","/likes/#{@post.id}/destroy",{method:"post"})%>
-        <%= Like.where(post_id:@post.id).count %>
+        <%= link_to("/likes/#{@post.id}/destroy",{method:"post",class: "post-nolike"}) do%>
+          <span>いいね済</span><%= Like.where(post_id:@post.id).count %>
+        <% end %>
       <% else %>
-        <%= link_to("いいね","/likes/#{@post.id}/create",{method:"post"})%>
-        <%= Like.where(post_id:@post.id).count %>
+        <%= link_to("/likes/#{@post.id}/create",{method:"post",class: "post-like"}) do%>
+          <span>いいね</span><%= Like.where(post_id:@post.id).count %>
+        <% end %>
       <% end %>
     </div>
   </div>

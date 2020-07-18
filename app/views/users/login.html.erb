@@ -1,12 +1,12 @@
-<div class="new-background">
-<div class="form-box">
-<h1 class="new-mayby">ログイン</h1>
-<%= form_tag("/users/in") do%>
-  <p>メールアドレス</p>
-  <input type="text" class="email" name="email">
-  <p>パスワード</p>
-  <input type="password" class="pass" name="pass">
-  <input class="send-btn" type="submit" value="ログイン">
-<% end %>
-</div>
+<div class="user-login-background">
+  <div class="user-login-formbox">
+    <h1 class="user-login-mayby">ログイン</h1>
+    <%= form_tag("/users/in") do%>
+      <p>メールアドレス</p>
+      <input type="text" class="user-login-email" name="email">
+      <p>パスワード</p>
+      <input type="password" class="user-login-pass" name="pass">
+      <input class="user-login-btn" type="submit" value="ログイン">
+    <% end %>
+  </div>
 </div>
