@@ -13,10 +13,10 @@
     <div class="like_box">
       <% if Like.find_by(user_id: @current_user.id,post_id: @post.id)%>
         <%= link_to("いいね済","/likes/#{@post.id}/destroy",{method:"post"})%>
-        <%= Like.where(params[:id]).count %>
+        <%= Like.where(post_id:@post.id).count %>
       <% else %>
         <%= link_to("いいね","/likes/#{@post.id}/create",{method:"post"})%>
-        <%= Like.where(params[:id]).count %>
+        <%= Like.where(post_id:@post.id).count %>
       <% end %>
     </div>
   </div>
