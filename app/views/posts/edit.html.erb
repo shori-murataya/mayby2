@@ -9,6 +9,16 @@
   <input type="text" class="post-edit-name" name="name" value="<%= @post.name %>">
   <p>遊び方</p>
   <textarea type="text" class="post-edit-email" name="howto"><%= @post.howto %></textarea>
+    <div class="post-new-radio">
+    <span >プレイ人数　　</span>
+    <input type="radio" name="count" value="一人">一人
+    <input type="radio" name="count" value="二人〜">二人〜
+  </div>
+  <div class="post-new-radio">
+    <span>ワイモク度　　</span>
+    <input type="radio" name="difficulty" value="もくもく">もくもく
+    <input type="radio" name="difficulty" value="わいわい">わいわい
+  </div>
   <input class="post-edit-btn" type="submit" value="変更">
 <% end %>
 </div>

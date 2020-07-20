@@ -11,11 +11,11 @@
     <div class="like_box">
       <% if Like.find_by(user_id: @current_user.id,post_id: @post.id)%>
         <%= link_to("/likes/#{@post.id}/destroy",{method:"post",class: "post-nolike"}) do%>
-          <span>いいね済</span><%= Like.where(post_id:@post.id).count %>
+          <span><i class="fas fa-star"></i></span><%= Like.where(post_id:@post.id).count %>
         <% end %>
       <% else %>
         <%= link_to("/likes/#{@post.id}/create",{method:"post",class: "post-like"}) do%>
-          <span>いいね</span><%= Like.where(post_id:@post.id).count %>
+          <span><i class="fas fa-star"></i><%= Like.where(post_id:@post.id).count %>
         <% end %>
       <% end %>
     </div>

@@ -130,11 +130,11 @@ a.post-delite{
 a.post-delite:hover{
   background-color: rgb(255, 87, 87);
 }
-a.post-like{
-  background-color: rgba(178, 184, 178, 0.808);
+a.post-like i{
+  color: gray;
 }
-a.post-nolike{
-  background-color: rgb(255, 251, 32);
+a.post-nolike i{
+  color: yellow;
 }
 // show
 .post-show-box .user_image{

@@ -53,6 +53,8 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.name = params[:name]
     @post.howto = params[:howto]
+    @post.count = params[:count]
+    @post.difficulty = params[:difficulty]
     if @post.save
       flash[:notice] = "編集完了"
       redirect_to("/posts/index")

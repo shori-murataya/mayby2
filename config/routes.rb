@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'likes/:post_id/index_create' => "likes#index_create"
+  post 'likes/:post_id/index_destroy' => "likes#index_destroy"
   post 'likes/:post_id/create' => "likes#create"
   post 'likes/:post_id/destroy' => "likes#destroy"
 
