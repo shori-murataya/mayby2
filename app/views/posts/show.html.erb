@@ -5,6 +5,7 @@
     <p><%= @post.name %>は、<%= @user.name %>さんの発案したMayby</p>
     <p><%=@post.count%>で<%=@post.difficulty%>遊ぶ人に向いているよ！</p>
     <%= link_to("←戻る","/posts/index",{class: "post-link"}) %>
+    <%= link_to("コメントする","/comments/#{@post.id}/new",{class: "post-link"}) %>
     <% if @current_user.id == @post.user_id %>
       <%= link_to("編集","/posts/#{@post.id}/edit",{class: "post-link"}) %>
     <% end %>  
@@ -19,5 +20,15 @@
         <% end %>
       <% end %>
     </div>
+    <h2>コメント</h2>
+    <% @post.comments.each do | comment | %>
+      <div style="background-color:white;width:50%;margin:0 auto;border:1px solid black;">
+        <p><%= comment.content %></p>
+        <p>from:<%= comment.comuser.name%></p>
+        <% if @current_user.id == comment.comuser.id %>
+        <%= link_to("消す","/comments/#{comment.id}/destroy", {method:"post"}) %>
+        <% end %>
+      </div>
+    <%end%>
   </div>
 </div>

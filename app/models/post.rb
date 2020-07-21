@@ -9,4 +9,10 @@ class Post < ApplicationRecord
     return User.find_by(id: self.user_id)
   end
 
+  def comments
+    return Comment.where(post_id: self.id)
+  end
+
+
+
 end

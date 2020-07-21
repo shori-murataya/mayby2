@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  get 'comments/:post_id/new' => "comments#new"
+  post 'comments/:post_id/create' => "comments#create"
+  post 'comments/:id/destroy' => "comments#destroy"
+  
   post 'likes/:post_id/index_create' => "likes#index_create"
   post 'likes/:post_id/index_destroy' => "likes#index_destroy"
   post 'likes/:post_id/create' => "likes#create"
   post 'likes/:post_id/destroy' => "likes#destroy"
-
+  
   post 'users/logout' => "users#logout"
   post 'users/in' => "users#in"
   get 'users/login' => "users#login"
@@ -20,7 +24,7 @@ Rails.application.routes.draw do
   get "users/desc" => "users#desc"
   get "posts/asc" => "posts#asc"
   get "posts/desc" => "posts#desc"
-
+  
   get 'posts/:id/show' => "posts#show"
   get 'posts/index' => "posts#index"
   get 'posts/new' => "posts#new"
@@ -31,5 +35,5 @@ Rails.application.routes.draw do
   get "about" => "home#about"
   get "posts/:id/edit" => "posts#edit"
   post "posts/:id/update" => "posts#update"
-
+  
 end

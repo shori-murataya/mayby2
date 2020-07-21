@@ -1,0 +1,14 @@
+<div class="post-new-background">
+  <div class="post-new-formbox">
+    <h1 class="post-new-mayby">Maybyにコメントする</h1>
+    <% if @message %>
+    <%= @message %>
+    <% end %>
+    <%= form_tag("/comments/#{@post.id}/create") do%>
+      <p>コメント</p>
+      <%= @post.id%>
+      <textarea class="post-new-howto" name="content"><%= @comment.content %></textarea>
+      <input class="post-new-btn" type="submit" value="コメント">
+    <% end %>
+  </div>
+</div>
