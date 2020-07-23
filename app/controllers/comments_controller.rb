@@ -1,9 +1,5 @@
 class CommentsController < ApplicationController
 
-  def new
-    @comment = Comment.new 
-    @post = Post.find_by(id: params[:post_id])
-  end
   def create
     @comment = Comment.new(
       content: params[ :content],
@@ -14,7 +10,7 @@ class CommentsController < ApplicationController
       redirect_to("/posts/#{@comment.post_id}/show")
       else
         flash[:notice] = "投稿失敗。0~140字以内でお願いします。"
-        redirect_to("/comments/#{@comment.post_id}/new")
+        redirect_to("/posts/#{@comment.post_id}/show")
       end
   end
 

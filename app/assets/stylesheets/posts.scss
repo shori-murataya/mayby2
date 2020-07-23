@@ -62,6 +62,7 @@ input.post-new-btn,.post-edit-btn{
   height: 100%;
   background-color: rgba(255, 255, 255, 0.788);
   text-align: center;
+  position: relative;
 }
 .post-index-title{
   padding-top: 20px;
@@ -116,12 +117,13 @@ input.post-new-btn,.post-edit-btn{
 }
 a.post-link{
   display: inline-block;
-  padding: 5px 10px;
-  background-color: rgba(231, 250, 200, 0.719);
+  padding: 2px;
+  background-color: rgba(237, 250, 57, 0.623);
   transition: all 0.2s;
+  border-radius: 40%;
 }
 a.post-link:hover{
-  background-color: rgba(198, 233, 141, 0.993);
+  background-color: rgb(237, 250, 57);
 }
 a.post-delite{
   display: inline-block;
@@ -147,26 +149,40 @@ a.post-nolike i{
   max-width: 210px;
   max-width: 210px;
 }
-.post-show-box h1{
-  padding-top: 20px;
+.post-edit-icon{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+.form_comment{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin: 50px auto 10px auto;
+  flex-wrap: wrap;
+}
+.comment{
+  height: 25px;
+  width: 250px;
+}
+.comment-btn{
+  display: inline;
 }
 .post-show-box p{
   padding: 10px;
 }
 .comment-h2{
   font-weight: normal;
-  width: 50%;
-  margin: 20px auto 0 auto;
   font-size: 15px;
-  text-align: left;
 }
 .comment-show-box{
-  width: 50%;
+  width: 95%;
   margin: 5px auto;
   padding-bottom: 10px;
   background-color: rgb(235, 235, 235);
   border:1px solid black ;
-  min-width: 320px;
+  position: relative;
 }
 p.comment-user{
 padding: 0;
@@ -175,16 +191,19 @@ text-align: left;
 }
 p.comment-content{
 padding: 0;
-padding: 20px 0;
 text-align: left;
 }
-p.delete-come{
-  padding: 0;
-  padding: 3px 3px 3px 0;
-  text-align: right;
+.comment-delete-icon{
+position: absolute;
+bottom: 0;
+right: 5px;
 }
 
 
-
+@media(max-width:674px){
+  .post-index-box, .post-show-box {
+    width: 95%;
+}
+}
 
 

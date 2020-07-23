@@ -1,16 +1,19 @@
 <div class="posts-show-background">
   <div class="post-show-box">
-    <h1>Maybyの詳細</h1>
-    <%= link_to("/users/#{@user.id}/show") do%>
-    <img class="user_image" src="<%="/user_images/#{@user.image_name}"%>">
+  <!-- ユーザーの詳細 -->
+        <% if @current_user.id == @post.user_id %>
+      <%= link_to("/posts/#{@post.id}/edit",{class: "post-edit-icon"}) do %>
+        <i class="fas fa-cog"></i>
+      <% end %>
     <% end %>
-    <p><%= @post.name %>は、<%= @user.name %>さんの発案したMayby</p>
+    <h1><%= @post.name %></h1>    
+ 
+    <%= link_to("/users/#{@user.id}/show") do%>
+      <img class="user_image" src="<%="/user_images/#{@user.image_name}"%>">
+    <% end %><!--  -->
+    <p><%= @user.name %>さんの発案したMayby</p>
     <p><%=@post.count%>で<%=@post.difficulty%>遊ぶ人に向いているよ！</p>
-    <%= link_to("←戻る","/posts/index",{class: "post-link"}) %>
-    <%= link_to("コメントする","/comments/#{@post.id}/new",{class: "post-link"}) %>
-    <% if @current_user.id == @post.user_id %>
-      <%= link_to("編集","/posts/#{@post.id}/edit",{class: "post-link"}) %>
-    <% end %>  
+ 
     <div class="like_box">
       <% if Like.find_by(user_id: @current_user.id,post_id: @post.id)%>
         <%= link_to("/likes/#{@post.id}/destroy",{method:"post",class: "post-nolike"}) do%>
@@ -22,10 +25,16 @@
         <% end %>
       <% end %>
       <% @likes.each do |like| %>
-        <p><%= like.likeusers.name %>さん <%= link_to("他#{@like.count-1}人","/likes/#{@post.id}/index") %></p>
+        <span style="font-size:5px;"><%= link_to("#{like.likeusers.name}さん 他#{@like.count-1}人","/likes/#{@post.id}/index") %></span>
       <% end %>
     </div>
-    <h2 class="comment-h2">コメント <%= Comment.where(post_id: @post.id).count %>件</h2>
+    <div class="form_comment">
+      <h3 class="comment-h2">コメント <%= Comment.where(post_id: @post.id).count %>件</h3>
+      <%= form_tag("/comments/#{@post.id}/create") do%>  
+        <input class="comment" type=text name="content">
+        <input class="comment-btn" type="submit" value="コメント">
+      <% end %>
+    </div>
     <% @post.comments.each do | comment | %>
       <div class="comment-show-box">
         <%= link_to("/users/#{comment.comuser.id}/show") do%>
@@ -33,7 +42,9 @@
         <% end %>
           <p class="comment-content"><%= comment.content %></p>
           <% if @current_user.id == comment.comuser.id %>
-          <p class="delete-come"><%= link_to("消す","/comments/#{comment.id}/destroy", {method:"post"}) %></p>
+          <%= link_to("/comments/#{comment.id}/destroy", {method:"post",class:"comment-delete-icon"}) do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
           <% end %>
       </div>
     <%end%>

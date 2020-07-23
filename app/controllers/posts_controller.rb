@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     @comment = Comment.all
     @likes = Like.where(post_id: params[:id]).order(created_at: :desc).limit(1)
     @like = Like.where(post_id:params[:id])
-  end
+  end 
 
   def index
     @posts = Post.all

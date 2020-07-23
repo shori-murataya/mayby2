@@ -5,4 +5,8 @@ class Like < ApplicationRecord
   def likeusers
     return User.find_by(id: self.user_id)
   end
+
+  def likeposts
+    return Post.find_by(id: self.post_id)
+  end
 end

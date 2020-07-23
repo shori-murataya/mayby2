@@ -28,10 +28,14 @@
           <div class="details">
             <p class="post waimoku"><%= post.count %>/<%= post.difficulty %></p>
             <p class="post times">投稿:<%= post.created_at.strftime('%Y/%m/%d') %></p>
-            <%= link_to("詳細","/posts/#{post.id}/show",{class: "post-link"}) %>
+            <%= link_to("みる","/posts/#{post.id}/show",{class: "post-link"}) %>
             <% if @current_user.id == post.user_id %>
-              <%= link_to("編集","/posts/#{post.id}/edit",{class: "post-link"}) %>
-              <%= link_to("消す","/posts/#{post.id}/destroy",{method:"post",class:"post-delite"}) %>
+              <%= link_to("/posts/#{post.id}/edit",{class: "edit-icon"}) do%>
+                <i class="fas fa-edit"></i>
+              <% end %>
+              <%= link_to("/posts/#{post.id}/destroy",{method:"post",class:"delite-icon"}) do%>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
             <% end %>
             <% if Like.find_by(user_id: @current_user.id,post_id: post.id)%>
               <%= link_to("/likes/#{post.id}/index_destroy",{method:"post",class: "post-nolike"}) do%>

@@ -118,6 +118,7 @@ option{
   padding: 10px 0;
   background-color: rgb(250, 195, 195);
   text-align: center;
+  z-index: 1000;
 }
 
 @media(max-width:1000px){
