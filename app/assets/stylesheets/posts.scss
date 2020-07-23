@@ -81,6 +81,7 @@ input.post-new-btn,.post-edit-btn{
   justify-content: center;
   align-items: center;
 }
+
 .post-index-mayby .profile_name{
   font-size: 4px;
 }
@@ -92,6 +93,7 @@ input.post-new-btn,.post-edit-btn{
   max-width: 50px;
   max-width: 50px;
 }
+
 .howto-and-detail{
   display: flex;
 }
@@ -145,11 +147,42 @@ a.post-nolike i{
   max-width: 210px;
   max-width: 210px;
 }
+.post-show-box h1{
+  padding-top: 20px;
+}
 .post-show-box p{
   padding: 10px;
 }
-
-
+.comment-h2{
+  font-weight: normal;
+  width: 50%;
+  margin: 20px auto 0 auto;
+  font-size: 15px;
+  text-align: left;
+}
+.comment-show-box{
+  width: 50%;
+  margin: 5px auto;
+  padding-bottom: 10px;
+  background-color: rgb(235, 235, 235);
+  border:1px solid black ;
+  min-width: 320px;
+}
+p.comment-user{
+padding: 0;
+padding: 5px 0 5px 0;
+text-align: left;
+}
+p.comment-content{
+padding: 0;
+padding: 20px 0;
+text-align: left;
+}
+p.delete-come{
+  padding: 0;
+  padding: 3px 3px 3px 0;
+  text-align: right;
+}
 
 
 

@@ -24,4 +24,8 @@ class LikesController < ApplicationController
     redirect_to("/posts/index")
   end
 
+  def index
+    @likes = Like.where(post_id:params[:post_id])
+  end
+
 end

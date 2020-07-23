@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post 'likes/:post_id/index_destroy' => "likes#index_destroy"
   post 'likes/:post_id/create' => "likes#create"
   post 'likes/:post_id/destroy' => "likes#destroy"
+  get 'likes/:post_id/index' => "likes#index"
   
   post 'users/logout' => "users#logout"
   post 'users/in' => "users#in"

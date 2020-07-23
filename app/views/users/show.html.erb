@@ -6,14 +6,18 @@
     <% if @current_user.id == @user.id%>
       <p><%=link_to("ユーザー編集","/users/#{@user.id}/edit",{class: "users-link"})%></p>
     <% end %>
+    <div class="user-show-users-box">
     <% @user.posts.each do |post|%>
       <div class="users-show-layout">
-        <p class="users-show-title"><%= post.name %></p>
-        <p class="users-show-contents"><%= post.howto%></p>
-      </div>
+        <%= link_to("/posts/#{post.id}/show") do %>
+          <h3 class="users-show-maybytitle">〜<%= post.name %>〜</h3>
+          <p class="users-show-contents"><%= post.howto%></p>
+        <% end %>
       <% if @current_user.id == @user.id%>
         <p><%=link_to("Mayby編集","/posts/#{post.id}/edit",{class: "post-link"})%></p>
       <% end %>
+      </div>
     <% end %>
+    </div>
   </div>
 </div>
