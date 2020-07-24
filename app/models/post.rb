@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   validates :count, {presence: true}
   validates :difficulty, {presence: true}
 
+  belongs_to :user
+
   def user
     return User.find_by(id: self.user_id)
   end
