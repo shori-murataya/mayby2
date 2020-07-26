@@ -95,7 +95,7 @@ header .header-menu li:hover{
   height: 100%;
   opacity: 1;
 }
-nav{
+.nav{
   width: 200px;
   height: 100%;
   padding-top: 100px;
@@ -107,7 +107,7 @@ nav{
   transform: translate(200px);
   transition: all .2s;
 }
-nav.open{
+.nav.open{
   transform: translateZ(0);
 }
 option{
@@ -119,6 +119,10 @@ option{
   background-color: rgb(250, 195, 195);
   text-align: center;
   z-index: 1000;
+}
+/* Like */
+.other-likes{
+  font-size: 5px;
 }
 
 @media(max-width:1000px){

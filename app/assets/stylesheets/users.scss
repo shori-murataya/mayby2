@@ -155,7 +155,6 @@ a.users-delite:hover{
   height: 0;
   overflow: hidden;
   opacity: 0;
-  
 }
 /* アクティブなタブ */
 .tab-switch:checked+.tab-label {
@@ -173,6 +172,8 @@ a.users-delite:hover{
 .tab-switch {
   display: none;
 }
+
+
 
 @media(max-width:674px){
   .users-show-box{

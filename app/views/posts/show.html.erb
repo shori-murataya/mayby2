@@ -15,18 +15,14 @@
     <p><%=@post.count%>で<%=@post.difficulty%>遊ぶ人に向いているよ！</p>
  
     <div class="like_box">
-      <% if Like.find_by(user_id: @current_user.id,post_id: @post.id)%>
-        <%= link_to("/likes/#{@post.id}/destroy",{method:"post",class: "post-nolike"}) do%>
-          <span><i class="fas fa-star"></i></span><%= Like.where(post_id:@post.id).count %>
-        <% end %>
-      <% else %>
-        <%= link_to("/likes/#{@post.id}/create",{method:"post",class: "post-like"}) do%>
-          <span><i class="fas fa-star"></i><%= @like.count %>
-        <% end %>
-      <% end %>
-      <% @likes.each do |like| %>
-        <span style="font-size:5px;"><%= link_to("#{like.likeusers.name}さん 他#{@like.count-1}人","/likes/#{@post.id}/index") %></span>
-      <% end %>
+      <div id="like_<%= @post.id %>">
+        <%= render partial: 'likes/like' , locals: { post: @post}%>
+      </div>
+      <div id="like_user_<%= @post.id %>">
+        <%= render partial: 'likes/likeuser' , lacals: { post: @post} %>
+      </div>
+ 
+      
     </div>
     <div class="form_comment">
       <h3 class="comment-h2">コメント <%= Comment.where(post_id: @post.id).count %>件</h3>

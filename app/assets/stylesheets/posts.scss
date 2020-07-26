@@ -70,6 +70,28 @@ input.post-new-btn,.post-edit-btn{
 .post-index-sort{
   padding: 5px 0;
 }
+/* アコーディオン 検索 */
+.info_open{
+  cursor: pointer;
+}
+.info_open h3{
+  display: inline-block;
+}
+.search-box{
+  display: none;
+  background-color: rgba(255, 255, 255, 0.87);
+  padding: 10px;
+  width: 320px;
+  margin: 0 auto;
+  text-align: left;
+}
+.search-box p{
+  padding: 0;
+}
+.search-btn{
+  text-align: center;
+  margin: 5px;
+}
 .post-index-layout{
   border:1px solid rgba(0, 0, 0, 0.788);
   width: 90%;

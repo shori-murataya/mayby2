@@ -26,7 +26,9 @@ class PostsController < ApplicationController
   end 
 
   def index
-    @posts = Post.all
+    @q = Post.ransack(params[:q])
+    @q.build_sort if @q.sorts.empty?
+    @posts = @q.result.page(params[:page]).per(2)
   end
 
   def new
@@ -73,14 +75,6 @@ class PostsController < ApplicationController
     redirect_to("/posts/index")
   end
 
-  def desc
-    @posts = Post.all.order(created_at: :desc)
-    render("posts/index")
-  end
 
-  def asc
-    @posts = Post.all.order(created_at: :asc)
-    render("posts/index")
-  end
 
 end

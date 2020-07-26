@@ -1,54 +1,54 @@
 <div class="posts-index-background">
   <div class="post-index-box">
-    <h1 class="post-index-title">Mayby一覧</h1>
-    <form class="post-index-sort">
-      <select onChange="top.location.href=value">
-        <option value="#">--並べ替え--</option>
-        <option value="<%="/posts/desc"%>">新しいMayby順</option>
-        <option value="<%="/posts/asc"%>">古いMayby順</option>
-      </select>
-    </form>
-    <% @posts.each do |post| %>
-      <div class="post-index-layout">
-        <div class="post-index-mayby">
-          <div class="profile-and-image">
-            <%=link_to("/users/#{post.user.id}/show") do%>
-              <img class="mini_user_image" src="<%="/user_images/#{post.user.image_name}"%>">
-              <p class="profile_name"><%= post.user.name %>さん</p>
-            <% end %>
-          </div>
-          <h3><%= post.name %></h3>
-          <diV class="kara"></div>
+      <h1 class="post-index-title">Mayby一覧</h1>
+      <div class="info_open">
+        <div class="content1" >
+          <h3><span class="check">+</span> 探す</h3>
         </div>
-        <div class="howto-and-detail">
-          <div class="howto-box">
-            <p class="howto-title">遊び方</p>
-            <p class="howtoplay_content"><%= post.howto %></p>
-          </div>
-          <div class="details">
-            <p class="post waimoku"><%= post.count %>/<%= post.difficulty %></p>
-            <p class="post times">投稿:<%= post.created_at.strftime('%Y/%m/%d') %></p>
-            <%= link_to("みる","/posts/#{post.id}/show",{class: "post-link"}) %>
-            <% if @current_user.id == post.user_id %>
-              <%= link_to("/posts/#{post.id}/edit",{class: "edit-icon"}) do%>
-                <i class="fas fa-edit"></i>
-              <% end %>
-              <%= link_to("/posts/#{post.id}/destroy",{method:"post",class:"delite-icon"}) do%>
-                <i class="far fa-trash-alt"></i>
-              <% end %>
-            <% end %>
-            <% if Like.find_by(user_id: @current_user.id,post_id: post.id)%>
-              <%= link_to("/likes/#{post.id}/index_destroy",{method:"post",class: "post-nolike"}) do%>
-                <i class="fas fa-star"></i><%= Like.where(post_id:post.id).count %>
-              <% end %>
-              <% else %>
-              <%= link_to("/likes/#{post.id}/index_create",{method:"post",class: "post-like"}) do%>
-                <i class="fas fa-star"></i><%= Like.where(post_id:post.id).count %>
-              <% end %>
-            <% end %>
-          </div>
+        <div class="search-box">
+            <%= search_form_for @q , url: posts_index_path do |f| %>
+            <div class="">
+              <p><%= f.label :Maybyの名前 %></p>
+              <%= f.search_field :name_cont %>
+            </div>
+        <div class="">
+          <p><%= f.label :人数 %></p>
+          <%= f.radio_button :count_eq, '', {:checked => true} %>指定なし
+          <%= f.radio_button :count_eq, "一人" %>一人
+          <%= f.radio_button :count_eq, "二人〜" %>二人〜
         </div>
+        <div class="">
+          <p><%= f.label :ワイモク度 %></p>
+          <%= f.radio_button :difficulty_eq, '', {:checked => true} %>指定なし
+          <%= f.radio_button :difficulty_eq, "もくもく" %>もくもく
+          <%= f.radio_button :difficulty_eq, "わいわい" %>わいわい
+        </div>
+        <div class="search-btn">
+          <%= f.submit "検索" %>
+        </div>
+      <% end %> 
+    </div>
+  </div>
+           
+    <!-- パーシャルとkaminari+Ajax -->
+      <div id="items">
+        <%= render partial: 'post', locals: { post: @posts } %>
       </div>
-    <% end %>
+      <%= link_to_next_page @posts, 'もっと見る', remote: true, id: 'more_link' %>
+    <!-- ここまで -->
+
   </div>
 </div>
+
+<script>
+  $('.info_open').on('click',function(){
+    var $info = $(this).find('.search-box');
+    if($info.hasClass('open')){
+      $info.removeClass('open').slideUp(200);
+      $(this).find('.check').text('+')
+    }else{
+      $info.addClass('open').slideDown(200);
+      $(this).find('.check').text('-')
+    }
+  })
+</script>
