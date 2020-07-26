@@ -4,7 +4,7 @@
 
 // new //login
 .user-new-background,.user-login-background,.user-edit-background{
-  background-image: url("/background/hall-1929422_1280.jpg");
+  background-image: url("/background/new.jpg");
   background-size: cover;
   width: 100%;
   min-height: 100vh;
@@ -20,6 +20,7 @@
 }
 h1.user-new-mayby,.user-login-mayby,.user-edit-mayby{
   padding: 20px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 form p{
   padding: 10px;
@@ -40,7 +41,7 @@ input.user-new-btn,.user-login-btn,.user-edit-btn{
 
 // index
 .users-index-background,.users-show-background,.users-edit-background{
-  background-image: url("/background/weathered-1576519_1280.jpg");
+  background-image: url("/background/wall-416060_1280.jpg");
   width: 100%;
   min-height: 100vh;
   height: 100%;
@@ -51,11 +52,12 @@ input.user-new-btn,.user-login-btn,.user-edit-btn{
 .users-index-box,.users-show-box{
   width: 80%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.788);
+  background-color: rgba(255, 255, 255, 0.863);
   text-align: center;
 }
 .users-index-title,.users-show-title{
   padding-top: 20px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 .users-index-sort{
   padding: 5px 0;

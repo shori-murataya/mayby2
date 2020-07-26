@@ -2,9 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+h1{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
 // new
 .post-new-background,.post-edit-background{
-  background-image: url("/background/hall-1929422_1280.jpg");
+  background-image: url("/background/new.jpg");
   background-size: cover;
   width: 100%;
   min-height: 100vh;
@@ -49,7 +52,7 @@ input.post-new-btn,.post-edit-btn{
 
 // index
 .posts-index-background,.posts-show-background{
-  background-image: url("/background/weathered-1576519_1280.jpg");
+  background-image: url("/background/marbles-1659398_1280.jpg");
   width: 100%;
   min-height: 100vh;
   height: 100%;

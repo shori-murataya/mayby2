@@ -38,7 +38,7 @@
         <% end %>
           <p class="comment-content"><%= comment.content %></p>
           <% if @current_user.id == comment.comuser.id %>
-          <%= link_to("/comments/#{comment.id}/destroy", {method:"post",class:"comment-delete-icon"}) do %>
+          <%= link_to("/comments/#{comment.id}/destroy", {method:"post",class:"comment-delete-icon",data: {confirm:"削除しますか？"}}) do %>
             <i class="far fa-trash-alt"></i>
           <% end %>
           <% end %>

@@ -23,7 +23,7 @@
               <%= link_to("/posts/#{post.id}/edit",{class: "edit-icon"}) do%>
                 <i class="fas fa-edit"></i>
               <% end %>
-              <%= link_to("/posts/#{post.id}/destroy",{method:"post",class:"delite-icon"}) do%>
+              <%= link_to("/posts/#{post.id}/destroy",{method:"post",class:"delite-icon",data: {confirm:"削除しますか？"}}) do%>
                 <i class="far fa-trash-alt"></i>
               <% end %>
             <% end %>

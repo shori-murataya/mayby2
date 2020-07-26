@@ -5,30 +5,30 @@
         <div class="content1" >
           <h3><span class="check">+</span> 探す</h3>
         </div>
-        <div class="search-box">
-            <%= search_form_for @q , url: posts_index_path do |f| %>
-            <div class="">
-              <p><%= f.label :Maybyの名前 %></p>
-              <%= f.search_field :name_cont %>
-            </div>
-        <div class="">
-          <p><%= f.label :人数 %></p>
-          <%= f.radio_button :count_eq, '', {:checked => true} %>指定なし
-          <%= f.radio_button :count_eq, "一人" %>一人
-          <%= f.radio_button :count_eq, "二人〜" %>二人〜
-        </div>
-        <div class="">
-          <p><%= f.label :ワイモク度 %></p>
-          <%= f.radio_button :difficulty_eq, '', {:checked => true} %>指定なし
-          <%= f.radio_button :difficulty_eq, "もくもく" %>もくもく
-          <%= f.radio_button :difficulty_eq, "わいわい" %>わいわい
-        </div>
-        <div class="search-btn">
-          <%= f.submit "検索" %>
-        </div>
-      <% end %> 
-    </div>
-  </div>
+      </div>
+      <div class="search-box">
+          <%= search_form_for @q , url: posts_index_path do |f| %>
+          <div class="">
+            <p><%= f.label :Maybyの名前 %></p>
+            <%= f.search_field :name_cont %>
+          </div>
+          <div class="">
+            <p><%= f.label :人数 %></p>
+            <%= f.radio_button :count_eq, '', {:checked => true} %>指定なし
+            <%= f.radio_button :count_eq, "一人" %>一人
+            <%= f.radio_button :count_eq, "二人〜" %>二人〜
+          </div>
+          <div class="">
+            <p><%= f.label :ワイモク度 %></p>
+            <%= f.radio_button :difficulty_eq, '', {:checked => true} %>指定なし
+            <%= f.radio_button :difficulty_eq, "もくもく" %>もくもく
+            <%= f.radio_button :difficulty_eq, "わいわい" %>わいわい
+          </div>
+          <div class="search-btn">
+            <%= f.submit "検索" %>
+          </div>
+          <% end %> 
+      </div>
            
     <!-- パーシャルとkaminari+Ajax -->
       <div id="items">
@@ -42,7 +42,7 @@
 
 <script>
   $('.info_open').on('click',function(){
-    var $info = $(this).find('.search-box');
+    var $info = $(this).next('.search-box');
     if($info.hasClass('open')){
       $info.removeClass('open').slideUp(200);
       $(this).find('.check').text('+')
