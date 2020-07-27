@@ -19,6 +19,4 @@ class Post < ApplicationRecord
     return Comment.where(post_id: self.id)
   end
 
-
-
 end

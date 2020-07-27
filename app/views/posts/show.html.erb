@@ -17,32 +17,18 @@
     <div class="like_box">
       <div id="like_<%= @post.id %>">
         <%= render partial: 'likes/like' , locals: { post: @post}%>
-      </div>
-      <div id="like_user_<%= @post.id %>">
-        <%= render partial: 'likes/likeuser' , lacals: { post: @post} %>
-      </div>
- 
-      
     </div>
-    <div class="form_comment">
-      <h3 class="comment-h2">コメント <%= Comment.where(post_id: @post.id).count %>件</h3>
-      <%= form_tag("/comments/#{@post.id}/create") do%>  
-        <input class="comment" type=text name="content">
-        <input class="comment-btn" type="submit" value="コメント">
-      <% end %>
+
+    <div id="form_<%= @post.id %>">
+      <%= render partial: 'comments/form' , locals: { post:@post} %>
     </div>
-    <% @post.comments.each do | comment | %>
-      <div class="comment-show-box">
-        <%= link_to("/users/#{comment.comuser.id}/show") do%>
-          <p class="comment-user"><%= comment.comuser.name %>さん</p>
-        <% end %>
-          <p class="comment-content"><%= comment.content %></p>
-          <% if @current_user.id == comment.comuser.id %>
-          <%= link_to("/comments/#{comment.id}/destroy", {method:"post",class:"comment-delete-icon",data: {confirm:"削除しますか？"}}) do %>
-            <i class="far fa-trash-alt"></i>
-          <% end %>
-          <% end %>
-      </div>
-    <%end%>
+
+    <% @comment.errors.full_messages.each do |message| %>
+    <p style="color:red;"><%= message %></p>
+    <% end %>
+
+    <div id="come_index_<%= @post.id %>">
+       <%= render partial: 'comments/index' , locals: { post:@post} %>
+    </div>
   </div>
 </div>
