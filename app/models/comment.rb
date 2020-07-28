@@ -4,6 +4,9 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post
 
+  default_scope -> { order(created_at: :desc) }
+  paginates_per 5  
+
 def comuser
   return User.find_by(id: self.user_id)
 end

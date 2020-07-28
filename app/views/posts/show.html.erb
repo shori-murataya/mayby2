@@ -20,15 +20,15 @@
     </div>
 
     <div id="form_<%= @post.id %>">
-      <%= render partial: 'comments/form' , locals: { post:@post} %>
+      <%= render partial: 'comments/form' , locals: { post:@post,comment:@comment} %>
     </div>
 
     <% @comment.errors.full_messages.each do |message| %>
-    <p style="color:red;"><%= message %></p>
+      <p style="color:red;"><%= message %></p>
     <% end %>
-
-    <div id="come_index_<%= @post.id %>">
-       <%= render partial: 'comments/index' , locals: { post:@post} %>
-    </div>
-  </div>
+    
+    <div id="come_index">
+       <%= render partial: 'comments/index' , locals: { comments:@comments} %>
+    </div> 
+    <%= link_to_next_page @comments, 'もっと見る', remote: true, id: 'more_link' %>
 </div>

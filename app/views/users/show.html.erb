@@ -31,11 +31,12 @@
        </div>
      </div>
      <!-- タブ ユーザーがコメントしたMayby -->
+     <!-- 上のやり方とどっちがいいか聞く -->
     <input id="TAB-02" type="radio" name="TAB" class="tab-switch" />
     <label class="tab-label" for="TAB-02">コメント</label>
     <div class="tab-content">
       <div class="user-show-users-box">
-        <% @user.comments.each do |comment|%>
+        <% @comments.each do |comment|%>
           <div class="users-show-layout">
             <%= link_to("/posts/#{comment.post_id}/show") do %>
               <p><%= comment.compost.name %></p>
