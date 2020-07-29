@@ -35,15 +35,8 @@
     <input id="TAB-02" type="radio" name="TAB" class="tab-switch" />
     <label class="tab-label" for="TAB-02">コメント</label>
     <div class="tab-content">
-      <div class="user-show-users-box">
-        <% @comments.each do |comment|%>
-          <div class="users-show-layout">
-            <%= link_to("/posts/#{comment.post_id}/show") do %>
-              <p><%= comment.compost.name %></p>
-              <p class="users-show-maybytitle"><%= comment.content %></p>
-            <% end %>
-          </div>
-        <%end%>
+      <div id="user_come_index">
+        <%= render partial: 'user_come_index' , locals: { comments: @comments } %>
       </div>
     </div>
     <!-- タブ ユーザーがいいねしたMayby -->

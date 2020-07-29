@@ -21,8 +21,8 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @posts = Post.where(id: params[:id])
     @user = User.find_by(id: @post.user_id)
-    @comment = Comment.find_by(post_id: params[:id])
-    @comments = Comment.where(post_id: params[:id]).page(params[:page]).per(10)
+    @comment = Comment.new
+    @comments = Comment.where(post_id: params[:id]).page(params[:page]).per(2)
     @likes = Like.where(post_id: params[:id]).order(created_at: :desc).limit(1)
     @like = Like.where(post_id:params[:id])
   end 

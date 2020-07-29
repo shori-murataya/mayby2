@@ -1,4 +1,4 @@
-    <% comments.each do | comment | %>
+    <% @comments.each do | comment | %>
       <div class="comment-show-box">
         <%= link_to("/users/#{comment.comuser.id}/show") do%>
           <p class="comment-user"><%= comment.comuser.name %>さん</p>

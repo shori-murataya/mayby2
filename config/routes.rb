@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   post 'comments/:post_id/create' => "comments#create"
   post 'comments/:comment_id/destroy' => "comments#destroy"
+  post 'comments/:comment_id/user_come_destroy/' => "comments#user_come_destroy"
   
   post 'likes/:post_id/create' => "likes#create"
   post 'likes/:post_id/destroy' => "likes#destroy"
