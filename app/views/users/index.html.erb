@@ -1,13 +1,17 @@
 <div class="users-index-background">
   <div class="users-index-box">
     <h1 class="users-index-title">ユーザー 一覧</h1>
-      <form class="users-index-sort">
-        <select onChange="top.location.href=value">
-          <option value="#">--並べ替え--</option>
-          <option value="<%="/users/desc"%>">新しいメンバー順</option>
-          <option value="<%="/users/asc"%>">古い順メンバー順</option>
-        </select>
-      </form>
+    <div class="user-search-box">
+      <%= search_form_for @q , url: users_index_path do |f| %>
+        <div class="">
+          <span><%= f.label :名前 %></span>
+          <%= f.search_field :name_cont %>
+          <%= f.submit "検索" %>
+        </div>
+         
+        
+      <% end %> 
+    </div>
     <% @users.each do |user| %>
       <div class="users-index-lists">
         <img class="user_image" src="<%="/user_images/#{user.image_name}"%>">

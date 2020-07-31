@@ -11,7 +11,7 @@
       <input type="text" class="user-edit-email" name="email" value="<%= @user.email %>">
       <p>画像</p>
       <input type="file" name="image"> 
-
+      <p><%= link_to "パスワードの変更はこちら","/users/#{@user.id}/edit_pass" %></p>
       <input class="user-edit-btn" type="submit" value="変更">
     <% end %>
   </div>

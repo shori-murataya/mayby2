@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   post 'users/:id/destroy' => "users#destroy"
   get 'users/:id/edit' => "users#edit"
   post 'users/:id/update' => "users#update"
+  get 'users/:id/edit_pass' => "users#edit_pass"
+  post 'users/:id/update_pass' => "users#update_pass"
     
   get 'posts/:id/show' => "posts#show"
   get 'posts/index' => "posts#index"

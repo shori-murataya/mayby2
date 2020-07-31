@@ -17,10 +17,10 @@ class UsersController < ApplicationController
     end
   end
 
-  
-
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @q.build_sort if @q.sorts.empty?
+    @users = @q.result
   end
 
   def show
@@ -75,6 +75,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit_pass
+    @user = User.find(params[:id])
+  end
+  def update_pass
+    @user = User.find_by(id: params[:id])
+    if @user.authenticate(params[:pass])
+      @user.password = params[:new_pass]
+      @user.save
+      flash[:notice] = "変更しました"
+      redirect_to("/users/index")
+    else
+      flash[:notice] = "変更できませんでした"
+      render("users/edit_pass")
+    end
+  end
+
   def login
   end
   
@@ -95,15 +111,5 @@ class UsersController < ApplicationController
     flash[:notice] = "ログアウトしました"
     redirect_to("/")
   end
-
-  def desc
-    @users = User.all.order(created_at: :desc)
-    render("users/index")
-  end
-
-  def asc
-    @users = User.all.order(created_at: :asc)
-    render("users/index")
-  end
-
+  
 end

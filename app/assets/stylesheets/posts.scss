@@ -84,7 +84,7 @@ input.post-new-btn,.post-edit-btn{
   display: none;
   background-color: rgba(255, 255, 255, 0.87);
   padding: 10px;
-  width: 320px;
+  width: 95%;
   margin: 0 auto;
   text-align: left;
 }
@@ -226,9 +226,16 @@ right: 5px;
 
 
 @media(max-width:674px){
-  .post-index-box, .post-show-box {
+.post-index-box, .post-show-box {
     width: 95%;
 }
+input.post-new-name,.post-edit-name,.post-edit-email{
+  width: 90%;
+}
+textarea.post-new-howto,.post-edit-howto{
+  width: 90%;
+}
+
 }
 
 
