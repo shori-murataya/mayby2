@@ -2,7 +2,7 @@
   <% @comments.each do |comment|%>
     <div class="users-show-layout">
       <%= link_to("/posts/#{comment.post_id}/show") do %>
-        <p><%= comment.post.name %></p>
+        <p><%= comment.post.title %></p>
         <p class="users-show-maybytitle"><%= comment.content %></p>
       <% end %>
       <div id="user_comment_destroy">

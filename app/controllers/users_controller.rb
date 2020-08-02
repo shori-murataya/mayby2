@@ -20,13 +20,13 @@ class UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
     @q.build_sort if @q.sorts.empty?
-    @users = @q.result
+    @users = @q.result.order(created_at: :desc)
   end
 
   def show
     @user = User.find_by(id: params[:id])
-    @likes = Like.where(user_id: params[:id])
-    @comments = Comment.where(user_id: params[:id])
+    @likes = Like.where(user_id: params[:id]).order(created_at: :desc)
+    @comments = Comment.where(user_id: params[:id]).order(created_at: :desc)
   end
 
   def new

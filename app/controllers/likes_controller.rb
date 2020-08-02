@@ -13,7 +13,7 @@ class LikesController < ApplicationController
   end
 
   def index
-    @likes = Like.where(post_id:params[:post_id])
+    @likes = Like.where(post_id:params[:post_id]).order(created_at: :desc)
   end
 
 end

@@ -4,7 +4,5 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post
 
-  default_scope -> { order(created_at: :desc) }
-  paginates_per 5  
-
+  must_be_ordered
 end

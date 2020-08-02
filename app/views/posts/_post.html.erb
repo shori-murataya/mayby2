@@ -7,7 +7,9 @@
               <p class="profile_name"><%= post.user.name %>さん</p>
             <% end %>
           </div>
-          <h3><%= post.name %></h3>
+           <%= link_to "/posts/#{post.id}/show" do %>
+             <h3><%= post.title %></h3>
+           <% end %>
           <diV class="kara"></div>
         </div>
         <div class="howto-and-detail">
@@ -16,9 +18,8 @@
             <p class="howtoplay_content"><%= post.howto %></p>
           </div>
           <div class="details">
-            <p class="post waimoku"><%= post.count %>/<%= post.difficulty %></p>
+            <p class="post waimoku"><%= post.num_of_people %>/<%= post.play_style %></p>
             <p class="post times">投稿:<%= post.created_at.strftime('%Y/%m/%d') %></p>
-            <%= link_to("みる","/posts/#{post.id}/show",{class: "post-link"}) %>
             <% if @current_user.id == post.user_id %>
               <%= link_to("/posts/#{post.id}/edit",{class: "edit-icon"}) do%>
                 <i class="fas fa-edit"></i>

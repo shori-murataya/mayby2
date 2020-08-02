@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @posts = Post.where(id: params[:id])
     @user = User.find_by(id: @post.user_id)
     @comment = Comment.new
-    @comments = Comment.where(post_id: params[:id]).page(params[:page]).per(2)
+    @comments = Comment.where(post_id: params[:id]).page(params[:page]).per(2).order(created_at: :desc)
     @likes = Like.where(post_id: params[:id]).order(created_at: :desc).limit(1)
     @like = Like.where(post_id:params[:id])
   end 
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     @q.build_sort if @q.sorts.empty?
-    @posts = @q.result.page(params[:page]).per(2)
+    @posts = @q.result.page(params[:page]).per(2).order(created_at: :desc)
   end
 
   def new
@@ -39,11 +39,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(
-      name: params[:name],
+      title: params[:title],
       howto: params[:howto],
       user_id: @current_user.id,
-      count: params[:count],
-      difficulty: params[:difficulty]
+      num_of_people: params[:num_of_people],
+      play_style: params[:play_style]
       )
     if @post.save
       redirect_to("/posts/index")
@@ -58,10 +58,10 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
-    @post.name = params[:name]
+    @post.title = params[:title]
     @post.howto = params[:howto]
-    @post.count = params[:count]
-    @post.difficulty = params[:difficulty]
+    @post.num_of_people = params[:num_of_people]
+    @post.play_style = params[:play_style]
     if @post.save
       flash[:notice] = "編集完了"
       redirect_to("/posts/index")

@@ -10,19 +10,19 @@
           <%= search_form_for @q , url: posts_index_path do |f| %>
           <div class="">
             <p><%= f.label :Maybyの名前 %></p>
-            <%= f.search_field :name_cont %>
+            <%= f.search_field :title_cont %>
           </div>
           <div class="">
             <p><%= f.label :人数 %></p>
-            <%= f.radio_button :count_eq, '', {:checked => true} %>指定なし
-            <%= f.radio_button :count_eq, "一人" %>一人
-            <%= f.radio_button :count_eq, "二人〜" %>二人〜
+            <%= f.radio_button :num_of_people_eq, '', {:checked => true} %>指定なし
+            <%= f.radio_button :num_of_people_eq, "一人" %>一人
+            <%= f.radio_button :num_of_people_eq, "二人〜" %>二人〜
           </div>
           <div class="">
             <p><%= f.label :ワイモク度 %></p>
-            <%= f.radio_button :difficulty_eq, '', {:checked => true} %>指定なし
-            <%= f.radio_button :difficulty_eq, "もくもく" %>もくもく
-            <%= f.radio_button :difficulty_eq, "わいわい" %>わいわい
+            <%= f.radio_button :play_style_eq, '', {:checked => true} %>指定なし
+            <%= f.radio_button :play_style_eq, "もくもく" %>もくもく
+            <%= f.radio_button :play_style_eq, "わいわい" %>わいわい
           </div>
           <div class="search-btn">
             <%= f.submit "検索" %>

@@ -4,7 +4,7 @@ ja:
       post: Mayby
     attributes:
       post:
-        name: Maybyの名前
+        title: Maybyの名前
         howto: Maybyの遊び方
-        count: プレイ人数
-        difficulty: ワイモク度
+        num_of_people: プレイ人数
+        play_style: ワイモク度
