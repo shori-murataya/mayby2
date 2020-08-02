@@ -36,7 +36,7 @@
     <label class="tab-label" for="TAB-02">コメント</label>
     <div class="tab-content">
       <div id="user_come_index">
-        <%= render partial: 'user_come_index' , locals: { comments: @comments } %>
+        <%= render partial: 'comments/user_come_index' , locals: { comments: @comments } %>
       </div>
     </div>
     <!-- タブ ユーザーがいいねしたMayby -->
@@ -46,9 +46,9 @@
       <div class="user-show-users-box">
         <% @likes.each do |like|%>
           <div class="users-show-layout">
-            <%= link_to("/posts/#{like.likeposts.id}/show") do %>
-              <h3 class="users-show-maybytitle"><%= like.likeposts.name %>
-              <span  ><i style="color:yellow;" class="fas fa-star"></i><%=Like.where(post_id:like.likeposts.id).count%></span></h3>
+            <%= link_to("/posts/#{like.post.id}/show") do %>
+              <h3 class="users-show-maybytitle"><%= like.post.name %>
+              <span  ><i style="color:yellow;" class="fas fa-star"></i><%=Like.where(post_id:like.post.id).count%></span></h3>
               <p class="users-show-contents"><%= %></p>
             <% end %>
           </div>

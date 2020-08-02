@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
   def create
+    #非同期でコメントするため
     @comments = Comment.where(post_id: params[:post_id]).page(params[:page])
     @post = Post.find(params[:post_id])
     @comment = Comment.new(

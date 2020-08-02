@@ -1,3 +1,3 @@
 <!-- パーシャルとAjaxの追加方法を学んだ -->
-$("#items").append("<%= escape_javascript(render partial: 'post', locals: { post: @posts }) %>");
-$("#more_link").replaceWith("<%= escape_javascript(link_to_next_page(@posts, 'もっと見る', remote: true, id: 'more_link')) %>");
+$("#items").append("<%= j(render partial: 'post', locals: { post: @posts }) %>");
+$("#more_link").replaceWith("<%= j(link_to_next_page(@posts, 'もっと見る', remote: true, id: 'more_link')) %>");

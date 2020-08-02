@@ -1,0 +1,5 @@
+<%if @current_user.id == comment.user_id%>
+  <%= link_to("/comments/#{comment.id}/user_come_destroy",{method:"post",remote: true,data: {confirm:"削除しますか？"}})do %>
+    <i class="far fa-trash-alt"></i>
+  <% end %>
+<% end %>
