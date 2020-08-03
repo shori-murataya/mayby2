@@ -3,8 +3,8 @@
     <!-- ユーザーの詳細 -->
     <img class="user_image" src="<%="/user_images/#{@user.image_name}"%>">
     <p><%= @user.name %>さん</p>
-    <% if @current_user.id == @user.id%>
-      <p><%=link_to("/users/#{@user.id}/edit",{class: "icon-link"}) do%>
+    <% if current_user.id == @user.id%>
+      <p><%= link_to edit_user_registration_path, { class: "icon-link" } do%>
         <i class="fas fa-cog"></i>
       </p>
       <% end %>
@@ -17,12 +17,12 @@
         <div class="user-show-users-box">
           <% @user.posts.each do |post|%>
             <div class="users-show-layout">
-              <%= link_to("/posts/#{post.id}/show") do %>
+              <%= link_to("/posts/#{ post.id }/show") do %>
                 <h3 class="users-show-maybytitle">〜<%= post.title %>〜</h3>
-                <p class="users-show-contents"><%= post.howto%></p>
+                <p class="users-show-contents"><%= post.howto %></p>
               <% end %>
-              <% if @current_user.id == @user.id%>
-                <p class="edit-icon"><%=link_to("/posts/#{post.id}/edit",{class: "icon-link"}) do%>
+              <% if current_user.id == @user.id %>
+                <p class="edit-icon"><%= link_to "/posts/#{ post.id }/edit", { class: "icon-link" } do%>
                 <i class="fas fa-edit"></i></p>
                 <% end %>
               <% end %>
@@ -46,13 +46,13 @@
       <div class="user-show-users-box">
         <% @likes.each do |like|%>
           <div class="users-show-layout">
-            <%= link_to("/posts/#{like.post.id}/show") do %>
+            <%= link_to "/posts/#{ like.post.id }/show" do %>
               <h3 class="users-show-maybytitle"><%= like.post.title %>
               <span  ><i style="color:yellow;" class="fas fa-star"></i><%=Like.where(post_id:like.post.id).count%></span></h3>
               <p class="users-show-contents"><%= %></p>
             <% end %>
           </div>
-        <%end%>
+        <% end %>
       </div>
     </div>
   </div>

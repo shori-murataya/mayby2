@@ -11,6 +11,8 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'ransack'
 gem 'must_be_ordered'
+gem 'devise'
+gem 'devise-i18n'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'

@@ -16,43 +16,43 @@
 
   <body>
   <header>
-    <h1 class="logo"><%= link_to("Mayby","/")  %></h1>
+    <h1 class="logo"><%= link_to "Mayby", root_path %></h1>
     <ul class="header-menu">
-    <% if @current_user %>
-      <li><%= link_to("#{@current_user.name}さん", "/users/#{@current_user.id}/show") %></li>
-      <li><%= link_to("ユーザー一覧","/users/index") %></li>
-      <li><%= link_to("Mayby一覧","/posts/index") %></li>
-      <li><%= link_to("Mayby投稿","/posts/new") %></li>
-      <li><%= link_to("ログアウト","/users/logout",{method:"post"}) %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to "#{current_user.name}さん", "/users/#{current_user.id}/show" %></li>
+      <li><%= link_to "ユーザー一覧", users_index_path %></li>
+      <li><%= link_to "Mayby一覧", posts_index_path %></li>
+      <li><%= link_to "Mayby投稿", posts_new_path %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, { method:"delete" } %></li>
     <% else %>  
-      <li><%= link_to("Maybyとは","/about") %></li>
-      <li><%= link_to("新規登録","/users/new") %></li>
-      <li><%= link_to("ログイン","/users/login") %></li>
+      <li><%= link_to "Maybyとは", about_path %></li>
+      <li><%= link_to "新規登録", new_user_registration_path %></li>
+      <li><%= link_to "ログイン", new_user_session_path %></li>
     <% end %>
+    </ul>
     </ul>
     <div class="bars"><div></div><div></div><div></div></label>
   </header>
     <div class="overlay"></div>
   <nav class="nav">
     <ul class="burger-menu">
-    <% if @current_user %>
-      <li><%= link_to("#{@current_user.name}さん", "/users/#{@current_user.id}/show") %></li>
-      <li><%= link_to("ユーザー一覧","/users/index") %></li>
-      <li><%= link_to("Mayby一覧","/posts/index") %></li>
-      <li><%= link_to("Mayby投稿","/posts/new") %></li>
-      <li><%= link_to("ログアウト","/users/logout",{method:"post"}) %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to "#{current_user.name}さん", "/users/#{current_user.id}/show" %></li>
+      <li><%= link_to "ユーザー一覧", users_index_path %></li>
+      <li><%= link_to "Mayby一覧", posts_index_path %></li>
+      <li><%= link_to "Mayby投稿", posts_new_path %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, { method:"delete" } %></li>
     <% else %>  
-      <li><%= link_to("Maybyとは","/about") %></li>
-      <li><%= link_to("新規登録","/users/new") %></li>
-      <li><%= link_to("ログイン","/users/login") %></li>
+      <li><%= link_to "Maybyとは", about_path %></li>
+      <li><%= link_to "新規登録", new_user_registration_path %></li>
+      <li><%= link_to "ログイン", new_user_session_path %></li>
     <% end %>
     </ul>
   </nav>
-      <% if flash[:notice] %>
       <div class="flash">
-        <%= flash[:notice] %>
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
       </div>
-    <% end %>
 
     <%= yield %>
     <script>

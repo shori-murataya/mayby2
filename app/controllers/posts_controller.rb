@@ -1,21 +1,4 @@
 class PostsController < ApplicationController
-  before_action :access_right_post,{only:[:edit]}
-  before_action :no_login_post,{only:[:new]}
-
-  def access_right_post
-    @post = Post.find_by(id: params[:id])
-    if @post.user_id != @current_user.id
-      flash[:notice] = "権限がありません"
-      redirect_to("/posts/index")
-    end
-  end
-
-  def no_login_post
-      if @current_user == nil
-        flash[:notice] = "権限がありません"
-        redirect_to("/")
-      end
-  end
 
   def show
     @post = Post.find_by(id: params[:id])
@@ -41,7 +24,7 @@ class PostsController < ApplicationController
     @post = Post.new(
       title: params[:title],
       howto: params[:howto],
-      user_id: @current_user.id,
+      user_id: current_user.id,
       num_of_people: params[:num_of_people],
       play_style: params[:play_style]
       )

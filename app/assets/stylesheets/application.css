@@ -115,7 +115,6 @@ option{
 }
 .flash{
   width: 100%;
-  padding: 10px 0;
   background-color: rgb(250, 195, 195);
   text-align: center;
   z-index: 1000;

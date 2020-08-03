@@ -1,16 +1,13 @@
 class ApplicationController < ActionController::Base
-  before_action :current_user
-  before_action :no_login_user,{ only:[:index, :show, :edit] }
+  protect_from_forgery with: :exception
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def current_user
-    @current_user = User.find_by(id: session[:user_id])
+  protected
+
+  def configure_permitted_parameters
+    added_attrs = [ :email, :name, :password, :password_confirmation ]
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+    devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
   end
-
-  def no_login_user
-    if @current_user == nil
-      flash[:notice] = "権限がありません"
-      redirect_to("/")
-    end
-  end
-
 end

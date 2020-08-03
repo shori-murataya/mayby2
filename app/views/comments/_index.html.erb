@@ -4,7 +4,7 @@
           <p class="comment-user"><%= comment.user.name %>さん</p>
         <% end %> 
           <p class="comment-content"><%= comment.content %></p>
-          <% if @current_user.id == comment.user.id %>
+          <% if current_user.id == comment.user.id %>
           <div id="come_destroy<%=comment.post.id%>">
             <%= render partial: 'comments/destroy', locals: {comment: comment} %>
           </div>

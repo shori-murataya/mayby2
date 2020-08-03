@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.new(
       content: params[ :content],
-      user_id: @current_user.id,
+      user_id: current_user.id,
       post_id: params[ :post_id])
       @comment.save
   end

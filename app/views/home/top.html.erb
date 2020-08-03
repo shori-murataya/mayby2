@@ -6,10 +6,11 @@
     <h1>Mayby</h1>
   </div>
     <div class="new-box">
-    <% if @current_user%>
-      <p class="new-btn"><%= link_to("Maybyをつくろう","/posts/new") %></p>
+    <% if user_signed_in?%>
+      <p class="new-btn"><%= link_to "Maybyをつくろう", posts_new_path %></p>
     <% else %>
-      <p class="new-btn"><%= link_to("新規登録はこちら","/users/new") %></p>
+      <p class="new-btn"><%= link_to "新規登録", new_user_registration_path %></p>
+      <p class="new-btn"><%= link_to "ログイン", new_user_session_path %></p>
     <% end %>
     </div>
   </div>
