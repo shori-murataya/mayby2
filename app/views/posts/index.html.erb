@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="search-box">
-          <%= search_form_for @q , url: posts_index_path do |f| %>
+          <%= search_form_for @q , url: posts_path do |f| %>
           <div class="">
             <p><%= f.label :Maybyの名前 %></p>
             <%= f.search_field :title_cont %>

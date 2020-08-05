@@ -2,12 +2,12 @@
       <div class="post-index-layout">
         <div class="post-index-mayby">
           <div class="profile-and-image">
-            <%=link_to("/users/#{post.user.id}/show") do%>
+            <%=link_to user_path(post.user) do%>
               <img class="mini_user_image" src="<%= post.user.image %>">
               <p class="profile_name"><%= post.user.name %>さん</p>
             <% end %>
           </div>
-           <%= link_to "/posts/#{post.id}/show" do %>
+           <%= link_to post_path(post) do %>
              <h3><%= post.title %></h3>
            <% end %>
           <diV class="kara"></div>
@@ -21,10 +21,10 @@
             <p class="post waimoku"><%= post.num_of_people %>/<%= post.play_style %></p>
             <p class="post times">投稿:<%= post.created_at.strftime('%Y/%m/%d') %></p>
             <% if current_user.id == post.user_id %>
-              <%= link_to("/posts/#{post.id}/edit",{class: "edit-icon"}) do%>
+              <%= link_to edit_post_path(post), {class: "edit-icon"} do%>
                 <i class="fas fa-edit"></i>
               <% end %>
-              <%= link_to("/posts/#{post.id}/destroy",{method:"post",class:"delite-icon",data: {confirm:"削除しますか？"}}) do%>
+              <%= link_to post_path(post),{ method: "delete", class:"delite-icon",data: { confirm:"削除しますか？" } } do %>
                 <i class="far fa-trash-alt"></i>
               <% end %>
             <% end %>

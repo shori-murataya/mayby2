@@ -2,7 +2,7 @@
   <div class="users-index-box">
     <h1 class="users-index-title">ユーザー 一覧</h1>
     <div class="user-search-box">
-      <%= search_form_for @q , url: users_index_path do |f| %>
+      <%= search_form_for @q , url: users_path do |f| %>
         <div class="">
           <span><%= f.label :名前 %></span>
           <%= f.search_field :name_cont %>
@@ -15,7 +15,7 @@
         <img class="user_image" src="<%= user.image %>">
         <p class="post"><%= user.name %></p>
         <p class="post"><%= user.email %></p>
-        <%= link_to "詳細", "/users/#{ user.id }/show", {class: "users-link"} %>
+        <%= link_to "詳細", user_path(user), {class: "users-link"} %>
         <% if current_user.id == user.id %>
         <%= link_to "編集", edit_user_registration_path, {class: "users-link"} %>
         <% end %>

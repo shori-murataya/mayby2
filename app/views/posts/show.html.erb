@@ -2,16 +2,16 @@
   <div class="post-show-box">
   <!-- ユーザーの詳細 -->
         <% if current_user.id == @post.user_id %>
-      <%= link_to("/posts/#{@post.id}/edit",{class: "post-edit-icon"}) do %>
+      <%= link_to edit_post_path(@post), { class: "post-edit-icon" } do %>
         <i class="fas fa-cog"></i>
       <% end %>
     <% end %>
     <h1><%= @post.title %></h1>    
  
-    <%= link_to("/users/#{@user.id}/show") do%>
-      <img class="user_image" src="<%= @user.image %>">
-    <% end %><!--  -->
-    <p><%= @user.name %>さんの発案したMayby</p>
+    <%= link_to user_path(@post.user) do%>
+      <img class="user_image" src="<%= @post.user.image %>">
+    <% end %>
+    <p><%= @post.user.name %>さんの発案したMayby</p>
     <p><%=@post.num_of_people%>で<%=@post.play_style%>遊ぶ人に向いているよ！</p>
  
     <div class="like_box">

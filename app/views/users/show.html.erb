@@ -17,7 +17,7 @@
         <div class="user-show-users-box">
           <% @user.posts.each do |post|%>
             <div class="users-show-layout">
-              <%= link_to("/posts/#{ post.id }/show") do %>
+              <%= link_to post_path(post) do %>
                 <h3 class="users-show-maybytitle">〜<%= post.title %>〜</h3>
                 <p class="users-show-contents"><%= post.howto %></p>
               <% end %>
@@ -31,7 +31,6 @@
        </div>
      </div>
      <!-- タブ ユーザーがコメントしたMayby -->
-     <!-- 上のやり方とどっちがいいか聞く -->
     <input id="TAB-02" type="radio" name="TAB" class="tab-switch" />
     <label class="tab-label" for="TAB-02">コメント</label>
     <div class="tab-content">
@@ -46,7 +45,7 @@
       <div class="user-show-users-box">
         <% @likes.each do |like|%>
           <div class="users-show-layout">
-            <%= link_to "/posts/#{ like.post.id }/show" do %>
+            <%= link_to post_path(like.post) do %>
               <h3 class="users-show-maybytitle"><%= like.post.title %>
               <span  ><i style="color:yellow;" class="fas fa-star"></i><%=Like.where(post_id:like.post.id).count%></span></h3>
               <p class="users-show-contents"><%= %></p>

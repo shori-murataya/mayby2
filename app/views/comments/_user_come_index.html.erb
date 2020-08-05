@@ -1,7 +1,7 @@
 <div class="user-show-users-box">
   <% @comments.each do |comment|%>
     <div class="users-show-layout">
-      <%= link_to("/posts/#{comment.post_id}/show") do %>
+      <%= link_to post_path(comment.post_id) do %>
         <p><%= comment.post.title %></p>
         <p class="users-show-maybytitle"><%= comment.content %></p>
       <% end %>

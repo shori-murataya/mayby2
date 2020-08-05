@@ -1,25 +1,28 @@
 <div class="post-new-background">
   <div class="post-new-formbox">
     <h1 class="post-new-mayby">新しいMaybyをつくる</h1>
+    <% if @post.errors.any? %>
     <% @post.errors.full_messages.each do |message| %>
       <p style="color:red;"><%= message %></p>
     <% end %>
-  <%= form_tag("/posts/create") do%>
-    <p>Maybyの名前</p>
-    <input class="post-new-name" type="text" name="title" value="<%= @post.title %>">
-    <p>遊び方</p>
-    <textarea class="post-new-howto" name="howto"><%= @post.howto %></textarea>
-  <div class="post-new-radio">
-    <span >プレイ人数　　</span>
-    <input type="radio" name="num_of_people" value="一人">一人
-    <input type="radio" name="num_of_people" value="二人〜">二人〜
+    <% end %>
+    <%= form_with model: @post do |f|%>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <p>Maybyの名前</p>
+      <%= f.text_field :title,  {class: "post-new-name"} %>
+      <p>遊び方</p>
+      <%= f.text_area :howto, {class: "post-new-howto"} %>
+      <div class="post-new-radio">
+        <span >参加人数　　</span>
+        <%= f.radio_button :num_of_people,  "一人" %>一人
+        <%= f.radio_button :num_of_people,  "二人〜" %>二人〜
+      </div>
+      <div class="post-new-radio">
+        <span >雰囲気　</span>
+        <%= f.radio_button :play_style,  "もくもく" %>もくもく
+        <%= f.radio_button :play_style,  "わいわい" %>わいわい
+      </div>
+      <%= f.submit "Mayby作成", {class: "post-new-btn"} %>
+    <% end %>  
   </div>
-  <div class="post-new-radio">
-    <span>ワイモク度　　</span>
-    <input type="radio" name="play_style" value="もくもく">もくもく
-    <input type="radio" name="play_style" value="わいわい">わいわい
-  </div>
-  <input class="post-new-btn" type="submit" value="Maybyを作る">
-<% end %>
-</div>
 </div>
