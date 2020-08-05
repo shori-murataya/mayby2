@@ -12,7 +12,7 @@
     </div>
     <% @users.each do |user| %>
       <div class="users-index-lists">
-        <img class="user_image" src="<%= "/user_images/#{ user.image_name }" %>">
+        <img class="user_image" src="<%= user.image %>">
         <p class="post"><%= user.name %></p>
         <p class="post"><%= user.email %></p>
         <%= link_to "詳細", "/users/#{ user.id }/show", {class: "users-link"} %>

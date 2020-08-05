@@ -3,7 +3,7 @@
         <div class="post-index-mayby">
           <div class="profile-and-image">
             <%=link_to("/users/#{post.user.id}/show") do%>
-              <img class="mini_user_image" src="<%="/user_images/#{post.user.image_name}"%>">
+              <img class="mini_user_image" src="<%= post.user.image %>">
               <p class="profile_name"><%= post.user.name %>さん</p>
             <% end %>
           </div>

@@ -1,7 +1,7 @@
 <div class="users-show-background">
   <div class="users-show-box">
     <!-- ユーザーの詳細 -->
-    <img class="user_image" src="<%="/user_images/#{@user.image_name}"%>">
+    <img class="user_image" src="<%= @user.image %>">
     <p><%= @user.name %>さん</p>
     <% if current_user.id == @user.id%>
       <p><%= link_to edit_user_registration_path, { class: "icon-link" } do%>

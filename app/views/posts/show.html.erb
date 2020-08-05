@@ -9,7 +9,7 @@
     <h1><%= @post.title %></h1>    
  
     <%= link_to("/users/#{@user.id}/show") do%>
-      <img class="user_image" src="<%="/user_images/#{@user.image_name}"%>">
+      <img class="user_image" src="<%= @user.image %>">
     <% end %><!--  -->
     <p><%= @user.name %>さんの発案したMayby</p>
     <p><%=@post.num_of_people%>で<%=@post.play_style%>遊ぶ人に向いているよ！</p>
