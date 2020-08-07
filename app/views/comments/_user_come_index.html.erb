@@ -5,9 +5,11 @@
         <p><%= comment.post.title %></p>
         <p class="users-show-maybytitle"><%= comment.content %></p>
       <% end %>
+    <% if comment.user_id == current_user.id%>
       <div id="user_comment_destroy">
-        <%= render partial: "comments/user_come_destroy" , locals: { comment: comment } %>
+        <%= render partial: "comments/destroy" , locals: { comment: comment } %>
       </div>
+    <% end %>
     </div>
   <%end%>
 </div>

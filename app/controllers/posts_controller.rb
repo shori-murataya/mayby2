@@ -1,16 +1,19 @@
 class PostsController < ApplicationController
   
   def index
+    per_post = 2
     @q = Post.ransack(params[:q])
     @q.build_sort if @q.sorts.empty?
-    @posts = @q.result.page(params[:page]).per(2).order(created_at: :desc)
+    @posts = @q.result.page(params[:page]).per(per_post).order(created_at: :desc)
+    
   end
 
   def show
+    per_comment = 5
     @post = Post.find_by(id: params[:id])
-    @posts = Post.where(id: params[:id])
+    @posts = Post.where(id: params[:id]).order(created_at: :desc)
     @comment = Comment.new
-    @comments = Comment.where(post_id: params[:id]).page(params[:page]).per(2).order(created_at: :desc)
+    @comments = Comment.where(post_id: params[:id]).page(params[:page]).per(per_comment).order(created_at: :desc)
   end 
 
   def new

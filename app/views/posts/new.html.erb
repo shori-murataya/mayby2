@@ -6,10 +6,10 @@
       <p style="color:red;"><%= message %></p>
     <% end %>
     <% end %>
-    <%= form_with model: @post do |f|%>
+    <%= form_with model: @post, local: true do |f|%>
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <p>Maybyの名前</p>
-      <%= f.text_field :title,  {class: "post-new-name"} %>
+      <%= f.text_field :title, {class: "post-new-name"} %>
       <p>遊び方</p>
       <%= f.text_area :howto, {class: "post-new-howto"} %>
       <div class="post-new-radio">

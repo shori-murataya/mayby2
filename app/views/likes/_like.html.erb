@@ -1,10 +1,10 @@
 <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
-  <%= link_to("/likes/#{post.id}/destroy",{method:"post",remote: true,class: "post-nolike"}) do%>
+  <%= link_to like_path(id: post.id, post_id: post.id) ,{ method: "delete", remote: true, class: "post-nolike" } do %>
     <i class="fas fa-star"></i><%= Like.where(post_id:post.id).count %>
-<span><%= link_to("人他...","/likes/#{post.id}/index",class: "other-likes") %></span>
+    <span><%= link_to "人他...", like_path(id: post.id, post_id: post.id), class: "other-likes" %></span>
   <% end %>
 <% else %>
-  <%= link_to("/likes/#{post.id}/create",{method:"post",remote: true,class: "post-like"}) do%>
+  <%= link_to likes_path(id: post.id, post_id: post.id), { method:"post", remote: true, class: "post-like" } do %>
     <i class="fas fa-star"></i><%= Like.where(post_id:post.id).count %>
   <% end %>
 <% end %>

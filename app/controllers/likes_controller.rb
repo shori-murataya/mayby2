@@ -12,8 +12,10 @@ class LikesController < ApplicationController
     @like.destroy
   end
 
-  def index
+  def show
     @likes = Like.where(post_id:params[:post_id]).order(created_at: :desc)
   end
+
+  
 
 end
