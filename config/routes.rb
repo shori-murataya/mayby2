@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :destroy]
   resources :likes, only: [:show, :create, :destroy]
   resources :users, :posts
+  
   root to: "home#top"
   get "/about", to: "home#about"
   

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @likes = Like.where(user_id: params[:id]).order(created_at: :desc)
-    @comments = Comment.where(user_id: params[:id]).order(created_at: :desc)
+    @user_comments = Comment.where(user_id: params[:id]).order(created_at: :desc)
   end
   
 end

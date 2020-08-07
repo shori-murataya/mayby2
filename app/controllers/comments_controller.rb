@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find_by(id: params[:id])
     @comments = Comment.where(post_id: @comment.post_id ).page(params[:page]).order(created_at: :desc)
+    @user_comments = Comment.where(user_id: @comment.user_id).order(created_at: :desc)
     @comment.destroy
   end
 
