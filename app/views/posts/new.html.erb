@@ -7,7 +7,6 @@
     <% end %>
     <% end %>
     <%= form_with model: @post, local: true do |f|%>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
       <p>Maybyの名前</p>
       <%= f.text_field :title, {class: "post-new-name"} %>
       <p>遊び方</p>

@@ -33,7 +33,11 @@
     </ul>
     <div class="bars"><div></div><div></div><div></div></label>
   </header>
-    <div class="overlay"></div>
+  <div class="flash">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
+  <div class="overlay"></div>
   <nav class="nav">
     <ul class="burger-menu">
     <% if user_signed_in? %>
@@ -49,10 +53,7 @@
     <% end %>
     </ul>
   </nav>
-      <div class="flash">
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-      </div>
+
 
     <%= yield %>
     <script>

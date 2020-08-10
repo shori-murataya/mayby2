@@ -4,8 +4,7 @@
     <% @post.errors.full_messages.each do |message| %>
       <p style="color:red;"><%= message %></p>
     <% end %>
-    <%= form_with model:@post do |f| %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= form_with model:@post, local: true do |f| %>
         <p>Maybyの名前</p>
         <%= f.text_field :title, { class: "post-edit-name" } %>
         <p>遊び方</p>
