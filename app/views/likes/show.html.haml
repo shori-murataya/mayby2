@@ -1,0 +1,6 @@
+.users-index-background
+  .users-index-box
+    %h1.users-index-title いいねしたユーザー 一覧(仮)
+    %ul
+      - @likes.each do |like|
+        %li= like.user.name

@@ -1,0 +1,46 @@
+.posts-index-background
+  .post-index-box
+    %h1.post-index-title Mayby一覧
+    .info_open
+      .content1
+        %h3
+          %span.check + 
+          探す
+    .search-box
+      = search_form_for @q , url: posts_path do |f|
+        %div
+          %p= f.label :Maybyの名前
+          = f.search_field :title_cont
+        %div
+          %p= f.label :人数
+          = f.radio_button :num_of_people_eq, '', {:checked => true}
+          指定なし
+          = f.radio_button :num_of_people_eq, "一人"
+          一人
+          = f.radio_button :num_of_people_eq, "二人〜"
+          二人〜
+        %div
+          %p= f.label :ワイモク度
+          = f.radio_button :play_style_eq, '', {:checked => true}
+          指定なし
+          = f.radio_button :play_style_eq, "もくもく"
+          もくもく
+          = f.radio_button :play_style_eq, "わいわい"
+          わいわい
+        .search-btn
+          = f.submit "検索"
+    #items
+      = render partial: 'post', locals: { post: @posts }
+    = link_to_next_page @posts, 'もっと見る', remote: true, id: 'more_link'
+
+:javascript
+  $('.info_open').on('click',function(){
+    var $info = $(this).next('.search-box');
+    if($info.hasClass('open')){
+      $info.removeClass('open').slideUp(200);
+      $(this).find('.check').text('+');
+    }else{
+      $info.addClass('open').slideDown(200);
+      $(this).find('.check').text('-');
+    }
+  });

@@ -1,0 +1,19 @@
+.posts-show-background
+  .post-show-box
+    - if current_user.id == @post.user_id
+      - link_to edit_post_path(@post), { class: "post-edit-icon" } do
+        %i.fas.fa-cog
+    %h1= @post.title    
+    = link_to user_path(@post.user) do
+      = image_tag @post.user.image.to_s, { class: "user_image" }
+    %p= "#{@post.user.name}さんの発案したMayby"
+    %p= "#{@post.num_of_people}で#{@post.play_style}遊ぶ人に向いているよ！"
+    .like_box
+      %div{id: "like_#{@post.id}" }
+        = render partial: 'likes/like' , locals: { post: @post}
+    %div{id: "form_#{@post.id}" }
+      = render partial: 'comments/form' , locals: { post:@post,comment:@comment}
+    #come_index
+      = render partial: 'comments/index' , locals: { comments:@comments}
+    -# <%= link_to_next_page @comments, 'もっと見る', remote: true, id: 'more_link' %>
+    -# <%= paginate @comments %>

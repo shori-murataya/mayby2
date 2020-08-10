@@ -1,0 +1,12 @@
+.background
+  .title-box
+    .intro-box
+      %p.catch1 新しい趣味の発見、お手伝いアプリ
+      %p.catch2 ~ Make Your Hobby ~
+      %h1 Mayby
+    .new-box
+      - if user_signed_in?
+        %p.new-btn= link_to "Maybyをつくろう", new_post_path
+      - else
+        %p.new-btn= link_to "新規登録", new_user_registration_path
+        %p.new-btn= link_to "ログイン", new_user_session_path

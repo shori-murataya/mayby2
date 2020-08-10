@@ -1,8 +1,0 @@
-<div class="form_comment">
-    <h3 class="comment-h2">コメント <%= @post.comments.where(post_id: @post.id).count %>件</h3>
-    <%= form_with model: @comment, url: post_comments_path(post_id: @post.id) do |f| %>
-    <%= f.hidden_field :post_id, :value => @post.id %>
-    <%= f.text_field :content, { class: "comment" } %>
-    <%= f.submit "コメント", { class: "comment-btn" }%>
-    <% end %>
-</div>
