@@ -4,5 +4,5 @@
     = f.hidden_field :post_id, :value => @post.id
     = f.text_field :content, { class: "comment" }
     = f.submit "コメント", { class: "comment-btn" }
-#error
-  = render partial: 'comments/error'
+#error_message
+  = render partial: 'comments/error_message'

@@ -1,4 +1,4 @@
 $("#come_index").html("<%= j(render partial: 'comments/index', locals: {comments: @comments}) %>");
 $(".comment").val('');
 $(".comment-h2").html('コメント <%= @comments.count %>件');
-$('#error').html("<%= j(render partial: 'comments/error') %>");
+$('#error_message').html("<%= j(render partial: 'comments/error_message') %>");

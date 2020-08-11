@@ -8,4 +8,3 @@
   = link_to post_likes_path(post), { method:"post", remote: true, class: "post-like" } do
     %i.fas.fa-star
     = post.likes.where(post_id:post.id).count
-

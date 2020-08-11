@@ -1,9 +1,8 @@
 class LikesController < ApplicationController
-  before_action :set_post, only:[:create, :destroy]
-
+  before_action :set_post
+ 
   def create
     @like = @post.likes.build(user_id: current_user.id)
-    #@like = current_user.likes.build(post_id: params[:id])
     @like.save!
   end
 
@@ -13,7 +12,7 @@ class LikesController < ApplicationController
   end
 
   def show
-    @likes = Like.where(post_id:params[:post_id]).order(created_at: :desc)
+    @likes = @post.likes.order(created_at: :desc)
   end
 
   private
@@ -21,5 +20,4 @@ class LikesController < ApplicationController
   def set_post
     @post = Post.find(params[:post_id])
   end
-
 end

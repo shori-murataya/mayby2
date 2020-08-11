@@ -10,7 +10,7 @@
     %p= "#{@post.num_of_people}で#{@post.play_style}遊ぶ人に向いているよ！"
     .like_box
       %div{id: "like_#{@post.id}" }
-        = render partial: 'likes/like' , locals: { post: @post}
+        = render partial: 'likes/like' , locals: { post: @post} 
     %div{id: "form_#{@post.id}" }
       = render partial: 'comments/form' , locals: { post:@post,comment:@comment}
     #come_index
