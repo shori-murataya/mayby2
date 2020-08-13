@@ -108,13 +108,38 @@ a.users-delite:hover{
   max-width: 210px;
   max-width: 210px;
 }
+.follow-btn{
+  display: inline-block;
+  color: white;
+  padding: 2px;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: deepskyblue;
+  transition: all .2s;
+}
+.follow-btn:hover{
+  background-color: deepskyblue;
+}
+.unfollow-btn{
+  display: inline-block;
+  color: white;
+  padding: 2px;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color:  deepskyblue;
+  transition: all .2s;
+}
+.unfollow-btn:hover{
+  background-color: deepskyblue;
+}
+
+
 .users-show-layout{
   padding: 10px;
   border-top:solid 1px black;
   position: relative;
 }
 .user-show-users-box{
-  
   border-right:solid 1px black;
   border-left:solid 1px black;
   border-bottom: solid 1px black;

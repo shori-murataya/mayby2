@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   mount_uploader :image, ImageUploader
+  acts_as_followable
+  acts_as_follower
   validates :name, { presence: true }
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
