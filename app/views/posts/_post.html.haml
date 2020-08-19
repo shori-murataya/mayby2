@@ -3,7 +3,10 @@
     .post-index-mayby
       .profile-and-image
         = link_to user_path(post.user) do
-          = image_tag post.user.image.to_s, { class: "mini_user_image" }
+          - if post.user.image?
+            = image_tag post.user.image.url, { class: "mini_user_image" }
+          - else
+            %img.mini_user_image{src: "/assets/default_image.jpg"}
           %p.profile_name= "#{post.user.name}さん"
       = link_to post_path(post) do
         %h3= post.title
@@ -14,11 +17,11 @@
         %p.howtoplay_content= post.howto
       .details
         %p.post.waimoku= "#{post.num_of_people}/#{post.play_style}"
-        %p.post.times= "投稿:#{post.created_at.strftime('%Y/%m/%d')}"
+        %p.post.times= "投稿:#{l post.created_at}"
         - if current_user.id == post.user_id
           = link_to edit_post_path(post), {class: "edit-icon"} do
             %i.fas.fa-edit
           = link_to post_path(post),{ method: "delete", class:"delite-icon",data: { confirm:"削除しますか？" } } do
             %i.far.fa-trash-alt
-        %div{ id: "like_#{post.id}" }
+        %div{ id: "js_like_#{post.id}" }
           = render partial: 'likes/like' , locals: { post: post}

@@ -2,10 +2,6 @@
   .comment-show-box
     = link_to user_path(comment.user) do
       %p.comment-user= "#{comment.user.name}さん"
-    %p.comment-content= comment.content
+      = simple_format( comment.content )
     - if current_user.id == comment.user.id
-      #come_destroy
-        = render partial: 'comments/destroy', locals: {comment: comment}
-
-
-
+      = render partial: 'comments/destroy', locals: {comment: comment}

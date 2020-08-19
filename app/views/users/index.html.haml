@@ -7,18 +7,9 @@
           %span= f.label :名前
           = f.search_field :name_cont
           = f.submit "検索"
-    - @users.each do |user|
-      .users-index-lists
-        = image_tag user.image.to_s,{class: "user_image"}
-        %p.post= user.name
-        %p.post= user.email
-        %p.post
-          = render partial: 'num_of_follow', locals: { user: user}
-        = link_to "詳細", user_path(user), {class: "users-link"}
-        - if current_user.id == user.id
-          = link_to "編集", edit_user_registration_path, {class: "users-link"}
-        
-        
+    #js-user-list
+      = render partial: 'index', locals: { user: @users }
+    = link_to_next_page @users, 'もっと見る', remote: true, id: 'js-more-link'  
         
         
 

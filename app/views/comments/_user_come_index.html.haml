@@ -5,5 +5,4 @@
         %p= comment.post.title
         %p.users-show-maybytitle= comment.content
       - if comment.user_id == current_user.id
-        #user_comment_destroy
-          = render partial: "comments/destroy" , locals: { comment: comment }
+        = render partial: "comments/destroy" , locals: { comment: comment }

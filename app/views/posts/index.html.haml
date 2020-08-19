@@ -29,18 +29,6 @@
           わいわい
         .search-btn
           = f.submit "検索"
-    #items
+    #js-post-list
       = render partial: 'post', locals: { post: @posts }
-    = link_to_next_page @posts, 'もっと見る', remote: true, id: 'more_link'
-
-:javascript
-  $('.info_open').on('click',function(){
-    var $info = $(this).next('.search-box');
-    if($info.hasClass('open')){
-      $info.removeClass('open').slideUp(200);
-      $(this).find('.check').text('+');
-    }else{
-      $info.addClass('open').slideDown(200);
-      $(this).find('.check').text('-');
-    }
-  });
+    = link_to_next_page @posts, 'もっと見る', remote: true, id: 'js_more_link'

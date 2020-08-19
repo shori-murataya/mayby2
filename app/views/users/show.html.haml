@@ -1,13 +1,16 @@
 .users-show-background
   .users-show-box
     -# ユーザーの詳細
-    = image_tag @user.image.to_s, {class: "user_image" }
+    -if @user.image?
+      = image_tag @user.image.url, {class: "user_image" }
+    -  else
+      %img.user_image{src: "/assets/default_image.jpg"}
     %p
       = "#{@user.name}さん"
     -# フォローの部分
-    = render partial: 'num_of_follow', locals: { user: @user }
-    - if current_user.id != @user.id
-      = render 'follow_form', locals: { user: @user }
+    #js-follow-form
+      - if current_user.id != @user.id
+        = render 'follow_form', locals: { user: @user }
     - if current_user.id == @user.id
       %p
         = link_to edit_user_registration_path, { class: "icon-link" } do
@@ -34,7 +37,7 @@
       %label.tab-label{ for: "TAB-02" }
         コメント
       .tab-content
-        #user_come_index
+        #js_user_come_index
           = render partial: 'comments/user_come_index' , locals: { comments: @comments }
       -# タブ ユーザーがいいねしたMayby
       %input.tab-switch#TAB-03{ type: "radio", name: "TAB" } 
@@ -50,4 +53,4 @@
                 = like.post.title
                 %span
                   %i.fas.fa-star{style: "color:yellow;"}
-                  = Like.where(post_id: like.post.id).count
+                  = like.post.likes_count

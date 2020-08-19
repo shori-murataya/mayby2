@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_13_080239) do
+ActiveRecord::Schema.define(version: 2020_08_18_085140) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content", null: false
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2020_08_13_080239) do
     t.integer "user_id"
     t.string "num_of_people"
     t.string "play_style"
+    t.integer "comments_count"
+    t.integer "likes_count"
   end
 
   create_table "users", force: :cascade do |t|
