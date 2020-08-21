@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   $('.info_open').on('click',function(){
     var $info = $(this).next('.search-box');
     if($info.hasClass('open')){

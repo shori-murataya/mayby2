@@ -2,8 +2,9 @@ class CommentsController < ApplicationController
   before_action :set_post_comments
 
   def create
-    @comment = current_user.comments.build(comment_params)
-    @comment.save!
+    @comment = @post.comments.build(comment_params)
+    @comment.user = current_user
+    @comment.save
   end
 
   def destroy
@@ -20,6 +21,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:content, :post_id)
+    params.require(:comment).permit(:content)
   end
 end

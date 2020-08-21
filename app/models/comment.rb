@@ -4,5 +4,5 @@ class Comment < ApplicationRecord
   validates :content, { presence: true, length: { maximum:MAXIMUM_LENGTH_CONTENT } }
   belongs_to :user
   belongs_to :post, counter_cache: :comments_count
-  #must_be_ordered
+  must_be_ordered
 end

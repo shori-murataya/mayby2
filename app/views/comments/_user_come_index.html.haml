@@ -2,7 +2,7 @@
   - @user_comments.each do |comment|
     .users-show-layout
       = link_to post_path(comment.post_id) do
-        %p= comment.post.title
-        %p.users-show-maybytitle= comment.content
+        %p.users-show-maybytitle= comment.post.title
+        = simple_format( comment.content )
       - if comment.user_id == current_user.id
         = render partial: "comments/destroy" , locals: { comment: comment }

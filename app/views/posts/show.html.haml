@@ -15,6 +15,7 @@
       .like_box
         %div{id: "js_like_#{@post.id}" }
           = render partial: 'likes/like' , locals: { post: @post} 
+      #js_comment_error
       .comment_form
         = render partial: 'comments/form' , locals: { post:@post,comment:@comment}
     #js_come_index
