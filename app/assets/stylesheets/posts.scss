@@ -61,7 +61,7 @@ input.post-new-btn,.post-edit-btn{
   justify-content: center;
   align-items: center;
 }
-.post-index-box,.post-show-box{
+.post-index-box{
   width: 80%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.788);
@@ -83,11 +83,13 @@ input.post-new-btn,.post-edit-btn{
 }
 .search-box{
   display: none;
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: rgba(255, 255, 255, 0.74);
   padding: 10px;
-  width: 95%;
+  width: 50%;
+  min-width: 320px;
   margin: 0 auto;
   text-align: left;
+  margin-bottom: 10px;
 }
 .search-box p{
   padding: 0;
@@ -167,6 +169,15 @@ a.post-nolike i{
   color: yellow;
 }
 // show
+.post-show-box{
+  width: 80%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.788);
+  position: relative;
+}
+.post-show-top{
+  text-align: center;
+}
 .post-show-box .user_image{
   border-radius: 50%;
   width: 25%;
@@ -181,16 +192,12 @@ a.post-nolike i{
   top: 15px;
 }
 .form_comment{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 95%;
-  margin: 50px auto 10px auto;
-  flex-wrap: wrap;
+  margin: 15px auto 10px auto;
 }
-.comment{
-  height: 25px;
-  width: 250px;
+.js-comment{
+  height: 40px;
+  width: 100%;
 }
 .comment-btn{
   display: inline;
@@ -198,9 +205,10 @@ a.post-nolike i{
 .post-show-box p{
   padding: 10px;
 }
-.comment-h2{
+.js-comment-h2{
   font-weight: normal;
   font-size: 15px;
+  text-align: left;
 }
 .comment-show-box{
   width: 95%;
@@ -209,6 +217,7 @@ a.post-nolike i{
   background-color: rgb(235, 235, 235);
   border:1px solid black ;
   position: relative;
+  word-break: break-all;
 }
 p.comment-user{
 padding: 0;
@@ -218,6 +227,7 @@ text-align: left;
 p.comment-content{
 padding: 0;
 text-align: left;
+word-break: break-all;
 }
 .comment-delete-icon{
 position: absolute;

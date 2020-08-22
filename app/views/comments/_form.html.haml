@@ -1,8 +1,5 @@
 .form_comment
-  %h3.comment-h2= "コメント#{ @post.comments.where(post_id: @post.id).count }件"
-  = form_with model: @comment, url: post_comments_path(post_id: @post.id) do |f|
-    = f.hidden_field :post_id, :value => @post.id
-    = f.text_field :content, { class: "comment" }
+  = form_with model: [@post,@comment] do |f|
+    = f.text_area :content, { class: "js-comment" }
     = f.submit "コメント", { class: "comment-btn" }
-#error_message
-  = render partial: 'comments/error_message'
+  %h2.js-comment-h2= "コメント#{ @post.comments_count }件"

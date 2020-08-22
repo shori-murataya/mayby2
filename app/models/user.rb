@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  PER_USER_AT_INDEX = 2
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,4 +11,5 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  must_be_ordered
 end
