@@ -1,0 +1,5 @@
+= render partial: 'num_of_follow', locals: { user: @user }
+- if current_user.following? @user
+  = link_to "フォロー外す", unfollow_user_path(@user), { method: "post", remote: true, class: "unfollow-btn" }
+- else
+  = link_to "フォローする", follow_user_path(@user), { method: "post", remote: true, class: "follow-btn" }

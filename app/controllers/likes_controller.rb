@@ -1,21 +1,23 @@
 class LikesController < ApplicationController
-
+  before_action :set_post
+ 
   def create
-    @post = Post.find(params[:post_id])
-    @like = Like.new(user_id: @current_user.id, post_id: params[:post_id])
-    @like.save
-    #redirect_to("/posts/#{params[:post_id]}/show")
+    @like = @post.likes.build(user_id: current_user.id)
+    @like.save!
   end
 
   def destroy
+    @like = @post.likes.find_by(user_id: current_user.id)
+    @like.destroy!
+  end
+
+  def show
+    @likes = @post.likes.order(created_at: :desc)
+  end
+
+  private
+
+  def set_post
     @post = Post.find(params[:post_id])
-    @like = Like.find_by(user_id: @current_user.id, post_id: params[:post_id])
-    @like.destroy
-    #redirect_to("/posts/#{params[:post_id]}/show")
   end
-
-  def index
-    @likes = Like.where(post_id:params[:post_id])
-  end
-
 end

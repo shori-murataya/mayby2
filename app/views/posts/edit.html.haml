@@ -1,0 +1,23 @@
+.post-edit-background
+  .post-edit-formbox
+    %h1.post-edit-mayby 編集ページ
+    - @post.errors.full_messages.each do |message|
+      %p{ style: "color:red;" } >= message
+    = form_with model:@post, local: true do |f|
+      %p Maybyの名前
+      = f.text_field :title, { class: "post-edit-name" }
+      %p 遊び方
+      = f.text_area :howto, { class: "post-edit-howto" }
+      .post-new-radio
+        %span 参加人数　　
+        = f.radio_button :num_of_people,  "一人"
+        一人
+        = f.radio_button :num_of_people,  "二人〜"
+        二人〜
+      .post-new-radio
+        %span 雰囲気　
+        = f.radio_button :play_style,  "もくもく"
+        もくもく
+        = f.radio_button :play_style,  "わいわい"
+        わいわい
+      = f.submit "更新", {class: "post-edit-btn"}

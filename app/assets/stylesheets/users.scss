@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// new //login
+// new //login //update
 .user-new-background,.user-login-background,.user-edit-background{
   background-image: url("/background/new.jpg");
   background-size: cover;
@@ -32,19 +32,32 @@ input.user-new-name,.user-new-email,
   font-size: 20px;
   width: 40%;
 }
-input.user-new-btn,.user-login-btn,.user-edit-btn{
+input.user-new-btn,.user-login-btn,.user-edit-btn,.update-btn{
   display: block;
   padding: 5px;
   margin: 10px auto;
   background-color: rgba(231, 250, 200, 0.836);
+  cursor: pointer;
+  }
+  .delete{
+    display: block;
+    color: white;
+    padding: 5px;
+    margin: 10px auto;
+    background-color: rgba(236, 57, 57, 0.836);
+    cursor: pointer;
+  }
+  .option{
+    padding-top: 20px;
   }
 
 // index
 .users-index-background,.users-show-background,.users-edit-background{
   background-image: url("/background/wall-416060_1280.jpg");
+  background-size: cover;
   width: 100%;
   min-height: 100vh;
-  height: calc(100vh - 40px);
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,12 +120,39 @@ a.users-delite:hover{
   max-width: 210px;
   max-width: 210px;
 }
+.follow-btn{
+  display: inline-block;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: deepskyblue;
+  transition: all .2s;
+}
+.follow-btn:hover{
+  background-color: rgba(0, 162, 255, 0.877);
+}
+.unfollow-btn{
+  display: inline-block;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color:  deepskyblue;
+  transition: all .2s;
+}
+.unfollow-btn:hover{
+  background-color: deepskyblue;
+}
+
+
 .users-show-layout{
   padding: 10px;
   border-top:solid 1px black;
+  position: relative;
+  word-break: break-all;
 }
 .user-show-users-box{
-  
   border-right:solid 1px black;
   border-left:solid 1px black;
   border-bottom: solid 1px black;

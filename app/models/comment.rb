@@ -1,18 +1,8 @@
 class Comment < ApplicationRecord
-  validates :content, {presence: true, length: {maximum:140}}
-  
+  MAXIMUM_LENGTH_CONTENT = 140
+  PER_COMMENT_AT_SHOW = 5
+  validates :content, { presence: true, length: { maximum:MAXIMUM_LENGTH_CONTENT } }
   belongs_to :user
-  belongs_to :post
-
-  default_scope -> { order(created_at: :desc) }
-  paginates_per 5  
-
-def comuser
-  return User.find_by(id: self.user_id)
-end
-
-def compost
-  return Post.find_by(id: self.post_id)
-end
-
+  belongs_to :post, counter_cache: :comments_count
+  must_be_ordered
 end

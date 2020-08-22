@@ -1,82 +1,56 @@
 class PostsController < ApplicationController
-  before_action :access_right_post,{only:[:edit]}
-  before_action :no_login_post,{only:[:new]}
-
-  def access_right_post
-    @post = Post.find_by(id: params[:id])
-    if @post.user_id != @current_user.id
-      flash[:notice] = "権限がありません"
-      redirect_to("/posts/index")
-    end
-  end
-
-  def no_login_post
-      if @current_user == nil
-        flash[:notice] = "権限がありません"
-        redirect_to("/")
-      end
-  end
-
-  def show
-    @post = Post.find_by(id: params[:id])
-    @posts = Post.where(id: params[:id])
-    @user = User.find_by(id: @post.user_id)
-    @comment = Comment.new
-    @comments = Comment.where(post_id: params[:id]).page(params[:page]).per(2)
-    @likes = Like.where(post_id: params[:id]).order(created_at: :desc).limit(1)
-    @like = Like.where(post_id:params[:id])
-  end 
-
+  before_action :authenticate_user!
+  before_action :set_post, only: [:edit, :update, :destroy ]
+  
   def index
     @q = Post.ransack(params[:q])
     @q.build_sort if @q.sorts.empty?
-    @posts = @q.result.page(params[:page]).per(2)
+    @posts = @q.result.page(params[:page]).per(Post::PER_POST_AT_INDEX).order(created_at: :desc)
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @comment = current_user.comments.build
+    @comments = @post.comments.page(params[:page]).per(Comment::PER_COMMENT_AT_SHOW).order(created_at: :desc)
+  end 
+
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.new(
-      name: params[:name],
-      howto: params[:howto],
-      user_id: @current_user.id,
-      count: params[:count],
-      difficulty: params[:difficulty]
-      )
+    @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to("/posts/index")
+      redirect_to posts_path
     else
-      render("posts/new")
+      render :new
     end
   end
 
   def edit
-    @post = Post.find_by(id: params[:id])
   end
 
   def update
-    @post = Post.find_by(id: params[:id])
-    @post.name = params[:name]
-    @post.howto = params[:howto]
-    @post.count = params[:count]
-    @post.difficulty = params[:difficulty]
-    if @post.save
-      flash[:notice] = "編集完了"
-      redirect_to("/posts/index")
+    if @post.update(post_params)
+      redirect_to posts_path
     else
-      flash[:notice] = "編集失敗"
-      render("posts/edit")
+      render :edit 
     end
   end
 
   def destroy
-    @post = Post.find_by(id: params[:id])
-    @post.destroy
-    redirect_to("/posts/index")
+    @post.destroy!
+    redirect_to posts_path
   end
 
+private
 
+  def post_params
+    params.require(:post).permit(:title, :howto, :num_of_people, :play_style)
+  end
+
+  def set_post
+    @post = current_user.posts.find(params[:id])
+  end
 
 end

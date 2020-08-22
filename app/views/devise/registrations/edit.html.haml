@@ -1,0 +1,36 @@
+.user-edit-background
+  .users-index-box
+    %h1.user-edit-mayby 編集ページ
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = render "devise/shared/error_messages", resource: resource 
+      .field
+        %p= f.label :name
+        = f.text_field :name, autofocus: true, autocomplete: "name"
+      .field
+        %p= f.label :email
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %div= "Currently waiting confirmation for: #{resource.unconfirmed_email}"
+      .field
+        %p
+          = f.label :password
+          (変更しない場合は空欄にして下さい。)
+        = f.password_field :password, autocomplete: "new-password"
+        %br
+        - if @minimum_password_length
+          %span= "最低#{@minimum_password_length}文字"
+      .field
+        %p= f.label :password_confirmation
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+      .field
+        %p= f.label :image
+        = f.file_field :image
+      .field
+        %p
+        = f.label :current_password
+        (適用するには現在のパスワードが必要です。)
+      = f.password_field :current_password, autocomplete: "current-password"
+      .action
+        = f.submit "更新", {class: "update-btn" }
+    %p= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "アカウントを消去します"}, class: :"delete", method: :"delete"
+    = link_to "戻る", :back

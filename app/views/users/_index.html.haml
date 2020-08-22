@@ -1,0 +1,13 @@
+- @users.each do |user|
+  .users-index-lists
+    - if user.image?
+      = image_tag user.image.url,{class: "user_image"}
+    - else
+      %img.user_image{src: "/assets/default_image.jpg"}
+    %p.post= user.name
+    %p.post= user.email
+    %p.post
+      = render partial: 'num_of_follow', locals: { user: user}
+    = link_to "詳細", user_path(user), {class: "users-link"}
+    - if current_user.id == user.id
+      = link_to "編集", edit_user_registration_path, {class: "users-link"}

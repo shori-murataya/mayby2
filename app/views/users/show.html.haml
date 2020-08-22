@@ -1,0 +1,56 @@
+.users-show-background
+  .users-show-box
+    -# ユーザーの詳細
+    -if @user.image?
+      = image_tag @user.image.url, {class: "user_image" }
+    -  else
+      %img.user_image{src: "/assets/default_image.jpg"}
+    %p
+      = "#{@user.name}さん"
+    -# フォローの部分
+    #js-follow-form
+      - if current_user.id != @user.id
+        = render 'follow_form', locals: { user: @user }
+    - if current_user.id == @user.id
+      %p
+        = link_to edit_user_registration_path, { class: "icon-link" } do
+          %i.fas.fa-cog
+    -# タブ ユーザーが投稿したMayby
+    .tab-wrap
+      %input.tab-switch#TAB-01{ type: "radio", name: "TAB", checked: "checked" } 
+      %label.tab-label{ for: "TAB-01" }
+        投稿したMayby
+      .tab-content
+        .user-show-users-box
+          - @user.posts.each do |post|
+            .users-show-layout
+              = link_to post_path(post) do
+                %h3.users-show-maybytitle= "〜#{post.title}〜"
+                %p.users-show-contents= post.howto
+              - if current_user.id == @user.id
+                %p.edit-icon
+                  = link_to edit_post_path(post), { class: "icon-link" } do
+                    %i.fas.fa-edit
+
+      -#  タブ ユーザーがコメントしたMayby
+      %input.tab-switch#TAB-02{ type: "radio", name: "TAB" } 
+      %label.tab-label{ for: "TAB-02" }
+        コメント
+      .tab-content
+        #js_user_come_index
+          = render partial: 'comments/user_come_index' , locals: { comments: @comments }
+      -# タブ ユーザーがいいねしたMayby
+      %input.tab-switch#TAB-03{ type: "radio", name: "TAB" } 
+      %label.tab-label{ for: "TAB-03" }
+        %i.fas.fa-star
+        %span 
+          Mayby
+      .tab-content
+        - @user.likes.each do |like|
+          .users-show-layout
+            = link_to post_path(like.post_id) do
+              %h3.users-show-maybytitle
+                = like.post.title
+                %span
+                  %i.fas.fa-star{style: "color:yellow;"}
+                  = like.post.likes_count
