@@ -11,5 +11,5 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  must_be_ordered
+  #must_be_ordered
 end
