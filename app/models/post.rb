@@ -12,4 +12,11 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   #must_be_ordered
+  def created_user?(user)
+    self.user_id == user.id
+  end
+
+  def liking_user(user)
+    user.likes.find_by(post_id: self.id)
+  end
 end

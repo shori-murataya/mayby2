@@ -1,7 +1,7 @@
 .posts-show-background
   .post-show-box
     .post-show-top
-      - if current_user.id == @post.user_id
+      - if @post.created_user?(current_user)
         - link_to edit_post_path(@post), { class: "post-edit-icon" } do
           %i.fas.fa-cog
       %h1= @post.title

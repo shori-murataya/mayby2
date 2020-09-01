@@ -5,20 +5,22 @@
       - @post.errors.full_messages.each do |message|
         %p{ style: "color:red;" }= message
     = form_with model: @post, local: true do |f|
-      %p Maybyの名前
+      = f.label :title, {class: "login_labels"}
       = f.text_field :title, {class: "post-new-name"}
-      %p 遊び方
+      = f.label :howto, {class: "login_labels"}
       = f.text_area :howto, {class: "post-new-howto"}
       .post-new-radio
-        %span 参加人数　　
-        = f.radio_button :num_of_people,  "一人"
-        一人
-        = f.radio_button :num_of_people,  "二人〜"
-        二人〜
+        = f.label :num_of_people
+        = f.radio_button :num_of_people, "一人"
+        = f.label :num_of_people, "一人", {value: :"一人"}
+        = f.radio_button :num_of_people, "二人〜"
+        = f.label :num_of_people, "二人〜", {value: :"二人〜"}
+        
       .post-new-radio
-        %span 雰囲気　
+        = f.label :play_style
         = f.radio_button :play_style,  "もくもく"
-        もくもく
+        = f.label :play_style, "もくもく", {value: :"もくもく"}
         = f.radio_button :play_style,  "わいわい"
-        わいわい
+        = f.label :play_style, "わいわい", {value: :"わいわい"}
+        
       = f.submit "Mayby作成", {class: "post-new-btn"}

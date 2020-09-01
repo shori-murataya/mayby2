@@ -25,6 +25,10 @@ h1.user-new-mayby,.user-login-mayby,.user-edit-mayby{
 form p{
   padding: 10px;
 }
+.login_labels{
+  display: block;
+  padding: 10px;
+}
 input.user-new-name,.user-new-email,
 .user-new-pass,.user-login-email,
 .user-login-pass,.user-edit-name,

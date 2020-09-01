@@ -18,10 +18,10 @@
       .details
         %p.post.waimoku= "#{post.num_of_people}/#{post.play_style}"
         %p.post.times= "投稿:#{l post.created_at}"
-        - if current_user.id == post.user_id
+        - if post.created_user?(current_user)
           = link_to edit_post_path(post), {class: "edit-icon"} do
-            %i.fas.fa-edit
+            %i.fas.fa-edit#post-edit
           = link_to post_path(post),{ method: "delete", class:"delite-icon",data: { confirm:"削除しますか？" } } do
-            %i.far.fa-trash-alt
+            %i.far.fa-trash-alt#post-delete
         %div{ id: "js_like_#{post.id}" }
           = render partial: 'likes/like' , locals: { post: post}

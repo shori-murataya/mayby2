@@ -9,5 +9,5 @@
     %p.post
       = render partial: 'num_of_follow', locals: { user: user}
     = link_to "詳細", user_path(user), {class: "users-link"}
-    - if current_user.id == user.id
+    - if user.current_user?(current_user)
       = link_to "編集", edit_user_registration_path, {class: "users-link"}

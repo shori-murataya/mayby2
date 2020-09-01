@@ -1,52 +1,61 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  #名前、メールアドレス、パスワードがあれば有効
-  it "valid with a name, email, and password" do
-    user = FactoryBot.create(:user)
-    expect(user).to be_valid
+
+  describe "バリデーションの検証" do
+
+    let(:user) { FactoryBot.build(:user) }
+
+    it "名前、メールアドレス、パスワードがあれば有効であること" do
+      user.save!
+      expect(user).to be_valid
+    end
+  
+    it "名前なしは無効であること" do
+      user.name = nil
+      user.valid?
+      expect(user.errors[:name]).to include("を入力してください")
+    end
+  
+    it "メールアドレスなしは無効であること" do
+      user.email = nil
+      user.valid?
+      expect(user.errors[:email]).to include("が入力されていません。")
+    end
+  
+    it "パスワードなしは無効であること" do
+      user.password = nil
+      user.valid?
+      expect(user.errors[:password]).to include("が入力されていません。")
+    end
+  
+    it "メールアドレスの重複は無効であること" do
+      FactoryBot.create(:user, email: "taro@example.com")
+      user.email = "taro@example.com"
+      user.valid?
+      expect(user.errors[:email]).to include("は既に使用されています。")
+    end
+  
+    it "パスワードが６文字未満は無効であること" do
+      user.password = "12345"
+      user.valid?
+      expect(user.errors[:password]).to include("は6文字以上に設定して下さい。")
+    end
   end
 
-  #無効なユーザー
-  describe "invalid users" do
-    before do
-      @user = FactoryBot.build(:user)
+  describe "#current_user?" do
+    let(:user) { FactoryBot.create(:user) }
+    let(:other_user) { FactoryBot.create(:user) }
+    
+    context "ログインユーザーと同じユーザーの場合" do
+      it "trueを返すこと" do
+        expect(user.current_user?(user)).to eq true 
+      end
     end
-
-    #名前がなければ無効
-    it "invalid without a name" do
-      @user.name = nil
-      @user.valid?
-      expect(@user.errors[:name]).to include("を入力してください")
-    end
-
-    #メールアドレスがなければ無効
-    it "invalid without a email" do
-      @user.email = nil
-      @user.valid?
-      expect(@user.errors[:email]).to include("が入力されていません。")
-    end
-
-    #パスワードがなければ無効
-    it "invalid without a password" do
-      @user.password = nil
-      @user.valid?
-      expect(@user.errors[:password]).to include("が入力されていません。")
-    end
-
-    #重複したメールアドレスは無効
-    it "invalid duplicated email address" do
-      FactoryBot.create(:user, email: "taro@example.com")
-      @user.email = "taro@example.com"
-      @user.valid?
-      expect(@user.errors[:email]).to include("は既に使用されています。")
-    end
-
-    #パスワードは６文字以上でないと無効
-    it "invalid password under 6 character" do
-      @user.password = "12345"
-      @user.valid?
-      expect(@user.errors[:password]).to include("は6文字以上に設定して下さい。")
+    context "ログインユーザーと同じユーザーではない場合" do
+      it "falseを返すこと" do
+        expect(user.current_user?(other_user)).to eq false 
+      end
     end
   end
 end

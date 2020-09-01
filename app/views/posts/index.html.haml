@@ -31,4 +31,4 @@
           = f.submit "検索"
     #js-post-list
       = render partial: 'post', locals: { post: @posts }
-    = link_to_next_page @posts, 'もっと見る', remote: true, id: 'js_more_link'
+    = link_to_next_page @posts, 'もっと見る', remote: true, id: 'js-more-link'
