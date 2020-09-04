@@ -18,7 +18,7 @@
     -# タブ ユーザーが投稿したMayby
     .tab-wrap
       %input.tab-switch#TAB-01{ type: "radio", name: "TAB", checked: "checked" } 
-      %label.tab-label{ for: "TAB-01" }
+      %label#post-tab.tab-label{ for: "TAB-01" }
         投稿したMayby
       .tab-content
         .user-show-users-box
@@ -30,18 +30,18 @@
               - if @user.current_user?(current_user)
                 %p.edit-icon
                   = link_to edit_post_path(post), { class: "icon-link" } do
-                    %i.fas.fa-edit
+                    %i.fas.fa-edit#post-edit
 
       -#  タブ ユーザーがコメントしたMayby
       %input.tab-switch#TAB-02{ type: "radio", name: "TAB" } 
-      %label.tab-label{ for: "TAB-02" }
+      %label#comment-tab.tab-label{ for: "TAB-02" }
         コメント
       .tab-content
         #js_user_come_index
           = render partial: 'comments/user_come_index' , locals: { comments: @comments }
       -# タブ ユーザーがいいねしたMayby
       %input.tab-switch#TAB-03{ type: "radio", name: "TAB" } 
-      %label.tab-label{ for: "TAB-03" }
+      %label#like-tab.tab-label{ for: "TAB-03" }
         %i.fas.fa-star
         %span 
           Mayby

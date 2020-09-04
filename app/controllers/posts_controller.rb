@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :destroy ]
-  
   def index
     @q = Post.ransack(params[:q])
     @q.build_sort if @q.sorts.empty?
@@ -20,6 +19,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
+      flash[:notice] = "投稿しました"
       redirect_to posts_path
     else
       render :new
@@ -31,6 +31,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
+      flash[:notice] = "変更を保存しました"
       redirect_to posts_path
     else
       render :edit 
@@ -39,6 +40,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy!
+    flash[:notice] = "投稿を削除しました"
     redirect_to posts_path
   end
 
@@ -51,5 +53,4 @@ private
   def set_post
     @post = current_user.posts.find(params[:id])
   end
-
 end

@@ -6,11 +6,9 @@ RSpec.describe Comment, type: :model do
 
     let(:user) { FactoryBot.create(:user) }
     let(:post) { FactoryBot.create(:post) }
-    let(:comment) { FactoryBot.build(:comment) }
+    let(:comment) { FactoryBot.build(:comment, user: user, post: post) }
     
     it "有効なコメントであること" do
-      comment.user_id = user.id
-      comment.post_id = post.id
       comment.save!
       expect(comment).to be_valid
     end
