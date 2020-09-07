@@ -65,7 +65,7 @@ RSpec.configure do |config|
 
   #デバイスヘルパー関連
   config.include Devise::Test::IntegrationHelpers, type: :request
-  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::IntegrationHelpers, type: :system
   
   #DatabaseCleaner
   config.before(:suite) do

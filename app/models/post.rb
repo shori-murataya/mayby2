@@ -16,7 +16,7 @@ class Post < ApplicationRecord
     self.user_id == user.id
   end
 
-  def liking_user(user)
+  def liking_user?(user)
     user.likes.find_by(post_id: self.id)
   end
 end

@@ -42,23 +42,21 @@ input.user-new-btn,.user-login-btn,.user-edit-btn,.update-btn{
   margin: 10px auto;
   background-color: rgba(231, 250, 200, 0.836);
   cursor: pointer;
-  }
-  .delete{
-    display: block;
-    color: white;
-    padding: 5px;
-    margin: 10px auto;
-    background-color: rgba(236, 57, 57, 0.836);
-    cursor: pointer;
-  }
-  .option{
-    padding-top: 20px;
-  }
-
+}
+.delete{
+  display: block;
+  color: white;
+  padding: 5px;
+  margin: 10px auto;
+  background-color: rgba(236, 57, 57, 0.836);
+  cursor: pointer;
+}
+.option{
+  padding-top: 20px;
+}
 // index
 .users-index-background,.users-show-background,.users-edit-background{
   background-image: url("/background/wall-416060_1280.jpg");
-  background-size: cover;
   width: 100%;
   min-height: 100vh;
   height: 100%;
@@ -114,7 +112,6 @@ a.users-delite{
 a.users-delite:hover{
   background-color: rgb(255, 87, 87);
 }
-
 // show
 .users-show-box .user_image{
   border-radius: 50%;
@@ -148,7 +145,6 @@ a.users-delite:hover{
 .unfollow-btn:hover{
   background-color: deepskyblue;
 }
-
 
 .users-show-layout{
   padding: 10px;
@@ -220,10 +216,6 @@ a.users-delite:hover{
   display: none;
 }
 
-@media(max-width:1000px){
-
-}
-
 @media(max-width:674px){
   .users-show-box{
     width: 100%;
@@ -232,9 +224,9 @@ a.users-delite:hover{
     font-size: 15px;
   }
   input.user-new-name,.user-new-email,
-.user-new-pass,.user-login-email,
-.user-login-pass,.user-edit-name,
-.user-edit-email{
-  width: 90%;
-}
+  .user-new-pass,.user-login-email,
+  .user-login-pass,.user-edit-name,
+  .user-edit-email{
+    width: 90%;
+  }
 }

@@ -9,7 +9,7 @@
         - if @post.user.image?
           = image_tag @post.user.image.url, { class: "user_image" }
         - else
-          %img.user_image{src: "/assets/default_image.jpg"}
+          %img.user_image{src: "/assets/no_image.jpg"}
       %p= "#{@post.user.name}さんの発案したMayby"
       %p= "#{@post.num_of_people}で#{@post.play_style}遊ぶ人に向いているよ！"
       .like_box

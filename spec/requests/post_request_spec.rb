@@ -35,13 +35,13 @@ RSpec.describe 'Posts', type: :request do
     context 'ログインユーザーの場合' do     
       it '正常にレスポンスを返すこと' do     
         sign_in user
-        get post_path post.id
+        get post_path post
         expect(response).to be_success
       end
     end
     context 'ゲストユーザーの場合' do
       it 'ログイン画面へリダイレクトすること' do
-        get post_path post.id
+        get post_path post
         expect(response).to redirect_to "/users/sign_in"
       end
     end
@@ -65,6 +65,7 @@ RSpec.describe 'Posts', type: :request do
         expect{
           post posts_path, params: { post: post_params }
         }.to_not change(user.posts, :count)
+        expect(response).to have_http_status(200)
       end
     end
     context 'ゲストユーザーの場合' do
@@ -75,6 +76,7 @@ RSpec.describe 'Posts', type: :request do
       end
     end
   end
+
   describe '#update' do
     context '認可されたユーザーの場合' do
       let(:user) { FactoryBot.create(:user) }
@@ -86,19 +88,20 @@ RSpec.describe 'Posts', type: :request do
         expect(post.reload.title).to eq '更新テスト'
       end
     end
-    # ActiveRecord::RecordNotFound なので、ポスト編集の権限メソッドが必要？
-    # context '認可されていないユーザーの場合' do
-    #   let(:user) { FactoryBot.create(:user) }
-    #   let(:other_user) { FactoryBot.create(:user) }
-    #   let(:post) { FactoryBot.create(:post, user: other_user, title: '更新テスト') }
-    #   it 'ポストを更新できないこと' do
-    #     sign_in user
-    #     post_params = FactoryBot.attributes_for(:post, title: '変更できない')
-    #     put post_path post.id, params: { post: post_params }
-    #     expect(post.reload.title).to eq '更新テスト'
-    #   end
-    # end
+    context '認可されていないユーザーの場合' do
+      let(:user) { FactoryBot.create(:user) }
+      let(:other_user) { FactoryBot.create(:user) }
+      let(:post) { FactoryBot.create(:post, user: other_user, title: '更新テスト') }
+      it 'ポストを更新できないこと' do
+        sign_in user
+        post_params = FactoryBot.attributes_for(:post, title: '変更できない')
+        put post_path post.id, params: { post: post_params }
+        expect(post.reload.title).to eq '更新テスト'
+        expect(response).to have_http_status(302)
+      end
+    end
   end
+  
   describe '#destroy' do
     context '認可されたユーザーの場合' do
       let(:user) { FactoryBot.create(:user) }
@@ -108,6 +111,16 @@ RSpec.describe 'Posts', type: :request do
         expect{
           delete post_path post.id 
       }.to change(user.posts, :count).by(0)
+      end
+    end
+    context '認可されていないユーザーの場合' do
+      let(:user) { FactoryBot.create(:user) }
+      let(:other_user) { FactoryBot.create(:user) }
+      let(:post) { FactoryBot.create(:post, user: other_user) }
+      it 'ポストを削除できないこと' do
+        sign_in user
+        delete post_path post.id
+        expect(response).to redirect_to '/posts' 
       end
     end
   end

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :destroy ]
+  before_action :require_post_created_user!, only: [:edit, :update, :destroy]
   def index
     @q = Post.ransack(params[:q])
     @q.build_sort if @q.sorts.empty?
@@ -51,6 +52,12 @@ private
   end
 
   def set_post
-    @post = current_user.posts.find(params[:id])
+    @post = current_user.posts.find(params[:id]) rescue nil
+  end
+
+  def require_post_created_user!
+    if @post == nil 
+      redirect_to posts_path, notice: '権限がありません'
+    end
   end
 end

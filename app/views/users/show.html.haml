@@ -4,7 +4,7 @@
     -if @user.image?
       = image_tag @user.image.url, {class: "user_image" }
     -  else
-      %img.user_image{src: "/assets/default_image.jpg"}
+      %img.user_image{src: "/assets/no_image.jpg"}
     %p
       = "#{@user.name}さん"
     -# フォローの部分
@@ -18,7 +18,7 @@
     -# タブ ユーザーが投稿したMayby
     .tab-wrap
       %input.tab-switch#TAB-01{ type: "radio", name: "TAB", checked: "checked" } 
-      %label#post-tab.tab-label{ for: "TAB-01" }
+      %label.tab-label.rspec_post-tab{ for: "TAB-01" }
         投稿したMayby
       .tab-content
         .user-show-users-box
@@ -30,11 +30,11 @@
               - if @user.current_user?(current_user)
                 %p.edit-icon
                   = link_to edit_post_path(post), { class: "icon-link" } do
-                    %i.fas.fa-edit#post-edit
+                    %i.fas.fa-edit.rspec_post-edit
 
       -#  タブ ユーザーがコメントしたMayby
       %input.tab-switch#TAB-02{ type: "radio", name: "TAB" } 
-      %label#comment-tab.tab-label{ for: "TAB-02" }
+      %label.rspec_comment-tab.tab-label{ for: "TAB-02" }
         コメント
       .tab-content
         #js_user_come_index

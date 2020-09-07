@@ -7,6 +7,7 @@
     .new-box
       - if user_signed_in?
         %p.new-btn= link_to "Maybyをつくろう", new_post_path
+        %p.new-btn.rspec_session-destroy= link_to "ログアウト", destroy_user_session_path, { method:"delete" }
       - else
         %p.new-btn= link_to "新規登録", new_user_registration_path
         %p.new-btn= link_to "ログイン", new_user_session_path

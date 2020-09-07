@@ -58,4 +58,18 @@ RSpec.describe User, type: :model do
       end
     end
   end
+  describe "#followable?" do
+    let(:user) { FactoryBot.create(:user) }
+    let(:other_user) { FactoryBot.create(:user) }
+    context "ログインユーザーがフォロー可能なユーザーの場合" do
+      it "trueを返すこと" do
+        expect(other_user.followable?(user)).to eq true
+      end
+    end
+    context "ログインユーザーがフォロー不可能なユーザーの場合" do
+      it "falseを返すこと" do
+        expect(user.followable?(user)).to eq false
+      end
+    end
+  end
 end
