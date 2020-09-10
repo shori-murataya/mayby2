@@ -52,11 +52,11 @@ private
   end
 
   def set_post
-    @post = current_user.posts.find(params[:id]) rescue nil
+    @post = current_user.posts.find_by(id: params[:id]) 
   end
 
   def require_post_created_user!
-    if @post == nil 
+    if @post.nil? 
       redirect_to posts_path, notice: '権限がありません'
     end
   end
