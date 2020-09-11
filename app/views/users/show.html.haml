@@ -4,21 +4,21 @@
     -if @user.image?
       = image_tag @user.image.url, {class: "user_image" }
     -  else
-      %img.user_image{src: "/assets/default_image.jpg"}
+      %img.user_image{src: "/assets/no_image.jpg"}
     %p
       = "#{@user.name}さん"
     -# フォローの部分
     #js-follow-form
-      - if current_user.id != @user.id
+      - if @user.followable?(current_user)
         = render 'follow_form', locals: { user: @user }
-    - if current_user.id == @user.id
+    - if @user.current_user?(current_user)
       %p
         = link_to edit_user_registration_path, { class: "icon-link" } do
           %i.fas.fa-cog
     -# タブ ユーザーが投稿したMayby
     .tab-wrap
       %input.tab-switch#TAB-01{ type: "radio", name: "TAB", checked: "checked" } 
-      %label.tab-label{ for: "TAB-01" }
+      %label.tab-label.rspec_post-tab{ for: "TAB-01" }
         投稿したMayby
       .tab-content
         .user-show-users-box
@@ -27,21 +27,21 @@
               = link_to post_path(post) do
                 %h3.users-show-maybytitle= "〜#{post.title}〜"
                 %p.users-show-contents= post.howto
-              - if current_user.id == @user.id
+              - if @user.current_user?(current_user)
                 %p.edit-icon
                   = link_to edit_post_path(post), { class: "icon-link" } do
-                    %i.fas.fa-edit
+                    %i.fas.fa-edit.rspec_post-edit
 
       -#  タブ ユーザーがコメントしたMayby
       %input.tab-switch#TAB-02{ type: "radio", name: "TAB" } 
-      %label.tab-label{ for: "TAB-02" }
+      %label.rspec_comment-tab.tab-label{ for: "TAB-02" }
         コメント
       .tab-content
         #js_user_come_index
           = render partial: 'comments/user_come_index' , locals: { comments: @comments }
       -# タブ ユーザーがいいねしたMayby
       %input.tab-switch#TAB-03{ type: "radio", name: "TAB" } 
-      %label.tab-label{ for: "TAB-03" }
+      %label#like-tab.tab-label{ for: "TAB-03" }
         %i.fas.fa-star
         %span 
           Mayby

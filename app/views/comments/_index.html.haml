@@ -3,5 +3,5 @@
     = link_to user_path(comment.user) do
       %p.comment-user= "#{comment.user.name}さん"
       = simple_format( comment.content )
-    - if current_user.id == comment.user.id
+    - if comment.comment_user?(current_user)
       = render partial: 'comments/destroy', locals: {comment: comment}

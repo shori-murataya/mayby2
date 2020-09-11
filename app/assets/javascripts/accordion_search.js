@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function(){
-  $('.info_open').on('click',function(){
-    var $info = $(this).next('.search-box');
+  $('.js_open').on('click',function(){
+    const $info = $(this).next('.js_search-box');
     if($info.hasClass('open')){
       $info.removeClass('open').slideUp(200);
       $(this).find('.check').text('+');

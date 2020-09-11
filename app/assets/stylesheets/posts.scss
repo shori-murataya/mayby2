@@ -53,7 +53,6 @@ input.post-new-btn,.post-edit-btn{
 // index
 .posts-index-background,.posts-show-background{
   background-image: url("/background/marbles-1659398_1280.jpg");
-  background-size: cover;
   width: 100%;
   min-height: 100vh;
   height: 100%;
@@ -76,10 +75,8 @@ input.post-new-btn,.post-edit-btn{
 }
 /* アコーディオン 検索 */
 .info_open{
+  display: inline;
   cursor: pointer;
-}
-.info_open h3{
-  display: inline-block;
 }
 .search-box{
   display: none;
@@ -235,18 +232,16 @@ bottom: 0;
 right: 5px;
 }
 
-
 @media(max-width:674px){
-.post-index-box, .post-show-box {
-    width: 95%;
-}
-input.post-new-name,.post-edit-name,.post-edit-email{
-  width: 90%;
-}
-textarea.post-new-howto,.post-edit-howto{
-  width: 90%;
-}
-
+  .post-index-box, .post-show-box {
+      width: 95%;
+  }
+  input.post-new-name,.post-edit-name,.post-edit-email{
+    width: 90%;
+  }
+  textarea.post-new-howto,.post-edit-howto{
+    width: 90%;
+  }
 }
 
 
