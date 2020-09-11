@@ -3,10 +3,10 @@
     %h1.user-login-mayby ログイン
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field
-        %p= f.label :email
+        = f.label :email, {class: "login_labels"}
         = f.email_field :email, autofocus: true, autocomplete: "email"
       .field
-        %p= f.label :password
+        = f.label :password, {class: "login_labels"}
         = f.password_field :password, autocomplete: "current-password"
       - if devise_mapping.rememberable?
         .field

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_user, only: [:show, :follow, :unfollow, :follow_list, :follower_list]
 
   def index
@@ -31,5 +30,6 @@ private
   def set_user
     @user = User.find(params[:id])
   end
+
   
 end

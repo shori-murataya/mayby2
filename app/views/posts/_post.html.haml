@@ -6,7 +6,7 @@
           - if post.user.image?
             = image_tag post.user.image.url, { class: "mini_user_image" }
           - else
-            %img.mini_user_image{src: "/assets/default_image.jpg"}
+            %img.mini_user_image{src: "/assets/no_image.jpg"}
           %p.profile_name= "#{post.user.name}さん"
       = link_to post_path(post) do
         %h3= post.title
@@ -18,10 +18,10 @@
       .details
         %p.post.waimoku= "#{post.num_of_people}/#{post.play_style}"
         %p.post.times= "投稿:#{l post.created_at}"
-        - if current_user.id == post.user_id
+        - if post.created_user?(current_user)
           = link_to edit_post_path(post), {class: "edit-icon"} do
-            %i.fas.fa-edit
+            %i.fas.fa-edit.rspec_post-edit
           = link_to post_path(post),{ method: "delete", class:"delite-icon",data: { confirm:"削除しますか？" } } do
-            %i.far.fa-trash-alt
+            %i.far.fa-trash-alt.rsepc_post-delete
         %div{ id: "js_like_#{post.id}" }
           = render partial: 'likes/like' , locals: { post: post}

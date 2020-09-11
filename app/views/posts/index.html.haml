@@ -1,12 +1,10 @@
 .posts-index-background
   .post-index-box
     %h1.post-index-title Mayby一覧
-    .info_open
-      .content1
-        %h3
-          %span.check + 
-          探す
-    .search-box
+    .js_open.info_open
+      %span.check + 
+      探す
+    .search-box.js_search-box
       = search_form_for @q , url: posts_path do |f|
         %div
           %p= f.label :Maybyの名前
@@ -31,4 +29,4 @@
           = f.submit "検索"
     #js-post-list
       = render partial: 'post', locals: { post: @posts }
-    = link_to_next_page @posts, 'もっと見る', remote: true, id: 'js_more_link'
+    = link_to_next_page @posts, 'もっと見る', remote: true, id: 'js-more-link'

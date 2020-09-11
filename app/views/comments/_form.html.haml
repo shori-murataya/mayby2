@@ -1,5 +1,8 @@
 .form_comment
   = form_with model: [@post,@comment] do |f|
-    = f.text_area :content, { class: "js-comment" }
-    = f.submit "コメント", { class: "comment-btn" }
-  %h2.js-comment-h2= "コメント#{ @post.comments_count }件"
+    = f.text_area :content, { class: "js-comment", id: "rspec_textarea" }
+    = f.submit "コメント", { class: "comment-btn"} 
+  -if @post.comments_count == nil
+    %h2.js-comment-h2 コメント0件
+  -else
+    %h2.js-comment-h2= "コメント#{ @post.comments_count }件"
