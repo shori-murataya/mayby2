@@ -53,4 +53,22 @@ RSpec.describe Post, type: :model do
       end
     end 
   end
+
+  describe '#unliking_user?' do
+    let(:user) { FactoryBot.create(:user) }
+    let(:like_post) { FactoryBot.create(:post) }
+    let(:unlike_post) { FactoryBot.create(:post) }
+    let!(:like) { FactoryBot.create(:like, user: user, post: like_post) }
+    
+    context 'ライクしていないポストの場合' do
+      it 'trueを返すこと' do
+        expect(unlike_post.unliking_user?(user)).to eq true
+      end
+    end
+    context 'ライクしているポストの場合' do
+      it 'falseを返すこと' do
+        expect(like_post.unliking_user?(user)).to eq false
+      end
+    end
+  end
 end
