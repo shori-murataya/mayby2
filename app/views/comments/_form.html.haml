@@ -1,8 +1,8 @@
-.form_comment
+.comment_form
   = form_with model: [@post,@comment] do |f|
-    = f.text_area :content, { class: "js-comment", id: "rspec_textarea" }
-    = f.submit "コメント", { class: "comment-btn"} 
+    = f.text_area :content, { class: "js-comment comment_textarea", id: "rspec_textarea", placeholder: 'コメントを入力して下さい（最大140文字）' }
+    = f.submit "コメント", { class: "comment_btn btn btn-primary"} 
   -if @post.comments_count == nil
-    %h2.js-comment-h2 コメント0件
+    %h2.js-comment-h2.comment_counter コメント0件
   -else
-    %h2.js-comment-h2= "コメント#{ @post.comments_count }件"
+    %h2.js-comment-h2.comment_counter= "コメント#{ @post.comments_count }件"

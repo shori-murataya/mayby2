@@ -1,27 +1,29 @@
 - @posts.each do |post|
-  .post-index-layout
-    .post-index-mayby
-      .profile-and-image
+  .card.text-center.posts_index
+    .card-header.post_header
+      = link_to post_path(post) do
+        %h3.post_index_title= post.title
+        .post_index_icon
+          - if post.created_user?(current_user)
+            = link_to edit_post_path(post), {class: "post_index_edit"} do
+              %i.fas.fa-edit.rspec_post-edit
+            = link_to post_path(post),{ method: "delete", class:"post_index_delite",data: { confirm:"削除しますか？" } } do
+              %i.far.fa-trash-alt.rsepc_post-delete
+    .card-body.post_body
+      .post_index_user
         = link_to user_path(post.user) do
           - if post.user.image?
             = image_tag post.user.image.url, { class: "mini_user_image" }
           - else
             %img.mini_user_image{src: "/assets/no_image.jpg"}
-          %p.profile_name= "#{post.user.name}さん"
-      = link_to post_path(post) do
-        %h3= post.title
-      .kara
-    .howto-and-detail
-      .howto-box
-        %p.howto-title 遊び方
-        %p.howtoplay_content= post.howto
-      .details
-        %p.post.waimoku= "#{post.num_of_people}/#{post.play_style}"
-        %p.post.times= "投稿:#{l post.created_at}"
-        - if post.created_user?(current_user)
-          = link_to edit_post_path(post), {class: "edit-icon"} do
-            %i.fas.fa-edit.rspec_post-edit
-          = link_to post_path(post),{ method: "delete", class:"delite-icon",data: { confirm:"削除しますか？" } } do
-            %i.far.fa-trash-alt.rsepc_post-delete
-        %div{ id: "js_like_#{post.id}" }
-          = render partial: 'likes/like' , locals: { post: post}
+          %p.profile_name= "#{post.user.name}さん" 
+      .post_index_detail
+        .post_index_howto
+          %h5.card-title.howto-title 遊び方
+          %p.card-text.howtoplay_content= simple_format(post.howto)
+        .post_details_position
+          .star_postion{ id: "js_like_#{post.id}" }
+            = render partial: 'likes/like' , locals: { post: post}
+          .detail_position
+            %p.post.waimoku= "#{post.num_of_people}/#{post.play_style}"
+            %p.post.times= "投稿:#{l post.created_at}"

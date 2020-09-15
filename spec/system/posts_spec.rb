@@ -13,8 +13,8 @@ RSpec.describe 'ポスト', type: :system do
       click_link 'Maybyをつくろう'
       fill_in '名前', with: 'カラオケ'
       fill_in '遊び方', with: '歌ってみた'  
-      choose '一人'
-      choose 'もくもく'
+      find('label[for=post_num_of_people_一人]').click
+      find('label[for=post_play_style_もくもく]').click
       expect { click_button "Mayby作成" }.to change{ Post.count }.from(0).to(1) 
     end
     it '投稿を削除すること', js: true do  
@@ -33,8 +33,8 @@ RSpec.describe 'ポスト', type: :system do
       find('.rspec_post-edit').click
       fill_in '名前', with: '一人カラオケ'
       fill_in '遊び方', with: 'オールナイト耐久戦'  
-      choose '二人〜'
-      choose 'わいわい'
+      find('label[for=post_num_of_people_二人]').click
+      find('label[for=post_play_style_わいわい]').click
       expect{ click_button "更新" }.to_not change{ Post.count }   
       expect(find('.rspec_notice').text).to eq '変更を保存しました'
     end
@@ -46,8 +46,8 @@ RSpec.describe 'ポスト', type: :system do
       find('.rspec_post-edit').click
       fill_in '名前', with: '一人カラオケ'
       fill_in '遊び方', with: 'オールナイト耐久戦'  
-      choose '二人〜'
-      choose 'わいわい'
+      find('label[for=post_num_of_people_二人]').click
+      find('label[for=post_play_style_わいわい]').click
       expect{ click_button "更新" }.to_not change{ Post.count }    
       expect(find('.rspec_notice').text).to eq '変更を保存しました'
     end

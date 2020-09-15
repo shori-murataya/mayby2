@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// new //login //update
-.user-new-background,.user-login-background,.user-edit-background{
+// user_new, sign_in, user_edit 
+.user_form_common_background{
   background-image: url("/background/new.jpg");
   background-size: cover;
   width: 100%;
@@ -12,50 +12,88 @@
   justify-content: center;
   align-items: center;
 }
-.user-new-formbox,.user-login-formbox{
+.user_form_common_formbox{
   background-color: rgba(255, 255, 255, 0.774);
-  width: 80%;
+  width: 70%;
   height: 100%;
+}
+h1.user_form_common_page_title{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: bold;
+  padding: 40px 0 30px 0;
   text-align: center;
 }
-h1.user-new-mayby,.user-login-mayby,.user-edit-mayby{
-  padding: 20px;
-  font-family: 'M PLUS Rounded 1c', sans-serif;
+.user_form_layout{
+  width: 50%;
+  margin: 0 auto;
 }
-form p{
-  padding: 10px;
-}
-.login_labels{
-  display: block;
-  padding: 10px;
+input#user_name,#user_email,#user_password,
+#user_password_confirmation,#user_current_password{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 25px;
+  border: none;
+  box-shadow: 0 0 5px rgb(105, 105, 105);
+  border-radius: 5px;
 }
 input.user-new-name,.user-new-email,
 .user-new-pass,.user-login-email,
 .user-login-pass,.user-edit-name,
 .user-edit-email{
-  font-size: 20px;
-  width: 40%;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 25px;
+  border: none;
+  box-shadow: 0 0 5px rgb(105, 105, 105);
+  border-radius: 5px;
 }
-input.user-new-btn,.user-login-btn,.user-edit-btn,.update-btn{
+.user_form_labels{
+  font-weight: bold;
+}
+.user_form_image{
+  margin: 10px 0 20px 0;
+}
+input.user_common_form_btn{
   display: block;
-  padding: 5px;
-  margin: 10px auto;
+  margin: 30px auto;
+  padding: 10px 50px;
   background-color: rgba(231, 250, 200, 0.836);
   cursor: pointer;
+  border: none;
 }
-.delete{
+.auto_login_message{
+  text-align: center;
+}
+.for_user_link{
+  margin: 20px auto 40px auto;
   display: block;
+  text-align: center;
+  text-decoration: underline;
+  color: black;
+  width: 130px;
+}
+.for_user_link:hover{
+  text-decoration: none;
+}
+.user_delete_btn{
+  display: block;
+  margin: 0 auto 40px auto;
   color: white;
-  padding: 5px;
-  margin: 10px auto;
+  border: none;
+  padding: 10px;
   background-color: rgba(236, 57, 57, 0.836);
   cursor: pointer;
 }
-.option{
-  padding-top: 20px;
+#error_explanation h2{
+  font-size: 15px;
+  color: red;
 }
-// index
-.users-index-background,.users-show-background,.users-edit-background{
+#error_explanation li{
+  font-size: 15px;
+  color: red;
+}
+// user_index, user_show 共通レイアウト
+.users-index-background,.users-show-background{
   background-image: url("/background/wall-416060_1280.jpg");
   width: 100%;
   min-height: 100vh;
@@ -66,106 +104,153 @@ input.user-new-btn,.user-login-btn,.user-edit-btn,.update-btn{
 }
 .users-index-box,.users-show-box{
   width: 80%;
+  min-height: 100vh;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.863);
-  text-align: center;
 }
+// user_index
 .users-index-title,.users-show-title{
-  padding-top: 20px;
+  margin: 40px 0;
+  text-align: center;
   font-family: 'M PLUS Rounded 1c', sans-serif;
 }
-.users-index-sort{
-  padding: 5px 0;
+.user-search-box{
+  text-align: center;
 }
-.users-index-lists{
-  border-top: 1px solid black;
-  padding-bottom: 10px;
+.search_name_field{
+  padding: 8px;
+  width: 220px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px gray;
 }
-.users-index-lists .user_image{
+.search_name_btn{
+  border: none;
+  display: block;
+  margin: 15px auto;
+}
+.user_index_list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.user_card{
+  margin: 40px 0;
+  text-align: center;
+}
+.user_image{
   border-radius: 50%;
-  width: 25%;
-  height: auto;
-  margin: 10px;
-  max-width: 210px;
-  max-width: 210px;
-}
-.post{
   width: 80%;
-  border-bottom:1px solid rgba(0, 0, 0, 0.788);
-  margin: 10px auto;
-}
-a.users-link{
-  display: inline-block;
-  padding: 5px 10px;
-  background-color: rgba(231, 250, 200, 0.719);
-  transition: all 0.2s;
-}
-a.users-link:hover{
-  background-color: rgba(198, 233, 141, 0.993);
-}
-a.users-delite{
-  display: inline-block;
-  padding: 5px 10px;
-  background-color: rgba(255, 161, 161, 0.719);
-  transition: all 0.2s;
-}
-a.users-delite:hover{
-  background-color: rgb(255, 87, 87);
-}
-// show
-.users-show-box .user_image{
-  border-radius: 50%;
-  width: 25%;
   height: auto;
-  margin: 10px;
-  max-width: 210px;
-  max-width: 210px;
+  margin: 20px auto 0 auto;
+  box-shadow: 0 0 5px rgb(172, 172, 172);
 }
-.follow-btn{
+.user_created_at{
+  margin-top: 20px;
+}
+.more_link_box{
+  text-align: center;
+  margin-bottom: 30px;
+}
+// user_show
+.user_show_card{
+  margin: 40px 30px;
+  text-align: center;
+}
+.user_show_image{
+  border-radius: 50%;
+  width: 35%;
+  height: auto;
+  margin: 20px auto 0 auto;
+  box-shadow: 0 0 5px rgb(172, 172, 172);
+}
+.user_edit_from_show{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 30px;
+  font-size: 20px;
+  color: black;
+}
+.follow_count{
+  display: block;
+}
+.follow-btn,.unfollow-btn{
   display: inline-block;
   color: white;
-  padding: 2px 4px;
+  padding: 5px 20px;
   border-radius: 5px;
   margin-top: 10px;
   background-color: deepskyblue;
   transition: all .2s;
+  text-decoration: none;
 }
-.follow-btn:hover{
+.follow-btn,.unfollow-btn:hover{
   background-color: rgba(0, 162, 255, 0.877);
 }
-.unfollow-btn{
-  display: inline-block;
-  color: white;
-  padding: 2px 4px;
-  border-radius: 5px;
-  margin-top: 10px;
-  background-color:  deepskyblue;
-  transition: all .2s;
+// user_show ユーザーが投稿したMayby
+.user_post_index{
+  margin-bottom: 20px;
 }
-.unfollow-btn:hover{
-  background-color: deepskyblue;
-}
-
-.users-show-layout{
-  padding: 10px;
-  border-top:solid 1px black;
+.post_index_title{
+  text-align: center;
   position: relative;
-  word-break: break-all;
-}
-.user-show-users-box{
-  border-right:solid 1px black;
-  border-left:solid 1px black;
-  border-bottom: solid 1px black;
 }
 .edit-icon{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.edit-icon a{
+  color: rgb(105, 104, 104);
+}
+.edit-icon a:hover{
+  color: blue;
+}
+.visit_post_show{
   text-align: right;
 }
-// タブ (コピペ)
+.visit_post_show_btn{
+  font-size: 15px;
+  padding: 5px 10px;
+  margin: -10px;
+}
+// user_show ユーザーがしたコメント
+.user_comment_index_list{
+  margin-bottom: 20px;
+}
+.user_comment_title_link{
+  text-decoration: none;
+  color: rgb(105, 104, 104);
+}
+.user_comment_index_title{
+  text-align: center;
+  font-size: 18px;
+  margin: 0;
+}
+.user_comment_index_title a{
+  text-decoration: none;
+}
+.comment_time{
+  text-align: right;
+  font-size: 8px;
+  margin: 0 10px 5px 0;
+}
+.user-comment-delete-icon{
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  color: rgb(105, 104, 104);
+}
+// user_show ユーザーがいいねしたMayby
+.users_show_like_title{
+  font-size: 20px;
+}
+// タブ
 .tab-wrap {
   display: flex;
   flex-wrap: wrap;
-  margin:20px 0;
-  min-width: 320px;
+  margin:30px;
 }
 .tab-wrap:after {
   content: '';
@@ -211,22 +296,22 @@ a.users-delite:hover{
   transition: .5s opacity;
   box-shadow: 0 0 3px rgba(0,0,0,.2);
 }
-/* ラジオボタン非表示 */
 .tab-switch {
   display: none;
 }
 
 @media(max-width:674px){
-  .users-show-box{
-    width: 100%;
-  }
-  .tab-label{
-    font-size: 15px;
-  }
   input.user-new-name,.user-new-email,
   .user-new-pass,.user-login-email,
   .user-login-pass,.user-edit-name,
   .user-edit-email{
     width: 90%;
+  }
+  .users-index-box,.users-show-box{
+    width: 90%;
+  }
+  .tab-wrap{
+    width: 100%;
+    margin: 0;
   }
 }

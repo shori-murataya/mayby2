@@ -1,13 +1,14 @@
 - @users.each do |user|
-  .users-index-lists
+  .card.user_card{ style: "width: 20rem;" }
     - if user.image?
-      = image_tag user.image.url,{class: "user_image"}
+      = image_tag user.image.url,{class: "card-img-top user_image"}
     - else
-      %img.user_image{src: "/assets/no_image.jpg"}
-    %p.post= user.name
-    %p.post= user.email
-    %p.post
-      = render partial: 'num_of_follow', locals: { user: user}
-    = link_to "詳細", user_path(user), {class: "users-link"}
-    - if user.current_user?(current_user)
-      = link_to "編集", edit_user_registration_path, {class: "users-link"}
+      %img.card-img-top.user_image{src: "/assets/no_image.jpg"}
+    .card-body
+      %h4.card-title= user.name
+      %p.card-text
+        = render partial: 'num_of_follow', locals: { user: user}
+      = link_to "詳細", user_path(user), {class: "btn btn-primary"}
+      - if user.current_user?(current_user)
+        = link_to "編集", edit_user_registration_path, {class: "btn btn-primary"}
+      %p.card-text.user_created_at=  "開始日:#{l user.created_at}"

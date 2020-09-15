@@ -8,7 +8,7 @@ RSpec.describe "ユーザー", type: :system do
       fill_in '名前', with: '春日'
       fill_in 'メールアドレス', with: 'kasuga@example.com'
       fill_in 'パスワード', with: 'wakabayashi'
-      fill_in '確認用パスワード', with: 'wakabayashi'
+      fill_in 'パスワード確認', with: 'wakabayashi'
       click_button '新規登録'
       expect(find('.rspec_notice').text).to eq 'アカウント登録が完了しました。'
     end
@@ -17,7 +17,7 @@ RSpec.describe "ユーザー", type: :system do
       fill_in '名前', with: ' '
       fill_in 'メールアドレス', with: ' '
       fill_in 'パスワード', with: ' '
-      fill_in '確認用パスワード', with: ' '
+      fill_in 'パスワード確認', with: ' '
       click_button '新規登録'
       expect(page).to have_content '3 件のエラーが発生したため ユーザー は保存されませんでした。'
     end

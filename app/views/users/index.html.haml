@@ -3,13 +3,12 @@
     %h1.users-index-title ユーザー 一覧
     .user-search-box
       = search_form_for @q , url: users_path do |f|
-        %div
-          %span= f.label :名前
-          = f.search_field :name_cont
-          = f.submit "検索"
-    #js-user-list
+        = f.search_field :name_cont, { class: 'search_name_field', placeholder: '名前で検索できます' }
+        = f.submit "検索", { class: 'search_name_btn btn btn-primary' }
+    #js-user-list.user_index_list
       = render partial: 'index', locals: { user: @users }
-    = link_to_next_page @users, 'もっと見る', remote: true, id: 'js-more-link'  
+    .more_link_box
+      = link_to_next_page @users, 'もっと見る', remote: true, id: 'js-more-link'
         
         
 

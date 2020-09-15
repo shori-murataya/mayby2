@@ -10,9 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap
  *= require_tree .
  *= require_self
  */
+ 
+// 共通設定
 html{
   scroll-behavior: smooth;
 }
@@ -27,38 +30,48 @@ body{
   padding: 0;
   list-style: none;
 }
-a{
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.932);
-}
-
+// ヘッダー
 header{
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 40px;
+  height: 60px;
   color: rgba(0, 0, 0, 0.932);
   background-color: rgba(231, 250, 200, 0.719);
 }
 header .logo{
-  padding: 0 50px;
+  padding: 5px 0 0 30px;
+  margin: 0;
   font-family: 'Galada', cursive;
   letter-spacing: 5px;
 }
+header .logo a{
+  color: black;
+  text-decoration: none;
+}
 header .header-menu{
   display:flex;
+  padding-inline-start: 0;
+  margin: 0;
 }
 header .header-menu li{
   font-size:15px;
   padding:0 15px;
   border-radius: 5px;
   cursor: pointer;
+  color: black;
+  text-decoration: none;
+}
+header .header-menu li a{
+  color: black;
+  text-decoration: none;
 }
 header .header-menu li:hover{
   background-color: rgba(198, 233, 141, 0.993);
   transition: all 0.2s;
 }
+// ハンバーガーメニュー
 .bars div{
   width: 20px;
   height: 3px;
@@ -71,10 +84,22 @@ header .header-menu li:hover{
   right: 10px;
   cursor: pointer;
 }
-.burger-menu li{
+.burger-menu{
+  margin: 0 auto;
   text-align: center;
+}
+.burger-menu li{
   border-bottom: 1px solid black;
   margin: 15px;
+}
+.burger-menu li a{
+  padding: 3px;
+  color: black;
+  text-decoration: none;
+}
+.burger-menu li a:hover{
+  color: blue;
+  border-bottom: 1px solid blue;
 }
 .overlay{
   content: "";
@@ -109,14 +134,15 @@ header .header-menu li:hover{
 .nav.open{
   transform: translateZ(0);
 }
-option{
-  text-align: center;
-}
 .flash{
   width: 100%;
   background-color: rgb(250, 195, 195);
   text-align: center;
   z-index: 1000;
+}
+.flash p{
+  margin: 0;
+  padding: 0;
 }
 /* Like */
 .other-likes{

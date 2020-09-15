@@ -1,7 +1,11 @@
 - @comments.each do | comment |
-  .comment-show-box
-    = link_to user_path(comment.user) do
-      %p.comment-user= "#{comment.user.name}さん"
-      = simple_format( comment.content )
+  .card.user_comment_index_list
+    .card-header
+      = link_to user_path(comment.user) do
+        %h3.user_comment_index_title= "#{comment.user.name}さん"
+    .card-body
+      %blockquote.blockquote.mb-0
+      %p= simple_format( comment.content )
+    %footer.blockquote-footer.comment_time= "コメント日時：#{ l comment.created_at }"
     - if comment.comment_user?(current_user)
-      = render partial: 'comments/destroy', locals: {comment: comment}
+      = render partial: 'comments/destroy', locals: {comment: comment}  

@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/muratashori/Desktop/my_code/mayby/app/models/user.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/models/user.rb": {
         "lines": [
           1,
           1,
@@ -28,14 +28,14 @@
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/models/application_record.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/uploaders/image_uploader.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/uploaders/image_uploader.rb": {
         "lines": [
           1,
           null,
@@ -86,31 +86,31 @@
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/helpers/application_helper.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/helpers/home_helper.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/helpers/home_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/helpers/posts_helper.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/helpers/posts_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/helpers/users_helper.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/helpers/users_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/models/comment.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/models/comment.rb": {
         "lines": [
           1,
           1,
@@ -127,7 +127,7 @@
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/models/post.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/models/post.rb": {
         "lines": [
           1,
           1,
@@ -153,7 +153,7 @@
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/models/like.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/models/like.rb": {
         "lines": [
           1,
           1,
@@ -162,7 +162,7 @@
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/controllers/home_controller.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/controllers/home_controller.rb": {
         "lines": [
           1,
           1,
@@ -175,7 +175,7 @@
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/controllers/application_controller.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/controllers/application_controller.rb": {
         "lines": [
           1,
           1,
@@ -194,7 +194,7 @@
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/controllers/posts_controller.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/controllers/posts_controller.rb": {
         "lines": [
           1,
           1,
@@ -261,7 +261,7 @@
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/controllers/comments_controller.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/controllers/comments_controller.rb": {
         "lines": [
           1,
           1,
@@ -291,7 +291,7 @@
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/controllers/users_controller.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -330,7 +330,24 @@
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/controllers/likes_controller.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/models/follow.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/controllers/likes_controller.rb": {
         "lines": [
           1,
           1,
@@ -357,24 +374,7 @@
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/models/follow.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/muratashori/Desktop/my_code/mayby/app/mailers/application_mailer.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           0,
@@ -384,7 +384,7 @@
         "branches": {
         }
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/jobs/application_job.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/jobs/application_job.rb": {
         "lines": [
           0,
           0
@@ -392,7 +392,7 @@
         "branches": {
         }
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/channels/application_cable/connection.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/channels/application_cable/connection.rb": {
         "lines": [
           0,
           0,
@@ -402,7 +402,7 @@
         "branches": {
         }
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/channels/application_cable/channel.rb": {
+      "/Users/muratashori/Desktop/my_code/maybyのコピー/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
           0,
@@ -413,6 +413,6 @@
         }
       }
     },
-    "timestamp": 1599837957
+    "timestamp": 1599992387
   }
 }

@@ -2,12 +2,12 @@
   = link_to post_likes_path(post), { method:"post", remote: true, class: "post-like" } do
     %i.fas.fa-star.rspec_unlike-star
     -if post.likes_count == nil
-      0
+      %span.likes_counter 0
     -else
-      = post.likes_count
+      %span.likes_counter= post.likes_count
 - else
   = link_to post_like_path(id: post.id, post_id: post.id) ,{ method: "delete", remote: true, class: "post-nolike" } do
     %i.fas.fa-star.rspec_like-star
-    = post.likes_count
+    %span.likes_counter= post.likes_count
     %span
-      = link_to "人他...", post_like_path(id: post.id, post_id: post.id), class: "other-likes"
+      = link_to "人他...", post_like_path(id: post.id, post_id: post.id), class: "index_other_like show_other_like"

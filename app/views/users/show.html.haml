@@ -1,21 +1,19 @@
 .users-show-background
   .users-show-box
-    -# ユーザーの詳細
-    -if @user.image?
-      = image_tag @user.image.url, {class: "user_image" }
-    -  else
-      %img.user_image{src: "/assets/no_image.jpg"}
-    %p
-      = "#{@user.name}さん"
-    -# フォローの部分
-    #js-follow-form
-      - if @user.followable?(current_user)
-        = render 'follow_form', locals: { user: @user }
-    - if @user.current_user?(current_user)
-      %p
-        = link_to edit_user_registration_path, { class: "icon-link" } do
+    .card.user_show_card
+      - if @user.image?
+        = image_tag @user.image.url,{class: "card-img-top user_show_image"}
+      - else
+        %img.card-img-top.user_show_image{src: "/assets/no_image.jpg"}
+      .card-body
+        %h4.card-title= @user.name
+        %p.card-text
+          #js-follow-form.follow_box
+            = render partial: 'follow', locals: { user: @user }
+      - if @user.current_user?(current_user)
+        = link_to edit_user_registration_path, { class: "user_edit_from_show" } do
           %i.fas.fa-cog
-    -# タブ ユーザーが投稿したMayby
+    -# ユーザーが投稿したMayby
     .tab-wrap
       %input.tab-switch#TAB-01{ type: "radio", name: "TAB", checked: "checked" } 
       %label.tab-label.rspec_post-tab{ for: "TAB-01" }
@@ -23,23 +21,25 @@
       .tab-content
         .user-show-users-box
           - @user.posts.each do |post|
-            .users-show-layout
-              = link_to post_path(post) do
-                %h3.users-show-maybytitle= "〜#{post.title}〜"
-                %p.users-show-contents= post.howto
-              - if @user.current_user?(current_user)
-                %p.edit-icon
-                  = link_to edit_post_path(post), { class: "icon-link" } do
-                    %i.fas.fa-edit.rspec_post-edit
-
-      -#  タブ ユーザーがコメントしたMayby
+            .card.user_post_index
+              .card-header.post_index_title
+                = "#{post.title}"
+                - if @user.current_user?(current_user)
+                  .edit-icon
+                    = link_to edit_post_path(post), { class: "icon-link" } do
+                      %i.fas.fa-edit.rspec_post-edit
+              .card-body
+                %p.card-text= simple_format(post.howto)
+                .visit_post_show
+                  = link_to '見に行く', post_path(post), { class: "btn btn-primary visit_post_show_btn" }
+      -# ユーザーがコメントしたMayby
       %input.tab-switch#TAB-02{ type: "radio", name: "TAB" } 
       %label.rspec_comment-tab.tab-label{ for: "TAB-02" }
         コメント
       .tab-content
         #js_user_come_index
           = render partial: 'comments/user_come_index' , locals: { comments: @comments }
-      -# タブ ユーザーがいいねしたMayby
+      -# ユーザーがいいねしたMayby
       %input.tab-switch#TAB-03{ type: "radio", name: "TAB" } 
       %label#like-tab.tab-label{ for: "TAB-03" }
         %i.fas.fa-star
@@ -47,9 +47,9 @@
           Mayby
       .tab-content
         - @user.likes.each do |like|
-          .users-show-layout
-            = link_to post_path(like.post_id) do
-              %h3.users-show-maybytitle
+          .list-group
+            =link_to post_path(like.post_id), { class: "list-group-item list-group-item-action" } do
+              %h3.users_show_like_title
                 = like.post.title
                 %span
                   %i.fas.fa-star{style: "color:yellow;"}

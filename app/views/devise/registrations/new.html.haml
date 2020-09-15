@@ -1,29 +1,26 @@
-.user-new-background
-  .user-new-formbox
-    %h1.user-new-mayby 新規登録
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render "devise/shared/error_messages", resource: resource
-      .field
-        %p= f.label :name
-        = f.text_field :name, autofocus: true
-      .field
-        %p= f.label :email
-        = f.email_field :email, autofocus: true, autocomplete: "email"
-      .field
-        %p= f.label :プロフィール画像
-        = f.file_field :image
-      .field
-        %p
-        = f.label :password
-        - if @minimum_password_length
-          (最低
-          = @minimum_password_length
-          文字)
-          %br
-          = f.password_field :password, autocomplete: "new-password"
-      .field
-        %p= f.label :password_confirmation
-        = f.password_field :password_confirmation, autocomplete: "new-password"
-      .actions
-        = f.submit "新規登録", {class: "user-new-btn"}
-    = render "devise/shared/links"
+.user_form_common_background
+  .user_form_common_formbox
+    %h1.user_form_common_page_title 新規登録
+    .user_form_layout
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field
+          = f.label :name, {class: "user_form_labels"}
+          = f.text_field :name, autofocus: true, placeholder: 'Mayby太郎'
+        .field
+          = f.label :email, {class: "user_form_labels"}
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Mayby@example.com'
+        .field
+          = f.label :image, {class: "user_form_labels"}
+          = f.file_field :image, {class: "user_form_image"}
+        .field
+          = f.label :password, {class: "user_form_labels"}
+          - if @minimum_password_length
+            ="(最低#{@minimum_password_length}文字)"
+            = f.password_field :password, autocomplete: "new-password"
+        .field
+          = f.label :password_confirmation, {class: "user_form_labels"}
+          = f.password_field :password_confirmation, autocomplete: "new-password"
+        .actions
+          = f.submit "新規登録", {class: "user_common_form_btn"}
+        =link_to 'ログインはこちら', new_user_session_path, { class: 'for_user_link' }

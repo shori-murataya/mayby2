@@ -21,19 +21,28 @@
 }
 .title-box .intro-box .catch1{
   font-size: 25px;
+  padding: 20px;
+  margin: 0;
+}
+.title-box .intro-box .catch2{
+  margin: 0;
 }
 .title-box .intro-box h1{
-  font-size: 45px;
+  font-size: 60px;
   letter-spacing: 5px;
   padding: 30px 30px 20px 30px;
   font-family: 'Galada', cursive;
+  margin: 0;
+}
+.new-box{
+  display: flex;
+  justify-content: center;
 }
 .new-btn a{
   display: inline-block;
   padding: 15px;
   background-color: rgba(231, 250, 200, 0.836);
-  margin: 0 auto;
-  margin-bottom: 15px;
+  margin: 10px;
   width: 200px;
   text-align: center;
   border-radius: 5px;
@@ -43,6 +52,8 @@
 .new-btn a{
   background-color: rgba(215, 255, 151, 0.993);
   transition: all 0.2s;
+  text-decoration: none;
+  color: black;
 }
 // about
 .background-about{

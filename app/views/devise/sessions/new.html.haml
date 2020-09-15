@@ -1,18 +1,18 @@
-.user-login-background
-  .user-login-formbox
-    %h1.user-login-mayby ログイン
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .field
-        = f.label :email, {class: "login_labels"}
-        = f.email_field :email, autofocus: true, autocomplete: "email"
-      .field
-        = f.label :password, {class: "login_labels"}
-        = f.password_field :password, autocomplete: "current-password"
-      - if devise_mapping.rememberable?
+.user_form_common_background
+  .user_form_common_formbox
+    %h1.user_form_common_page_title ログイン
+    .user_form_layout
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
-          = f.check_box :remember_me
-          = f.label :remember_me
-      .actions
-        = f.submit "ログイン", {class: "user-login-btn"}
-    .option
-      = render "devise/shared/links"
+          = f.label :email, {class: "user_form_labels"}
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Mayby@example.com'
+        .field
+          = f.label :password, {class: "user_form_labels"}
+          = f.password_field :password, autocomplete: "current-password"
+        - if devise_mapping.rememberable?
+          .field.auto_login_message
+            = f.check_box :remember_me
+            = f.label :remember_me
+        .actions
+          = f.submit "ログイン", {class: "user_common_form_btn"}
+    =link_to '新規登録はこちら', new_user_registration_path, { class: 'for_user_link' }

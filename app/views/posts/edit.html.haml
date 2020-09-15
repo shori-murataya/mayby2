@@ -1,23 +1,24 @@
-.post-edit-background
-  .post-edit-formbox
-    %h1.post-edit-mayby 編集ページ
+.post_form_common_layout
+  .post_form_common_formbox
+    %h1.post_form_common_page_title 編集ページ
     - @post.errors.full_messages.each do |message|
-      %p{ style: "color:red;" }= message
-    = form_with model:@post, local: true do |f|
-      = f.label :title, {class: "login_labels"}
-      = f.text_field :title, { class: "post-edit-name" }
-      = f.label :howto, {class: "login_labels"}
-      = f.text_area :howto, { class: "post-edit-howto" }
-      .post-new-radio
-        %span 参加人数　　
-        = f.radio_button :num_of_people, "一人"
-        = f.label :num_of_people, { value: :"一人" }  
-        = f.radio_button :num_of_people, "二人〜" 
-        = f.label :num_of_people, { value: :"二人〜" }  
-      .post-new-radio
-        %span 雰囲気　
-        = f.radio_button :play_style,  "もくもく"
-        = f.label :play_style, { value: :"もくもく" } 
-        = f.radio_button :play_style,  "わいわい"
-        = f.label :play_style, { value: :"わいわい" } 
-      = f.submit "更新", {class: "post-edit-btn"}
+      %p.post_validates= message
+    .user_form_layout
+      = form_with model:@post, local: true do |f|
+        = f.label :title, {class: "post_form_labels"}
+        = f.text_field :title
+        = f.label :howto, {class: "post_form_labels"}
+        = f.text_area :howto
+        .post_radio_btn
+          = f.label :num_of_people, {class: "post_form_radio_labels"}
+          = f.radio_button :num_of_people, "一人", { class: "post_form_radio_none" }
+          = f.label :num_of_people, { value: :"一人", class: "radio_select" }
+          = f.radio_button :num_of_people, "二人〜", { class: "post_form_radio_none" }
+          = f.label :num_of_people, { value: :"二人〜", class: "radio_select" }  
+        .post_radio_btn
+          = f.label :play_style, {class: "post_form_radio_labels"}
+          = f.radio_button :play_style,  "もくもく", { class: "post_form_radio_none" }
+          = f.label :play_style, { value: :"もくもく", class: "radio_select" } 
+          = f.radio_button :play_style,  "わいわい", { class: "post_form_radio_none" }
+          = f.label :play_style, { value: :"わいわい", class: "radio_select" } 
+        = f.submit "更新", {class: "post_common_form_btn"}

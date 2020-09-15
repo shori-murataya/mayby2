@@ -2,11 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h1{
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-}
-// new
-.post-new-background,.post-edit-background{
+// post_new, post_edit
+.post_form_common_layout{
   background-image: url("/background/new.jpg");
   background-size: cover;
   width: 100%;
@@ -15,42 +12,80 @@ h1{
   justify-content: center;
   align-items: center;
 }
-.post-new-formbox,.post-edit-formbox{
+.post_form_common_formbox{
   background-color: rgba(255, 255, 255, 0.774);
-  width: 80%;
+  width: 70%;
   height: 100%;
+}
+h1.post_form_common_page_title{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: bold;
+  padding: 40px 0 30px 0;
   text-align: center;
 }
-h1.post-new-mayby,.post-edit-mayby{
-  padding: 20px;
+.post_form_labels{
+  font-weight: bold;
 }
-form p{
+input#post_title{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: none;
+  box-shadow: 0 0 5px rgb(105, 105, 105);
+  border-radius: 5px;
+}
+textarea#post_howto{
+  width: 100%;
+  height: 170px;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: none;
+  box-shadow: 0 0 5px rgb(105, 105, 105);
+  border-radius: 5px;
+}
+.post_form_radio_labels{
+  font-weight: bold;
   padding: 10px;
-}
-input.post-new-name,.post-edit-name,.post-edit-email{
-  font-size: 20px;
-  width: 50%;
-}
-textarea.post-new-howto,.post-edit-howto{
-  font-size: 20px;
-  width: 50%;
-  height: auto;
-  margin: 0 auto;
   display: block;
 }
-.post-new-radio{
-  margin: 15px auto;
-  width: 300px;
-  text-align: left;
+.post_form_radio_none{
+  display: none;
 }
-input.post-new-btn,.post-edit-btn{
+.radio_select{
+  width: 98px;
+  height: 35px;
+  color: rgb(255, 96, 96);
+  font-weight: bold;
+  padding: 4px 15px;
+  margin: 5px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 8px gray;
+}
+.post_form_radio_none:checked + label{
+  color: white;
+  background-color: skyblue;
+  border: 1px solid rgb(105, 105, 105);
+  box-shadow: none;
+}
+.post_radio_btn{
+  text-align: center;
+}
+input.post_common_form_btn{
   display: block;
-  padding: 5px;
-  margin: 10px auto;
+  margin: 30px auto 40px auto;
+  padding: 10px 50px;
   background-color: rgba(231, 250, 200, 0.836);
+  cursor: pointer;
+  border: none;
   }
+.post_validates{
+  margin: 5px;
+  color: red;
+  text-align: center;
+}
 
-// index
+// post_index
 .posts-index-background,.posts-show-background{
   background-image: url("/background/marbles-1659398_1280.jpg");
   width: 100%;
@@ -61,22 +96,22 @@ input.post-new-btn,.post-edit-btn{
   align-items: center;
 }
 .post-index-box{
-  width: 80%;
+  width: 90%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.788);
   text-align: center;
   position: relative;
 }
 .post-index-title{
-  padding-top: 20px;
+  padding: 40px 0;
+  margin: 0;
 }
-.post-index-sort{
-  padding: 5px 0;
-}
-/* アコーディオン 検索 */
+
+// post_index アコーディオン 検索窓
 .info_open{
-  display: inline;
-  cursor: pointer;
+  font-size: 18px;
+  padding: 0px 20px;
+  margin-bottom: 20px;
 }
 .search-box{
   display: none;
@@ -87,83 +122,141 @@ input.post-new-btn,.post-edit-btn{
   margin: 0 auto;
   text-align: left;
   margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
-.search-box p{
-  padding: 0;
+.post_search_title{
+  padding-left: 8px;
+}
+input.mayby_search{
+  display: inline-block;
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: none;
+  box-shadow: 0 0 5px rgb(105, 105, 105);
+  border-radius: 5px;
+}
+.search_detail{
+  text-align: center;
 }
 .search-btn{
   text-align: center;
-  margin: 5px;
+  margin: 25px auto;
+  display: block;
+  padding: 5px 30px;
 }
-.post-index-layout{
-  border:1px solid rgba(0, 0, 0, 0.788);
-  width: 90%;
-  margin: 0 auto;
-  margin-bottom: 30px;
+// post_index_list
+.posts_index{
+  margin: 30px;
 }
-.post-index-mayby{
-  border-bottom:1px solid black;
+.post_header{
+  position: relative;
+}
+.post_index_title{
+  display: inline-block;
+  margin: 0;
+  color: rgb(49, 49, 49);
+  text-decoration: underline;
+}
+.post_index_title:hover{
+  text-decoration: none;
+  color: blue;
+}
+.post_index_icon{
+  position: absolute;
+  top: 18px;
+  right: 20px;
+}
+.post_index_icon i{
+  font-size: 16px;
+  color: rgb(107, 107, 107);
+  margin-left: 7px;
+}
+.post_index_icon i:hover{
+  color: blue;
+  text-decoration: none;
+}
+.post_body{
   display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+.post_index_user{
+  flex: 1;
+  box-shadow: 0 0 8px grey;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mini_user_image{
+  display: inline-block;
+  border-radius: 50%;
+  width: 40%;
+  height: auto;
+  margin: 20px;
+  min-width: 100px;
+  min-width: 100px;
+  box-shadow: 0 0 8px gray;
+}
+.post_index_detail{
+  flex: 2;
+  box-shadow: 0 0 8px gray;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.post_index_howto{
+  width: 90%;
+  margin: 20px auto;
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: 0 0 6px gray;
+}
+.howto-title{
+  margin: 10px;
+  font-size: 18px;
+}
+.howtoplay_content{
+  margin: 20px;
+}
+.post_details_position{
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+}
+.star_postion{
+  flex: 1.5;
+  display: flex;
+  font-size: 20px;
   justify-content: center;
   align-items: center;
+  margin: 0 15px 15px 0;
+  border-radius: 5px;
+  background-color: rgba(138, 138, 138, 0.37);
+  box-shadow: 0 0 8px gray;
 }
-
-.post-index-mayby .profile_name{
-  font-size: 4px;
+.detail_position{
+  flex: 2;
 }
-.post-index-mayby .mini_user_image{
-  border-radius: 50%;
-  width: 100%;
-  height: auto;
-  margin: 10px;
-  max-width: 50px;
-  max-width: 50px;
-}
-
-.howto-and-detail{
-  display: flex;
-}
-.howto-box{
-  flex: 1;
-  border-right:1px solid black ;
-}
-.howto-box .howto-title{
-  padding: 5px;
-  border-bottom:1px solid black ;
-}
-.details{
-  flex: 1;
-  padding-bottom: 10px;
-}
-.post{
-  width: 80%;
-  border-bottom:1px solid rgba(0, 0, 0, 0.788);
-  margin: 10px auto;
-}
-a.post-link{
-  display: inline-block;
-  padding: 2px;
-  background-color: rgba(237, 250, 57, 0.623);
-  transition: all 0.2s;
-  border-radius: 40%;
-}
-a.post-link:hover{
-  background-color: rgb(237, 250, 57);
-}
-a.post-delite{
-  display: inline-block;
-  padding: 5px 10px;
-  background-color: rgba(255, 161, 161, 0.719);
-  transition: all 0.2s;
-}
-a.post-delite:hover{
-  background-color: rgb(255, 87, 87);
-}
+// 共通ライクレイアウト
 a.post-like i{
   color: gray;
 }
 a.post-nolike i{
-  color: yellow;
+  color: rgb(255, 255, 95);
+}
+.likes_counter{
+  color: black;
+}
+.likes_counter:hover{
+  text-decoration: none;
+}
+.index_other_like{
+  padding: 5px 0 0 5px;
+  color: rgb(43, 43, 43);
+  font-size: 5px;
 }
 // show
 .post-show-box{
@@ -172,10 +265,18 @@ a.post-nolike i{
   background-color: rgba(255, 255, 255, 0.788);
   position: relative;
 }
-.post-show-top{
+.comment_show_card{
+  margin: 40px 30px;
   text-align: center;
 }
-.post-show-box .user_image{
+.post_show_title{
+  margin: 40px;
+}
+.post_show_introduce1{
+  margin: 40px 0 15px 0;
+  font-size: 20px;
+}
+.user_image{
   border-radius: 50%;
   width: 25%;
   height: auto;
@@ -188,49 +289,41 @@ a.post-nolike i{
   right: 15px;
   top: 15px;
 }
-.form_comment{
+.show_star_postion{
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px 15px 0;
+  border-radius: 5px;
+  background-color: rgba(138, 138, 138, 0.37);
+  box-shadow: 0 0 8px grey;
+  width: 100px;
+  margin: 20px auto;
+}
+.comment_form{
   width: 95%;
   margin: 15px auto 10px auto;
 }
-.js-comment{
-  height: 40px;
+.comment_textarea{
   width: 100%;
+  height: 170px;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: none;
+  box-shadow: 0 0 5px rgb(105, 105, 105);
+  border-radius: 5px;
 }
-.comment-btn{
-  display: inline;
+.comment_btn{
+  margin: 10px 0 40px 0;
+  padding: 5px 20px;
 }
-.post-show-box p{
-  padding: 10px;
-}
-.js-comment-h2{
-  font-weight: normal;
+.comment_counter{
+  font-weight: bold;
   font-size: 15px;
-  text-align: left;
+  text-align: end;
 }
-.comment-show-box{
-  width: 95%;
-  margin: 5px auto;
-  padding-bottom: 10px;
-  background-color: rgb(235, 235, 235);
-  border:1px solid black ;
-  position: relative;
-  word-break: break-all;
-}
-p.comment-user{
-padding: 0;
-padding: 5px 0 5px 0;
-text-align: left;
-}
-p.comment-content{
-padding: 0;
-text-align: left;
-word-break: break-all;
-}
-.comment-delete-icon{
-position: absolute;
-bottom: 0;
-right: 5px;
-}
+
 
 @media(max-width:674px){
   .post-index-box, .post-show-box {

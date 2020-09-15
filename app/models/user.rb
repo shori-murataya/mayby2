@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  PER_USER_AT_INDEX = 2
+  PER_USER_AT_INDEX = 3
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -1,32 +1,26 @@
 .posts-index-background
   .post-index-box
     %h1.post-index-title Mayby一覧
-    .js_open.info_open
+    .js_open.info_open.btn.btn-primary
       %span.check + 
       探す
     .search-box.js_search-box
       = search_form_for @q , url: posts_path do |f|
         %div
-          %p= f.label :Maybyの名前
-          = f.search_field :title_cont
-        %div
-          %p= f.label :人数
-          = f.radio_button :num_of_people_eq, '', {:checked => true}
-          指定なし
-          = f.radio_button :num_of_people_eq, "一人"
-          一人
-          = f.radio_button :num_of_people_eq, "二人〜"
-          二人〜
-        %div
-          %p= f.label :ワイモク度
-          = f.radio_button :play_style_eq, '', {:checked => true}
-          指定なし
-          = f.radio_button :play_style_eq, "もくもく"
-          もくもく
-          = f.radio_button :play_style_eq, "わいわい"
-          わいわい
-        .search-btn
-          = f.submit "検索"
+          = f.label :title, { class: "post_form_labels post_search_title" }
+          = f.search_field :title_cont, { class: 'mayby_search', placeholder: '名前で検索できます' }
+        .search_detail
+          = f.label :num_of_people, { class: "post_form_radio_labels" }
+          = f.radio_button :num_of_people_eq, "一人", { class: "post_form_radio_none" }
+          = f.label :num_of_people_eq, "一人", {value: :"一人", class: "radio_select" }
+          = f.radio_button :num_of_people_eq, "二人〜", { class: "post_form_radio_none" }
+          = f.label :num_of_people_eq, "二人〜", {value: :"二人〜", class: "radio_select" }
+          = f.label :play_style, { class: "post_form_radio_labels" }
+          = f.radio_button :play_style_eq, "もくもく", { class: "post_form_radio_none" }
+          = f.label :play_style_eq, "もくもく", { value: :"もくもく", class: "radio_select" }
+          = f.radio_button :play_style_eq, "わいわい", { class: "post_form_radio_none" }
+          = f.label :play_style_eq, "わいわい", { value: :"わいわい", class: "radio_select" }
+        = f.submit "検索", { class: "btn btn-primary search-btn" }
     #js-post-list
       = render partial: 'post', locals: { post: @posts }
     = link_to_next_page @posts, 'もっと見る', remote: true, id: 'js-more-link'
