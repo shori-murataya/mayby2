@@ -61,6 +61,8 @@ textarea#post_howto{
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 0 8px gray;
+  user-select: none;
+  cursor: pointer;
 }
 .post_form_radio_none:checked + label{
   color: white;
@@ -323,7 +325,11 @@ a.post-nolike i{
   font-size: 15px;
   text-align: end;
 }
-
+.post_comment_index_list{
+  margin-bottom: 20px;
+  width: 90%;
+  margin: 20px auto;
+}
 
 @media(max-width:674px){
   .post-index-box, .post-show-box {

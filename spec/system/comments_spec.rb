@@ -16,6 +16,7 @@ RSpec.describe "コメント", type: :system do
     expect{ 
       click_button 'コメント' 
       expect(page).to have_content '私もカラオケが好きです'
+      save_and_open_page
     }.to change{ Comment.count }.from(0).to(1) 
   end
 
@@ -38,7 +39,6 @@ RSpec.describe "コメント", type: :system do
     click_link 'カラオケ'
     fill_in 'rspec_textarea', with: '私もカラオケが好きです'
     click_button 'コメント'
-    sleep 2
     visit user_path user
     find('.rspec_comment-tab').click
     expect{

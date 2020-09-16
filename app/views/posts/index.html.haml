@@ -20,7 +20,7 @@
           = f.label :play_style_eq, "もくもく", { value: :"もくもく", class: "radio_select" }
           = f.radio_button :play_style_eq, "わいわい", { class: "post_form_radio_none" }
           = f.label :play_style_eq, "わいわい", { value: :"わいわい", class: "radio_select" }
-        = f.submit "検索", { class: "btn btn-primary search-btn" }
+          = f.submit "検索", { class: "btn btn-primary search-btn" }
     #js-post-list
       = render partial: 'post', locals: { post: @posts }
     = link_to_next_page @posts, 'もっと見る', remote: true, id: 'js-more-link'

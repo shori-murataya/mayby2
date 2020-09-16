@@ -218,13 +218,18 @@ input.user_common_form_btn{
 // user_show ユーザーがしたコメント
 .user_comment_index_list{
   margin-bottom: 20px;
+  width: 90%;
+  margin: 20px auto;
 }
 .user_comment_title_link{
   text-decoration: none;
   color: rgb(105, 104, 104);
 }
-.user_comment_index_title{
+.title_header{
   text-align: center;
+}
+.user_comment_index_title{
+  display: inline;
   font-size: 18px;
   margin: 0;
 }
