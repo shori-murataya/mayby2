@@ -38,7 +38,7 @@ RSpec.describe 'ポスト', type: :system do
       expect{ click_button "更新" }.to_not change{ Post.count }   
       expect(find('.rspec_notice').text).to eq '変更を保存しました'
     end
-    it 'ユーザー詳細ページから投稿を編集すること', js:true do
+    it 'ユーザー詳細ページから投稿を編集すること', js: true do
       to_new_post post
       visit user_path user
       find('.rspec_post-tab').click
@@ -80,4 +80,20 @@ RSpec.describe 'ポスト', type: :system do
       expect(find('.rspec_alert').text).to eq 'アカウント登録もしくはログインしてください。' 
     end
   end
+  # context '投稿を検索する場合' do
+  #   before do
+  #     sign_in user
+  #     visit root_path
+  #     to_new_post post
+  #     visit posts_path
+  #   end
+  #   it '検索が見つかること', js: true do
+  #     find('.js_open').click
+  #     find('label[for=post_num_of_people_一人]').click
+  #     find('label[for=post_play_style_もくもく]').click
+  #     click_button '検索'
+  #     expect(page).to have_content 'カラオケ'
+  #   end
+  #   it '検索が見つからないこと', js: true
+  # end
 end

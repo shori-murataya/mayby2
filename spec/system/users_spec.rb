@@ -23,7 +23,7 @@ RSpec.describe "ユーザー", type: :system do
     end
   end
   context 'ログインしていない場合' do
-    it 'ログインすること', js: true do
+    it 'ログインすること' do
       visit new_user_session_path
       fill_in 'メールアドレス', with: user.email
       fill_in 'パスワード', with: user.password
@@ -61,6 +61,23 @@ RSpec.describe "ユーザー", type: :system do
       click_button '更新' 
       visit users_path
       expect(page).to have_selector "img[src$='no_image.jpg']"
+    end
+  end
+  context 'ユーザー検索をする場合' do
+    before do
+      sign_in user
+      visit users_path
+    end
+    it 'ユーザーが見つかること', js: true do
+      fill_in 'rspec_user_search', with: 'Taro'
+      click_button '検索'
+      expect(page).to have_content 'Taro'
+    end
+    it 'ユーザーが見つからないこと', js: true do
+      fill_in 'rspec_user_search', with: 'Hanako'
+      click_button '検索'
+      expect(page).to_not have_content 'Taro'
+      expect(page).to_not have_content 'Hanako'
     end
   end
 end

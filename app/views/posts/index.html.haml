@@ -1,14 +1,14 @@
 .posts-index-background
   .post-index-box
     %h1.post-index-title Mayby一覧
-    .js_open.info_open.btn.btn-primary
+    .js_open.rspec_open.info_open.btn.btn-primary
       %span.check + 
       探す
     .search-box.js_search-box
       = search_form_for @q , url: posts_path do |f|
         %div
-          = f.label :title, { class: "post_form_labels post_search_title" }
-          = f.search_field :title_cont, { class: 'mayby_search', placeholder: '名前で検索できます' }
+          = f.label :title, { class: "post_form_labels post_search_title", for: 'post_title' }
+          = f.search_field :title_cont, { class: 'mayby_search', id: 'post_title', placeholder: '名前で検索できます' }
         .search_detail
           = f.label :num_of_people, { class: "post_form_radio_labels" }
           = f.radio_button :num_of_people_eq, "一人", { class: "post_form_radio_none" }

@@ -13,10 +13,9 @@ RSpec.describe "コメント", type: :system do
   it 'コメントすること', js: true do 
     click_link 'カラオケ'
     fill_in 'rspec_textarea', with: '私もカラオケが好きです'
-    expect{ 
-      click_button 'コメント' 
+    click_button 'コメント'
+    expect{
       expect(page).to have_content '私もカラオケが好きです'
-      save_and_open_page
     }.to change{ Comment.count }.from(0).to(1) 
   end
 
@@ -24,12 +23,14 @@ RSpec.describe "コメント", type: :system do
     click_link 'カラオケ'
     fill_in 'rspec_textarea', with: '私もカラオケが好きです'
     click_button 'コメント'
+    visit current_path
     expect(page).to have_content '私もカラオケが好きです'
 
     expect{
       page.accept_confirm do
         find('.rspec_comment-delete').click
       end
+      visit current_path
       expect(page).to have_content '0件'
     }.to change{ Comment.count }.from(1).to(0) 
   end

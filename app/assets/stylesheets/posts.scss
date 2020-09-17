@@ -268,7 +268,7 @@ a.post-nolike i{
   position: relative;
 }
 .comment_show_card{
-  margin: 40px 30px;
+  margin: 40px 20px;
   text-align: center;
 }
 .post_show_title{
@@ -305,20 +305,21 @@ a.post-nolike i{
 }
 .comment_form{
   width: 95%;
-  margin: 15px auto 10px auto;
+  margin: 0 auto 10px auto;
 }
 .comment_textarea{
-  width: 100%;
-  height: 170px;
+  width: 81%;
+  height: 120px;
   padding: 8px;
-  margin-bottom: 20px;
+  margin: 20px;
   border: none;
   box-shadow: 0 0 5px rgb(105, 105, 105);
   border-radius: 5px;
 }
 .comment_btn{
-  margin: 10px 0 40px 0;
+  margin: 10px auto 20px auto;
   padding: 5px 20px;
+  display: block;
 }
 .comment_counter{
   font-weight: bold;
@@ -326,9 +327,7 @@ a.post-nolike i{
   text-align: end;
 }
 .post_comment_index_list{
-  margin-bottom: 20px;
-  width: 90%;
-  margin: 20px auto;
+  margin: 20px;
 }
 
 @media(max-width:674px){
