@@ -1,2 +1,0 @@
-$('#js-user-list').append("<%= j(render partial: 'index', locals: { user: @users }) %>");
-$('#js-more-link').replaceWith("<%= j(link_to_next_page(@users, 'もっと見る', remote: true, id: 'js-more-link')) %>");

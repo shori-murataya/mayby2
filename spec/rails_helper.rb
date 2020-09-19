@@ -78,4 +78,13 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+  # dekiru
+  require 'dekiru/capybara/helpers'
+  RSpec.configure do |config|
+    config.include Dekiru::Capybara::Helpers, type: :system
+  end
+  require 'dekiru/capybara/matchers'
+  RSpec.configure do |config|
+    config.include Dekiru::Capybara::Matchers, type: :system
+  end
 end

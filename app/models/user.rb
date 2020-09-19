@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
-  must_be_ordered
+  #must_be_ordered
 
   def current_user?(user)
     self.id == user.id

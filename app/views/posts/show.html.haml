@@ -17,5 +17,3 @@
         = render partial: 'comments/form' , locals: { post:@post,comment:@comment}
       #js_come_index
         = render partial: 'comments/index' , locals: { comments:@comments}
-    -# <%= link_to_next_page @comments, 'もっと見る', remote: true, id: 'more_link' %>
-    -# <%= paginate @comments %>

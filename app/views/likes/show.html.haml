@@ -1,6 +1,19 @@
+-# users/index 共通レイアウト
 .users-index-background
   .users-index-box
-    %h1.users-index-title いいねしたユーザー 一覧(仮)
-    %ul
+    %h1.users-index-title= "#{@post.title}にいいねしたユーザー"
+    .user_index_list
       - @likes.each do |like|
-        %li= like.user.name
+        .card.user_card{ style: "width: 20rem;" }
+          - if like.user.image?
+            = image_tag like.user.image.url,{class: "card-img-top user_image"}
+          - else
+            %img.card-img-top.user_image{src: "/assets/no_image.jpg"}
+          .card-body
+            %h4.card-title= like.user.name
+            %p.card-text
+              = render partial: 'users/num_of_follow', locals: { user: like.user}
+            = link_to "詳細", user_path(like.user), {class: "btn btn-primary"}
+            - if like.user.current_user?(current_user)
+              = link_to "編集", edit_user_registration_path, {class: "btn btn-primary"}
+            %p.card-text.user_created_at=  "開始日:#{l like.user.created_at}"

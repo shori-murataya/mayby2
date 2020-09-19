@@ -1,1 +1,19 @@
-未実装
+-# users/index 共通レイアウト
+.users-index-background
+  .users-index-box
+    %h1.users-index-title フォローリスト
+    .user_index_list
+      - @user.all_following.each do |user|
+        .card.user_card{ style: "width: 20rem;" }
+          - if user.image?
+            = image_tag user.image.url,{class: "card-img-top user_image"}
+          - else
+            %img.card-img-top.user_image{src: "/assets/no_image.jpg"}
+          .card-body
+            %h4.card-title= user.name
+            %p.card-text
+              = render partial: 'users/num_of_follow', locals: { user: user}
+            = link_to "詳細", user_path(user), {class: "btn btn-primary"}
+            - if user.current_user?(current_user)
+              = link_to "編集", edit_user_registration_path, {class: "btn btn-primary"}
+            %p.card-text.user_created_at=  "開始日:#{l user.created_at}"

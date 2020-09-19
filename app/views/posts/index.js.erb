@@ -1,2 +1,0 @@
-$('#js-post-list').append("<%= j(render partial: 'post', locals: { post: @posts }) %>");
-$('#js-more-link').replaceWith("<%= j(link_to_next_page(@posts, 'もっと見る', remote: true, id: 'js-more-link')) %>");

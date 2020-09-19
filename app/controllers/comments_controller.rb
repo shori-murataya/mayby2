@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   private
   def set_post_comments
     @post = Post.find(params[:post_id])
-    @comments = @post.comments.page(params[:page]).order(created_at: :desc)
+    @comments = @post.comments.order(created_at: :desc)
     #特定した投稿に対するコメント一覧(Ajax at posts/show)
   end
 

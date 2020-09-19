@@ -17,6 +17,7 @@ gem 'carrierwave'
 gem 'haml-rails'
 gem "acts_as_follower", github: "tcocca/acts_as_follower"
 gem 'bootstrap', '~> 5.0.0.alpha1'
+gem 'dekiru'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'

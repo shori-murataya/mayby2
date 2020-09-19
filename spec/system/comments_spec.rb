@@ -9,30 +9,29 @@ RSpec.describe "コメント", type: :system do
     to_new_post post
     visit posts_path
   end
-
+# find('.rspec_textarea').set('私もカラオケが好きです')
   it 'コメントすること', js: true do 
     click_link 'カラオケ'
-    fill_in 'rspec_textarea', with: '私もカラオケが好きです'
-    click_button 'コメント'
+    fill_in 'コメント', with: '私もカラオケが好きです'
     expect{
-      expect(page).to have_content '私もカラオケが好きです'
-    }.to change{ Comment.count }.from(0).to(1) 
+      click_button 'コメント'
+    }.to change{ Comment.count }.from(0).to(1)
+    expect(page).to have_content '私もカラオケが好きです'
   end
 
   it 'コメントを削除すること', js: true do
     click_link 'カラオケ'
     fill_in 'rspec_textarea', with: '私もカラオケが好きです'
     click_button 'コメント'
-    visit current_path
+    sleep 2
     expect(page).to have_content '私もカラオケが好きです'
 
     expect{
       page.accept_confirm do
         find('.rspec_comment-delete').click
       end
-      visit current_path
-      expect(page).to have_content '0件'
     }.to change{ Comment.count }.from(1).to(0) 
+    expect(page).to have_content '0件'
   end
 
   it 'ユーザ詳細ページからコメントを削除すること', js: true do
