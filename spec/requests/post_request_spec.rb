@@ -8,10 +8,6 @@ RSpec.describe 'Posts', type: :request do
       before do
         sign_in user
       end
-      it '正常にレスポンスを返すこと' do
-        get posts_path
-        expect(response).to be_success
-      end
       it '200レスポンスを返すこと' do
         get posts_path
         expect(response).to have_http_status '200'
@@ -36,7 +32,7 @@ RSpec.describe 'Posts', type: :request do
       it '正常にレスポンスを返すこと' do     
         sign_in user
         get post_path post
-        expect(response).to be_success
+        expect(response).to have_http_status '200'
       end
     end
     context 'ゲストユーザーの場合' do

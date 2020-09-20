@@ -4,7 +4,7 @@
       = link_to user_path(comment.user) do
         %h3.user_comment_index_title= "#{comment.user.name}さん"
     .card-body
-      %p.rspec_comment= simple_format( comment.content )
+      %p= simple_format( comment.content )
     %footer.comment_time= "コメント日時：#{ l comment.created_at }"
     - if comment.comment_user?(current_user)
       = render partial: 'comments/destroy', locals: {comment: comment}  

@@ -80,20 +80,34 @@ RSpec.describe 'ポスト', type: :system do
       expect(find('.rspec_alert').text).to eq 'アカウント登録もしくはログインしてください。' 
     end
   end
-  # context '投稿を検索する場合' do
-  #   before do
-  #     sign_in user
-  #     visit root_path
-  #     to_new_post post
-  #     visit posts_path
-  #   end
-  #   it '検索が見つかること', js: true do
-  #     find('.js_open').click
-  #     find('label[for=post_num_of_people_一人]').click
-  #     find('label[for=post_play_style_もくもく]').click
-  #     click_button '検索'
-  #     expect(page).to have_content 'カラオケ'
-  #   end
-  #   it '検索が見つからないこと', js: true
-  # end
+  context '投稿を検索する場合' do
+    before do
+      sign_in user
+      visit root_path
+      to_new_post post
+      visit posts_path
+      find('.js_open').click
+      sleep 1
+    end
+    it '名前で見つかること', js: true do
+      fill_in '名前', with: 'カラオケ'
+      click_button '検索'
+      expect(page).to have_content 'カラオケ'
+    end
+    it 'プレイ人数で見つかること', js: true do
+      find('label[for=q_num_of_people_eq_一人]').click
+      click_button '検索'
+      expect(page).to have_content '一人'
+    end
+    it '雰囲気で見つかること', js: true do
+      find('label[for=q_play_style_eq_もくもく]').click
+      click_button '検索'
+      expect(page).to have_content 'もくもく'
+    end
+    it '検索が見つからないこと', js: true do
+      fill_in '名前', with: 'ゲートボール'
+      click_button '検索'
+      expect(page).to_not have_content 'カラオケ'
+    end
+  end
 end
