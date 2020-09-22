@@ -12,7 +12,8 @@ RSpec.describe 'ポスト', type: :system do
     it '投稿をすること', js: true do  
       click_link 'Maybyをつくろう'
       fill_in '名前', with: 'カラオケ'
-      fill_in '遊び方', with: '歌ってみた'  
+      fill_in '遊び方', with: '歌ってみた'
+      find('.rspec_action_textarea').set('1人で歌い放題です')
       find('label[for=post_num_of_people_一人]').click
       find('label[for=post_play_style_もくもく]').click
       expect { click_button "Mayby作成" }.to change{ Post.count }.from(0).to(1) 
@@ -33,6 +34,7 @@ RSpec.describe 'ポスト', type: :system do
       find('.rspec_post-edit').click
       fill_in '名前', with: '一人カラオケ'
       fill_in '遊び方', with: 'オールナイト耐久戦'  
+      find('.rspec_action_textarea').set('1人で悲しいです')
       find('label[for=post_num_of_people_二人]').click
       find('label[for=post_play_style_わいわい]').click
       expect{ click_button "更新" }.to_not change{ Post.count }   
@@ -45,7 +47,8 @@ RSpec.describe 'ポスト', type: :system do
     
       find('.rspec_post-edit').click
       fill_in '名前', with: '一人カラオケ'
-      fill_in '遊び方', with: 'オールナイト耐久戦'  
+      fill_in '遊び方', with: 'オールナイト耐久戦'
+      find('.rspec_action_textarea').set('1人で悲しいです')
       find('label[for=post_num_of_people_二人]').click
       find('label[for=post_play_style_わいわい]').click
       expect{ click_button "更新" }.to_not change{ Post.count }    

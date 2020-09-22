@@ -11,7 +11,7 @@
         = f.text_area :howto
         .action_text
           = f.label :content, {class: "post_form_labels"}
-          = f.rich_text_area :content
+          = f.rich_text_area :content, { class: "rspec_action_textarea" }
         .post_radio_btn
           = f.label :num_of_people, {class: "post_form_radio_labels"}
           = f.radio_button :num_of_people, "一人", { class: "post_form_radio_none" }
