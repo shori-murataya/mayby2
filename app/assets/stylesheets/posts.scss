@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // post_new, post_edit
+.post_form_layout{
+  width: 80%;
+  margin: 0 auto;
+}
 .post_form_common_layout{
   background-image: url("/background/new.jpg");
   background-size: cover;
@@ -36,7 +40,7 @@ input#post_title{
 }
 textarea#post_howto{
   width: 100%;
-  height: 170px;
+  height: 100px;
   padding: 8px;
   margin-bottom: 20px;
   border: none;
@@ -191,6 +195,7 @@ input.mayby_search{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-radius: 5px;
 }
 .mini_user_image{
   display: inline-block;
@@ -208,11 +213,11 @@ input.mayby_search{
   margin: 10px;
   display: flex;
   flex-direction: column;
+  border-radius: 5px;
 }
 .post_index_howto{
   width: 90%;
   margin: 20px auto;
-  border: 1px solid gray;
   border-radius: 5px;
   box-shadow: 0 0 6px gray;
 }
@@ -267,24 +272,40 @@ a.post-nolike i{
   background-color: rgba(255, 255, 255, 0.788);
   position: relative;
 }
+.post_show_user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 6px gray;
+  border-radius: 5px;
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+}
+.show_actiontext{
+  text-align: left;
+  padding: 15px;
+}
 .comment_show_card{
   margin: 40px 20px;
   text-align: center;
 }
 .post_show_title{
   margin: 40px;
+  font-weight: bold;
 }
 .post_show_introduce1{
-  margin: 40px 0 15px 0;
+  margin: 10px auto;
   font-size: 20px;
 }
-.user_image{
+.post_user_image{
   border-radius: 50%;
-  width: 25%;
+  width: 70%;
   height: auto;
-  margin: 10px;
+  margin: 15px;
   max-width: 210px;
   max-width: 210px;
+  box-shadow: 0 0 6px gray;
 }
 .post-edit-icon{
   position: absolute;
@@ -296,16 +317,15 @@ a.post-nolike i{
   font-size: 20px;
   justify-content: center;
   align-items: center;
-  margin: 0 15px 15px 0;
   border-radius: 5px;
   background-color: rgba(138, 138, 138, 0.37);
   box-shadow: 0 0 8px grey;
   width: 100px;
-  margin: 20px auto;
+  margin: 20px auto 10px auto;
 }
 .comment_form{
   width: 95%;
-  margin: 0 auto 10px auto;
+  margin: 0 auto;
 }
 .label_comment{
   display: none;
@@ -325,6 +345,7 @@ a.post-nolike i{
   display: block;
 }
 .comment_counter{
+  margin: 0;
   font-weight: bold;
   font-size: 15px;
   text-align: end;

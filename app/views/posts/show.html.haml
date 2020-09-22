@@ -3,13 +3,18 @@
     .card.comment_show_card
       %h1.post_show_title= @post.title
       .post_show_user
-        = link_to user_path(@post.user) do
-          - if @post.user.image?
-            = image_tag @post.user.image.url, { class: "user_image" }
-          - else
-            %img.user_image{src: "/assets/no_image.jpg"}
-      %p.post_show_introduce1= "#{@post.user.name}さんの発案したMayby"
-      %p.post_show_introduce2= "#{@post.num_of_people}で#{@post.play_style}遊ぶ人に向いているよ！"
+        .post_show_flex1
+          = link_to user_path(@post.user) do
+            - if @post.user.image?
+              = image_tag @post.user.image.url, { class: "post_user_image" }
+            - else
+              %img.post_user_image{src: "/assets/no_image.jpg"}
+        .post_show_flex2
+          %p.post_show_introduce1
+            = link_to @post.user.name, user_path(@post.user)
+            さんの発案したMayby
+          %p.post_show_introduce2= "#{@post.num_of_people}で#{@post.play_style}遊ぶ人に向いているよ！"
+      %h1.post_show_title 遊び方
       = @post.content
       .show_star_postion{id: "js_like_#{@post.id}" }
         = render partial: 'likes/like' , locals: { post: @post} 

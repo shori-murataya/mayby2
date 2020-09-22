@@ -3,12 +3,15 @@
     %h1.post_form_common_page_title 編集ページ
     - @post.errors.full_messages.each do |message|
       %p.post_validates= message
-    .user_form_layout
+    .post_form_layout
       = form_with model:@post, local: true do |f|
         = f.label :title, {class: "post_form_labels"}
         = f.text_field :title
         = f.label :howto, {class: "post_form_labels"}
         = f.text_area :howto
+        .action_text
+          = f.label :content, {class: "post_form_labels"}
+          = f.rich_text_area :content
         .post_radio_btn
           = f.label :num_of_people, {class: "post_form_radio_labels"}
           = f.radio_button :num_of_people, "一人", { class: "post_form_radio_none" }
@@ -21,6 +24,4 @@
           = f.label :play_style, { value: :"もくもく", class: "radio_select" } 
           = f.radio_button :play_style,  "わいわい", { class: "post_form_radio_none" }
           = f.label :play_style, { value: :"わいわい", class: "radio_select" } 
-        = f.label :content
-        = f.rich_text_area :content
         = f.submit "更新", {class: "post_common_form_btn"}
