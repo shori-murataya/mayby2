@@ -7,7 +7,7 @@ ruby '2.7.1'
 gem 'rails', '~> 6.0.3'
 gem 'bcrypt'
 gem 'rails-i18n'
-gem 'jquery-rails'
+# gem 'jquery-rails'
 gem 'kaminari'
 gem 'ransack'
 gem 'must_be_ordered'
@@ -19,6 +19,8 @@ gem "acts_as_follower", github: "tcocca/acts_as_follower"
 gem 'bootstrap'
 gem 'dekiru'
 
+gem 'actiontext'
+gem 'image_processing', '~> 1.2'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
@@ -38,9 +40,9 @@ gem 'jbuilder'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'webpacker', '~> 4.0'
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

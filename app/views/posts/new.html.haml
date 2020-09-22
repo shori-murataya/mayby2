@@ -22,4 +22,6 @@
           = f.label :play_style, "もくもく", { value: :"もくもく", class: "radio_select" }
           = f.radio_button :play_style,  "わいわい", { class: "post_form_radio_none" }
           = f.label :play_style, "わいわい", { value: :"わいわい", class: "radio_select" }
+        = f.label :content
+        = f.rich_text_area :content
         = f.submit "Mayby作成", { class: "post_common_form_btn" }

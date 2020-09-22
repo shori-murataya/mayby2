@@ -6,11 +6,12 @@ class Post < ApplicationRecord
   validates :howto, { presence: true, length: { maximum:MAXIMUM_LENGTH_HOWTO } }
   validates :num_of_people, { presence: true }
   validates :play_style, { presence: true }
-
+  
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-
+  
+  has_rich_text :content
   #must_be_ordered
   def created_user?(user)
     self.user_id == user.id

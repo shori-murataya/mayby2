@@ -10,6 +10,7 @@
             %img.user_image{src: "/assets/no_image.jpg"}
       %p.post_show_introduce1= "#{@post.user.name}さんの発案したMayby"
       %p.post_show_introduce2= "#{@post.num_of_people}で#{@post.play_style}遊ぶ人に向いているよ！"
+      = @post.content
       .show_star_postion{id: "js_like_#{@post.id}" }
         = render partial: 'likes/like' , locals: { post: @post} 
       #js_comment_error
