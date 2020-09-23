@@ -5,8 +5,8 @@
       .post_show_user
         .post_show_flex1
           = link_to user_path(@post.user) do
-            - if @post.user.image?
-              = image_tag @post.user.image.url, { class: "post_user_image" }
+            - if @post.user.image.attached?
+              = image_tag @post.user.image, { class: "post_user_image" }
             - else
               %img.post_user_image{src: "/assets/no_image.jpg"}
         .post_show_flex2

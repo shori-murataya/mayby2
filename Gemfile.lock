@@ -84,20 +84,18 @@ GEM
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.33.0)
+      activemodel (>= 5.0.0)
+      activesupport (>= 5.0.0)
       addressable
+      addressable (~> 2.6)
+      image_processing (~> 1.1)
+      mimemagic (>= 0.3.0)
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    carrierwave (2.1.0)
-      activemodel (>= 5.0.0)
-      activesupport (>= 5.0.0)
-      addressable (~> 2.6)
-      image_processing (~> 1.1)
-      mimemagic (>= 0.3.0)
-      mini_mime (>= 0.1.3)
     childprocess (3.0.0)
     coderay (1.1.3)
     coffee-rails (5.0.0)
@@ -350,7 +348,6 @@ DEPENDENCIES
   bootstrap
   byebug
   capybara
-  carrierwave
   coffee-rails
   database_cleaner
   dekiru

@@ -1,8 +1,8 @@
 .users-show-background
   .users-show-box
     .card.user_show_card
-      - if @user.image?
-        = image_tag @user.image.url,{class: "card-img-top user_show_image"}
+      - if @user.image.attached?
+        = image_tag @user.image,{class: "card-img-top user_show_image"}
       - else
         %img.card-img-top.user_show_image{src: "/assets/no_image.jpg"}
       .card-body

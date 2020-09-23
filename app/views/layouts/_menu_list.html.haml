@@ -1,8 +1,8 @@
 - if user_signed_in? 
   .header_login_user
     =link_to user_path(current_user) do
-      - if current_user.image?
-        = image_tag current_user.image.url, { class: "login_user_image" }
+      - if current_user.image.attached?
+        = image_tag current_user.image, { class: "login_user_image" }
       - else
         %img.login_user_image{src: "/assets/no_image.jpg"}
   %li= link_to "#{current_user.name}さん", user_path(current_user), {class: "user_show_button"}

@@ -1,7 +1,7 @@
 - @users.each do |user|
   .card.user_card{ style: "width: 20rem;" }
-    - if user.image?
-      = image_tag user.image.url,{class: "card-img-top user_image"}
+    - if user.image.attached?
+      = image_tag user.image,{class: "card-img-top user_image"}
     - else
       %img.card-img-top.user_image{src: "/assets/no_image.jpg"}
     .card-body
