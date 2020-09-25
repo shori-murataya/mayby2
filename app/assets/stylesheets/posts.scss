@@ -79,7 +79,7 @@ textarea#post_howto{
 }
 input.post_common_form_btn{
   display: block;
-  margin: 30px auto 40px auto;
+  margin: 40px auto;
   padding: 10px 50px;
   background-color: rgba(231, 250, 200, 0.836);
   cursor: pointer;
@@ -292,7 +292,8 @@ a.post-nolike i{
 }
 .post_show_title{
   margin: 40px;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 30px;
 }
 .post_show_introduce1{
   margin: 10px auto;
@@ -321,7 +322,7 @@ a.post-nolike i{
   background-color: rgba(138, 138, 138, 0.37);
   box-shadow: 0 0 8px grey;
   width: 100px;
-  margin: 20px auto 10px auto;
+  margin: 20px auto;
 }
 .comment_form{
   width: 95%;
@@ -331,10 +332,9 @@ a.post-nolike i{
   display: none;
 }
 .comment_textarea{
-  width: 81%;
+  width: 100%;
   height: 120px;
   padding: 8px;
-  margin: 20px;
   border: none;
   box-shadow: 0 0 5px rgb(105, 105, 105);
   border-radius: 5px;

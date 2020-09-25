@@ -1,6 +1,20 @@
 .user_form_common_background
   .user_form_common_formbox
     %h1.user_form_common_page_title ログイン
+    .omniauth_area
+      %h2.omniauth_h2 次のアカウントでログインできます
+      = link_to user_facebook_omniauth_authorize_path do
+        .facebook 
+          %i.fab.fa-facebook-f 
+          Facebookでログイン
+      = link_to user_google_oauth2_omniauth_authorize_path do
+        .google
+          = image_tag "google_icon.svg", :width => "16", :height => "16"
+          googleでログイン
+      = link_to user_twitter_omniauth_authorize_path do
+        .twitter
+          %i.fab.fa-twitter
+          twitterでログイン
     .user_form_layout
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field

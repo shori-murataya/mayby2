@@ -6,7 +6,7 @@
       - else
         %img.card-img-top.user_show_image{src: "/assets/no_image.jpg"}
       .card-body
-        %h4.card-title= @user.name
+        %h4.card-title= "#{ @user.name }さん"
         %p.card-text
           #js-follow-form.follow_box
             = render partial: 'follow', locals: { user: @user }
@@ -23,7 +23,7 @@
           - @user.posts.each do |post|
             .card.user_post_index
               .card-header.post_index_title
-                = "#{post.title}"
+                = link_to post.title, post_path(post)
                 - if @user.current_user?(current_user)
                   .edit-icon
                     = link_to edit_post_path(post), { class: "icon-link" } do

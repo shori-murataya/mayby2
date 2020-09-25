@@ -1,7 +1,7 @@
 .posts-show-background
   .post-show-box
     .card.comment_show_card
-      %h1.post_show_title= @post.title
+      %h1.highlight.post_show_title= @post.title
       .post_show_user
         .post_show_flex1
           = link_to user_path(@post.user) do

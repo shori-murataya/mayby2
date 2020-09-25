@@ -7,7 +7,6 @@ ruby '2.7.1'
 gem 'rails', '~> 6.0.3'
 gem 'bcrypt'
 gem 'rails-i18n'
-# gem 'jquery-rails'
 gem 'kaminari'
 gem 'ransack'
 gem 'must_be_ordered'
@@ -17,9 +16,12 @@ gem 'haml-rails'
 gem "acts_as_follower", github: "tcocca/acts_as_follower"
 gem 'bootstrap'
 gem 'dekiru'
-
 gem 'actiontext'
 gem 'image_processing', '~> 1.2'
+gem 'dotenv-rails'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
