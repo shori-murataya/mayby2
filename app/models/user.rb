@@ -1,3 +1,4 @@
+require "open-uri"
 class User < ApplicationRecord
   PER_USER_AT_INDEX = 3
   has_one_attached :image
@@ -31,8 +32,11 @@ class User < ApplicationRecord
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.name
-      user.email = User.dummy_email(auth)
       user.password = Devise.friendly_token[0, 20]
+      user.email = auth.info.email
+      user.email = User.dummy_email(auth) if user.provider == "twitter"
+      avatar = open("#{auth.info.image}")
+      user.image.attach(io: avatar, filename: "user_avatar.jpg")
     end
   end
 
@@ -40,5 +44,5 @@ class User < ApplicationRecord
 
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"
-  end
+  end  
 end

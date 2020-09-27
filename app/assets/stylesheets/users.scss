@@ -36,15 +36,19 @@ h1.user_form_common_page_title{
   font-size: 18px;
   font-weight: 700;
 }
+.fab.fa-facebook-f{
+  margin-right: 5px;
+}
 .facebook{
   display: inline-block;
   color: #fff;
   background: #3b5998;
-  width: 195px;
+  width: 200px;
   margin-bottom: 10px;
   padding: 8px 15px;
   border-radius: 5px;
   text-decoration: none;
+  text-align: center;
 }
 .google{
   display: inline-block;
@@ -52,17 +56,25 @@ h1.user_form_common_page_title{
   background-color: #fff;
   color: #888;
   margin-bottom: 10px;
-  width: 195px;
-  padding: 8px 15px;
+  width: 200px;
+  padding: 7px 10px;
   border-radius: 5px;
+  text-align: center;
+}
+.google img{
+  margin-right: 5px;
+}
+.fab.fa-twitter{
+  margin-right: 5px;
 }
 .twitter{
   display: inline-block;
   background: #1da1f2;
   color: #fff;
-  width: 195px;
+  width: 200px;
   padding: 8px 15px;
   border-radius: 5px;
+  text-align: center;
 }
 .user_form_layout{
   width: 60%;
