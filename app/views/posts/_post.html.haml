@@ -12,10 +12,7 @@
     .card-body.post_body
       .post_index_user
         = link_to user_path(post.user) do
-          - if post.user.image.attached?
-            = image_tag post.user.image, { class: "mini_user_image" }
-          - else
-            %img.mini_user_image{src: "/assets/no_image.jpg"}
+          = image_tag post.user.image_url, { class: "mini_user_image" }
           %p.profile_name= "#{post.user.name}さん" 
       .post_index_detail
         .post_index_howto

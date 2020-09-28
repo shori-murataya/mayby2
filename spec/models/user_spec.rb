@@ -41,12 +41,25 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors[:password]).to include("は6文字以上に設定して下さい。")
     end
+
+    it "画像サイズが5MB以上は無効であること" do
+      user.image = fixture_file_upload("#{Rails.root}/spec/files/large_image.jpg")
+      user.valid?
+      expect(user.errors[:image]).to include("を5MB以下のサイズにしてください。")
+    end
+
+    it "画像以外のファイルは無効であること" do
+      user.image = fixture_file_upload("#{Rails.root}/spec/files/test.html")
+      user.valid?
+      expect(user.errors[:image]).to include("のファイル形式が不正です。")
+    end
   end
 
   describe "#current_user?" do
+
     let(:user) { FactoryBot.create(:user) }
     let(:other_user) { FactoryBot.create(:user) }
-    
+
     context "ログインユーザーと同じユーザーの場合" do
       it "trueを返すこと" do
         expect(user.current_user?(user)).to eq true 
@@ -58,6 +71,7 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
   describe "#followable?" do
     let(:user) { FactoryBot.create(:user) }
     let(:other_user) { FactoryBot.create(:user) }
@@ -71,5 +85,37 @@ RSpec.describe User, type: :model do
         expect(user.followable?(user)).to eq false
       end
     end
+  end
+
+  describe '#image_url' do
+
+    let(:has_image_user) { FactoryBot.create(:user) }
+    let(:no_image_user) { FactoryBot.create(:user) }
+    let(:has_image_post) { FactoryBot.create(:post, user: has_image_user) }
+    let(:no_image_post) { FactoryBot.create(:post, user: no_image_user) } 
+    
+    context 'ユーザー画像が選択されている場合' do
+      it 'ユーザー画像を返すこと' do
+        has_image_user.image = fixture_file_upload("#{Rails.root}/spec/files/test.jpg")
+        expect(has_image_user.image_url).to eq has_image_user.image
+      end
+    end
+    context 'ユーザー画像が選択されていない場合' do
+      it 'no_image.jpgを返すこと' do
+        expect(no_image_user.image_url).to eq "/assets/no_image.jpg"
+      end
+    end
+    context 'post関連ページでユーザー画像が選択されている場合' do
+      it 'ユーザー画像を返すこと' do
+        has_image_user.image = fixture_file_upload("#{Rails.root}/spec/files/test.jpg")
+        expect(has_image_post.user.image_url).to eq has_image_user.image
+      end
+    end
+    context 'post関連ページでユーザー画像が選択されていない場合' do
+      it 'no_image.jpgを返すこと' do
+        expect(no_image_post.user.image_url).to eq "/assets/no_image.jpg"
+      end
+    end
+
   end
 end

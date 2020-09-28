@@ -21,4 +21,5 @@ class Post < ApplicationRecord
   def unliking_user?(user)
     user.likes.find_by(post_id: self.id).nil?
   end
+
 end

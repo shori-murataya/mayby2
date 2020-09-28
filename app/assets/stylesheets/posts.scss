@@ -52,7 +52,7 @@ textarea#post_howto{
   padding: 10px;
   display: block;
 }
-.post_form_radio_none{
+.js-post-form-radio-none{
   display: none;
 }
 .radio_select{
@@ -68,7 +68,7 @@ textarea#post_howto{
   user-select: none;
   cursor: pointer;
 }
-.post_form_radio_none:checked + label{
+.js-post-form-radio-none:checked + label{
   color: white;
   background-color: skyblue;
   border: 1px solid rgb(105, 105, 105);

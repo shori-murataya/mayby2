@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function(){
-  const inputs = $('[type="radio"].post_form_radio_none');
+  const inputs = $('[type="radio"].js-post-form-radio-none');
   let checked = inputs.filter(':checked').val();
   inputs.on('click', function(){
     if($(this).val() === checked) {

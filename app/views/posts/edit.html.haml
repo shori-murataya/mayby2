@@ -14,14 +14,14 @@
           = f.rich_text_area :content, { class: "rspec_action_textarea" }
         .post_radio_btn
           = f.label :num_of_people, {class: "post_form_radio_labels"}
-          = f.radio_button :num_of_people, "一人", { class: "post_form_radio_none" }
+          = f.radio_button :num_of_people, "一人", { class: "js-post-form-radio-none" }
           = f.label :num_of_people, { value: :"一人", class: "radio_select" }
-          = f.radio_button :num_of_people, "二人〜", { class: "post_form_radio_none" }
+          = f.radio_button :num_of_people, "二人〜", { class: "js-post-form-radio-none" }
           = f.label :num_of_people, { value: :"二人〜", class: "radio_select" }  
         .post_radio_btn
           = f.label :play_style, {class: "post_form_radio_labels"}
-          = f.radio_button :play_style,  "もくもく", { class: "post_form_radio_none" }
+          = f.radio_button :play_style,  "もくもく", { class: "js-post-form-radio-none" }
           = f.label :play_style, { value: :"もくもく", class: "radio_select" } 
-          = f.radio_button :play_style,  "わいわい", { class: "post_form_radio_none" }
+          = f.radio_button :play_style,  "わいわい", { class: "js-post-form-radio-none" }
           = f.label :play_style, { value: :"わいわい", class: "radio_select" } 
         = f.submit "更新", {class: "post_common_form_btn"}

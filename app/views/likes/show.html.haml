@@ -5,10 +5,7 @@
     .user_index_list
       - @likes.each do |like|
         .card.user_card{ style: "width: 20rem;" }
-          - if like.user.image.attached?
-            = image_tag like.user.image,{class: "card-img-top user_image"}
-          - else
-            %img.card-img-top.user_image{src: "/assets/no_image.jpg"}
+          = image_tag like.user.image_url, {class: "card-img-top user_image"}
           .card-body
             %h4.card-title= like.user.name
             %p.card-text

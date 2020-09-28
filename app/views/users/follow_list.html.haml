@@ -5,10 +5,7 @@
     .user_index_list
       - @user.all_following.each do |user|
         .card.user_card{ style: "width: 20rem;" }
-          - if user.image.attached?
-            = image_tag user.image,{class: "card-img-top user_image"}
-          - else
-            %img.card-img-top.user_image{src: "/assets/no_image.jpg"}
+          = image_tag user.image_url, {class: "card-img-top user_image"}
           .card-body
             %h4.card-title= user.name
             %p.card-text
