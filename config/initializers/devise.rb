@@ -272,9 +272,17 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET_KEY'], :image_size => 'large'
-  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET']
-  config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET_KEY'], callback_url: "http://localhost:3000/users/auth/twitter/callback", :image_size => 'original'
+  
+  # setting at Development environment
+  config.omniauth :facebook, Rails.application.credentials.facebook[:facebook_id], Rails.application.credentials.facebook[:facebook_secret_key], :image_size => 'large'
+  config.omniauth :google_oauth2, Rails.application.credentials.google[:google_client_id], Rails.application.credentials.google[:google_client_secret]
+  config.omniauth :twitter, Rails.application.credentials.twitter[:twitter_api_key], Rails.application.credentials.twitter[:twitter_api_secret_key], callback_url: "http://localhost:3000/users/auth/twitter/callback", :image_size => 'original'
+  
+  # setting at Production environment(be valid when deploy) 
+  # config.omniauth :facebook, Rails.application.credentials.facebook[:facebook_id], Rails.application.credentials.facebook[:facebook_secret_key], :image_size => 'large', callback_url: "https://mayby.herokuapp.com/auth/facebook/callback"
+  # config.omniauth :google_oauth2, Rails.application.credentials.google[:google_client_id], Rails.application.credentials.google[:google_client_secret], callback_url: "https://mayby.herokuapp.com/auth/google_oauth2/callback"
+  # config.omniauth :twitter, Rails.application.credentials.twitter[:twitter_api_key], Rails.application.credentials.twitter[:twitter_api_secret_key], callback_url: "https://mayby.herokuapp.com/auth/twitter/callback", :image_size => 'original'
+  
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
