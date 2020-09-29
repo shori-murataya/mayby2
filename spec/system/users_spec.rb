@@ -63,6 +63,54 @@ RSpec.describe "ユーザー", type: :system do
       expect(page).to have_selector "img[src$='no_image.jpg']"
     end
   end
+
+  context 'フォロー関連のボタンを押した場合' do
+    let(:other_user) { FactoryBot.create(:user) }
+    before do
+      sign_in user
+      visit users_path
+      visit user_path other_user
+    end
+    it 'フォローすること', js: true do
+      expect{
+        click_on "フォローする"
+        sleep 2
+      }.to change{ user.follow_count }.from(0).to(1) 
+    end
+    it 'フォローを解除すること', js: true do
+      click_on "フォローする"
+      sleep 2
+      expect{
+        click_on "フォロー外す"
+        sleep 2
+      }.to change{ user.follow_count }.from(1).to(0) 
+    end
+  end
+
+  context 'フォローボタンを押された場合' do
+    let(:user) { FactoryBot.create(:user) }
+    let(:follower_user) { FactoryBot.create(:user) }
+    before do
+      sign_in follower_user
+      visit users_path
+      visit user_path user
+    end
+    it 'フォロワーが増えること', js: true do
+      expect{
+        click_on "フォローする"
+        sleep 2
+      }.to change{ user.followers_count }.from(0).to(1) 
+    end
+    it 'フォロワーが減ること', js: true do
+      click_on "フォローする"
+      sleep 2
+      expect{
+        click_on "フォロー外す"
+        sleep 2
+      }.to change{ user.followers_count }.from(1).to(0) 
+    end
+  end
+
   context 'ユーザー検索をする場合' do
     before do
       sign_in user

@@ -23,6 +23,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'activestorage-validator'
+gem 'aws-sdk-s3', require: false
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
