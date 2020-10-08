@@ -24,6 +24,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'activestorage-validator'
 gem 'aws-sdk-s3', require: false
+gem 'rails_admin', '~> 2.0.0.beta'
+gem 'cancancan'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets

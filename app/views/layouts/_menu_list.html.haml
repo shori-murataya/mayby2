@@ -7,6 +7,8 @@
   %li= link_to "Mayby一覧", posts_path
   %li= link_to "Mayby投稿", new_post_path, {class: "new_mayby_button"}
   %li= link_to "ログアウト", destroy_user_session_path, { method:"delete", class: "logout_button"}
+  - if current_user.admin?
+    %li= link_to "管理者", "http://localhost:3000/admin"
 - else  
   %li= link_to "Maybyとは", about_path
   %li= link_to "新規登録", new_user_registration_path
