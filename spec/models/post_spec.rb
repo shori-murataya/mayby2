@@ -35,6 +35,12 @@ RSpec.describe Post, type: :model do
       post.valid?
       expect(post.errors[:play_style]).to include("を入力してください") 
     end
+
+    it "詳しい遊び方なしは無効であること" do
+      post.content = nil
+      post.valid?
+      expect(post.errors[:content]).to include("を入力してください") 
+    end
   end
 
   describe "#created_user?" do

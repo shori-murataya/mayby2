@@ -1,6 +1,7 @@
 require "open-uri"
 class User < ApplicationRecord
   PER_USER_AT_INDEX = 3
+  MAX_IMAGE_FILE_SIZE = 1..5.megabytes
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -13,7 +14,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   
   validates :name, { presence: true }
-  validates :image, blob: { content_type: :image, size_range: 1..5.megabytes }
+  validates :image, blob: { content_type: :image, size_range: MAX_IMAGE_FILE_SIZE }
 
   # setting for acts_as_follower
   acts_as_followable

@@ -22,5 +22,7 @@ module Mayby
     config.i18n.default_locale = :ja
     # バリデーション失敗によるレイアウト崩れを防ぐ設定
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+    # DEPRECATION WARNING(カスタム親クラスは非推奨、将来削除される警告)
+    ActiveSupport::Deprecation.silenced = true if Rails.version == '6.0.3'
   end
 end
