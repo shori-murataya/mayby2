@@ -34,7 +34,7 @@ class User < ApplicationRecord
     if self.image.attached?
       image
     else
-      "/assets/no_image.jpg"
+      "/user_images/no_image.jpg"
     end
   end
 
