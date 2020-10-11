@@ -28,18 +28,18 @@
           null,
           null,
           1,
-          0,
+          13,
           null,
           null,
           1,
-          0,
+          10,
           null,
           null,
           1,
-          0,
-          0,
+          49,
+          5,
           null,
-          0,
+          44,
           null,
           null,
           null,
@@ -97,6 +97,110 @@
           null
         ]
       },
+      "/Users/muratashori/Desktop/my_code/mayby/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          8,
+          8,
+          8,
+          8,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/muratashori/Desktop/my_code/mayby/app/controllers/home_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/muratashori/Desktop/my_code/mayby/app/controllers/users_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          10,
+          10,
+          10,
+          null,
+          null,
+          1,
+          4,
+          null,
+          null,
+          1,
+          4,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          10,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/muratashori/Desktop/my_code/mayby/app/models/follow.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/muratashori/Desktop/my_code/mayby/app/models/comment.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
       "/Users/muratashori/Desktop/my_code/mayby/app/models/post.rb": {
         "lines": [
           1,
@@ -109,39 +213,49 @@
           1,
           null,
           1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
           null,
           1,
-          1,
-          1,
+          0,
           null,
-          1,
           null,
           1,
           0,
           null,
           null,
-          1,
-          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null
         ]
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/controllers/application_controller.rb": {
+      "/Users/muratashori/Desktop/my_code/mayby/app/validators/test_validator.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/muratashori/Desktop/my_code/mayby/app/models/like.rb": {
         "lines": [
           1,
           1,
           1,
           1,
-          null,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
           null
         ]
       },
@@ -208,47 +322,14 @@
         "branches": {
         }
       },
-      "/Users/muratashori/Desktop/my_code/mayby/app/models/like.rb": {
+      "/Users/muratashori/Desktop/my_code/mayby/app/models/ability.rb": {
         "lines": [
           0,
           0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/muratashori/Desktop/my_code/mayby/app/models/comment.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
           null,
           0,
           0,
           0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/muratashori/Desktop/my_code/mayby/app/models/follow.rb": {
-        "lines": [
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
           0,
           0,
           0,
@@ -319,61 +400,6 @@
           0,
           null,
           0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/muratashori/Desktop/my_code/mayby/app/controllers/users_controller.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/muratashori/Desktop/my_code/mayby/app/controllers/home_controller.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
           0,
           0,
           0
@@ -520,6 +546,6 @@
         }
       }
     },
-    "timestamp": 1602079517
+    "timestamp": 1602382436
   }
 }
