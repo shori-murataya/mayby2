@@ -273,7 +273,9 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   
+
   case Rails.env
+    # setting at Test environment
     when 'test'
       config.omniauth :facebook, Rails.application.credentials.facebook[:facebook_id], Rails.application.credentials.facebook[:facebook_secret_key], :image_size => 'large'
       config.omniauth :google_oauth2, Rails.application.credentials.google[:google_client_id], Rails.application.credentials.google[:google_client_secret]

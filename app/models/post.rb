@@ -11,6 +11,8 @@ class Post < ApplicationRecord
   validates :howto, { presence: true, length: { maximum:MAXIMUM_LENGTH_HOWTO } }
   validates :num_of_people, { presence: true }
   validates :play_style, { presence: true }
+  validates :content, { presence: true }
+
   # validates :content, test: true
   # validate :testvalid
   

@@ -102,7 +102,7 @@ RSpec.describe User, type: :model do
     end
     context 'ユーザー画像が選択されていない場合' do
       it 'no_image.jpgを返すこと' do
-        expect(no_image_user.image_url).to eq "/assets/no_image.jpg"
+        expect(no_image_user.image_url).to eq "/user_images/no_image.jpg"
       end
     end
     context 'post関連ページでユーザー画像が選択されている場合' do
@@ -113,7 +113,7 @@ RSpec.describe User, type: :model do
     end
     context 'post関連ページでユーザー画像が選択されていない場合' do
       it 'no_image.jpgを返すこと' do
-        expect(no_image_post.user.image_url).to eq "/assets/no_image.jpg"
+        expect(no_image_post.user.image_url).to eq "/user_images/no_image.jpg"
       end
     end
 

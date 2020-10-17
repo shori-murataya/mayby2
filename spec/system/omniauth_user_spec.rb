@@ -30,7 +30,7 @@ RSpec.describe "Users through OmniAuth", type: :system do
       it "ログインをするとユーザー数が増える", js: true do
         expect {
           click_link 'Googleで新規登録'
-          expect(page).to have_content 'Google_oauth2 アカウントによる認証に成功しました'
+          expect(page).to have_content 'Google アカウントによる認証に成功しました'
         }.to change(User, :count).by(1)
       end
     end
