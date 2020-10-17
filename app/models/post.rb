@@ -12,6 +12,9 @@ class Post < ApplicationRecord
   validates :num_of_people, { presence: true }
   validates :play_style, { presence: true }
   validates :content, { presence: true }
+
+  # validates :content, test: true
+  # validate :testvalid
   
   
   #must_be_ordered
@@ -22,5 +25,12 @@ class Post < ApplicationRecord
   def unliking_user?(user)
     user.likes.find_by(post_id: self.id).nil?
   end
+
+  # private
+  # def testvalid
+  #     unless content.embeds.first.blob
+  #       errors.add(:content, "どんな感じ？") 
+  #     end
+  # end
 
 end

@@ -12,10 +12,8 @@ RSpec.describe "コメント", type: :system do
   it 'コメントすること', js: true do 
     click_link 'カラオケ'
     find('.rspec_textarea').set('私もカラオケが好きです')
-    expect{
-      click_button 'コメント'
-      sleep 2
-    }.to change{ Comment.count }.from(0).to(1)
+    click_button 'コメント'
+    wait_for_ajax
     expect(page).to have_content '私もカラオケが好きです'
   end
 
@@ -23,16 +21,15 @@ RSpec.describe "コメント", type: :system do
     click_link 'カラオケ'
     find('.rspec_textarea').set('私もカラオケが好きです')
     click_button 'コメント'
-    sleep 2
+    wait_for_ajax
     expect(page).to have_content '私もカラオケが好きです'
-
     expect{
       page.accept_confirm do
         find('.rspec_comment-delete').click
       end
-      sleep 2
+      wait_for_ajax
+      expect(page).to have_content '0件'
     }.to change{ Comment.count }.from(1).to(0) 
-    expect(page).to have_content '0件'
   end
 
   it 'ユーザ詳細ページからコメントを削除すること', js: true do
@@ -42,6 +39,7 @@ RSpec.describe "コメント", type: :system do
     click_button 'コメント'
     visit user_path user
     find('.rspec_comment-tab').click
+    
     expect{
       page.accept_confirm do
         find('.rspec_comment-delete').click

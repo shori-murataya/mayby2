@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :destroy ]
   before_action :require_post_created_user!, only: [:edit, :update, :destroy]
+  
   def index
     @q = Post.ransack(params[:q])
     @q.build_sort if @q.sorts.empty?

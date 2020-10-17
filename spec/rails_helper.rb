@@ -8,6 +8,8 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'dekiru/capybara/helpers'
+require 'dekiru/capybara/matchers'
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -66,7 +68,6 @@ RSpec.configure do |config|
   #デバイスヘルパー関連
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include Devise::Test::IntegrationHelpers, type: :system
-  
   #DatabaseCleaner
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -79,12 +80,12 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
   # dekiru
-  require 'dekiru/capybara/helpers'
-  RSpec.configure do |config|
-    config.include Dekiru::Capybara::Helpers, type: :system
-  end
-  require 'dekiru/capybara/matchers'
-  RSpec.configure do |config|
-    config.include Dekiru::Capybara::Matchers, type: :system
-  end
+  config.include Dekiru::Capybara::Helpers, type: :system
+  config.include Dekiru::Capybara::Matchers, type: :system
+  
+  config.include OmniAuthHelpers
 end
+RSpec.configure do |config|
+  config.include Rails.application.routes.url_helpers
+end
+OmniAuth.config.test_mode = true
