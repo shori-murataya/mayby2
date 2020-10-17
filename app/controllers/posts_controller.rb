@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :destroy ]
   before_action :require_post_created_user!, only: [:edit, :update, :destroy]
+  
   def index
     @q = Post.ransack(params[:q])
     @q.build_sort if @q.sorts.empty?
@@ -19,7 +20,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    if @post.save
+    if @post.save!
       flash[:notice] = "投稿しました"
       redirect_to posts_path
     else
