@@ -12,7 +12,7 @@
         = f.text_area :howto, { placeholder: '遊び方（最大140文字）' }
         .action_text
           = f.label :content, { class: "post_form_labels" }
-          = f.rich_text_area :content, { class: "rspec_action_textarea" }
+          = f.rich_text_area :content, { class: "rspec_action_textarea", placeholder: '画像はJPG/PNG対応（最大２Mです）'}
         .post_radio_btn
           = f.label :num_of_people, { class: "post_form_radio_labels" }
           = f.radio_button :num_of_people, "一人", { class: "js-post-form-radio-none" }

@@ -22,3 +22,4 @@ require ("toggle_post_radio")
 
 require("trix")
 require("@rails/actiontext")
+import "../trix_override"
