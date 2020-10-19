@@ -2,12 +2,12 @@
 = link_to user_facebook_omniauth_authorize_path do
   .facebook 
     %i.fab.fa-facebook-f 
-    %sapn Facebookで新規登録
+    %sapn Facebookでログイン
 = link_to user_google_oauth2_omniauth_authorize_path do
   .google
     = image_tag "google_icon.svg", :width => "16", :height => "16"
-    %sapn Googleで新規登録
-= link_to user_twitter_omniauth_authorize_path, method: 'post' do
+    %sapn Googleでログイン
+= link_to user_twitter_omniauth_authorize_path do
   .twitter
     %i.fab.fa-twitter
-    %sapn twitterで新規登録
+    %sapn twitterでログイン

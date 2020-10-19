@@ -7,10 +7,10 @@
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
           = f.label :email, class: "user_form_labels"
-          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Mayby@example.com', value: 'test@test'
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Mayby@example.com', value: 'welcome@example.com'
         .field
           = f.label :password, class: "user_form_labels"
-          = f.password_field :password, autocomplete: "current-password", value: 'testest'
+          = f.password_field :password, autocomplete: "current-password", value: '123456'
         - if devise_mapping.rememberable?
           .field.auto_login_message
             = f.check_box :remember_me

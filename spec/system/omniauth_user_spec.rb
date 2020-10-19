@@ -13,7 +13,7 @@ RSpec.describe "Users through OmniAuth", type: :system do
       
       it "ログインをするとユーザー数が増える", js: true do
         expect {
-          click_link 'twitterで新規登録'
+          click_link 'twitterでログイン'
           expect(page).to have_content 'Twitter アカウントによる認証に成功しました'
         }.to change(User, :count).by(1)
       end
@@ -29,7 +29,7 @@ RSpec.describe "Users through OmniAuth", type: :system do
 
       it "ログインをするとユーザー数が増える", js: true do
         expect {
-          click_link 'Googleで新規登録'
+          click_link 'Googleでログイン'
           expect(page).to have_content 'Google アカウントによる認証に成功しました'
         }.to change(User, :count).by(1)
       end
@@ -44,7 +44,7 @@ RSpec.describe "Users through OmniAuth", type: :system do
 
       it "ログインをするとユーザー数が増える", js: true do
         expect {
-          click_link 'Facebookで新規登録'
+          click_link 'Facebookでログイン'
           expect(page).to have_content 'Facebook アカウントによる認証に成功しました'
         }.to change(User, :count).by(1)
       end
