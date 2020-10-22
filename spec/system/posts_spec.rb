@@ -51,8 +51,20 @@ RSpec.describe 'ポスト', type: :system do
       find('.rspec_action_textarea').set('1人で悲しいです')
       find('label[for=post_num_of_people_二人]').click
       find('label[for=post_play_style_わいわい]').click
-      expect{ click_button "更新" }.to_not change{ Post.count }    
+      expect{ click_button "更新" }.to_not change{ Post.count }
       expect(find('.rspec_notice').text).to eq '変更を保存しました'
+    end
+    it '未記入があるとupdateページがrenderされること', js: true do
+      to_new_post post
+      visit posts_path
+      find('.rspec_post-edit').click
+      fill_in '名前', with: ''
+      fill_in '遊び方', with: 'オールナイト耐久戦'  
+      find('.rspec_action_textarea').set('1人で悲しいです')
+      find('label[for=post_num_of_people_二人]').click
+      find('label[for=post_play_style_わいわい]').click
+      click_button "更新"  
+      expect(page).to have_content '名前を入力してください'
     end
   end
 

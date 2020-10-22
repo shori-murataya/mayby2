@@ -31,4 +31,12 @@ RSpec.describe "ライク", type: :system do
     wait_for_ajax
     expect(page).to have_content '人他'
   end
+
+  it 'ライクすると一覧ページに追加されること', js: true do
+    click_link 'カラオケ'
+    find('.rspec_unlike-star').click
+    wait_for_ajax
+    click_link '人他...'
+    expect(page).to have_content 'Taro'
+  end
 end
