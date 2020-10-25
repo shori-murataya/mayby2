@@ -37,6 +37,7 @@
 .new-box{
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 .new-btn a{
   display: inline-block;
@@ -87,4 +88,32 @@
 }
 .dammy{
   flex: .5;
+}
+
+@media(max-width:674px){
+  // top
+  .title-box .intro-box .catch1 {
+    font-size: 20px;
+    margin: 10px 0;
+    padding: 0;
+  }
+  .new-btn {
+    margin: 0;
+  }
+  // about
+  .about-mayby-box {
+    width: 95%;
+  }
+  .about-h1 {
+    padding-top: 35px;
+  }
+  .about-mayby p{
+    margin: 0;
+  }
+  .about-h2 {
+    padding-top: 35px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
 }
