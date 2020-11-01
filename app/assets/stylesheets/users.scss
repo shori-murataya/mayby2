@@ -273,11 +273,6 @@ input.user_common_form_btn{
 .visit_post_show{
   text-align: right;
 }
-.visit_post_show_btn{
-  font-size: 15px;
-  padding: 5px 10px;
-  margin: -10px;
-}
 // user_show ユーザーがしたコメント
 .user_comment_index_list{
   margin-bottom: 20px;
@@ -368,17 +363,38 @@ input.user_common_form_btn{
 }
 
 @media(max-width:674px){
+  .user_form_common_formbox {
+    width: 95%;
+  }
+  .omniauth_area {
+    width: 90%;
+  }
+  .user_form_layout {
+    width: 90%;
+    padding: 15px;
+    margin: 20px auto;
+  }
+  .user_form_image {
+    font-size: 13px;
+    width: 100%;
+  }
   input.user-new-name,.user-new-email,
   .user-new-pass,.user-login-email,
   .user-login-pass,.user-edit-name,
   .user-edit-email{
     width: 90%;
   }
+  .users-index-title, .users-show-title {
+    font-size: 25px;
+  }
   .users-index-box,.users-show-box{
-    width: 90%;
+    width: 95%;
   }
   .tab-wrap{
-    width: 100%;
-    margin: 0;
+    width: 95%;
+    margin: 0 auto;
+  }
+  .tab-label {
+    font-size: 10px;
   }
 }

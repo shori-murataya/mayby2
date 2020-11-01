@@ -18,7 +18,7 @@
 }
 .post_form_common_formbox{
   background-color: rgba(255, 255, 255, 0.774);
-  width: 70%;
+  width: 90%;
   height: 100%;
 }
 h1.post_form_common_page_title{
@@ -344,7 +344,7 @@ a.post-nolike i{
   display: block;
 }
 .comment_counter{
-  margin: 0;
+  margin-bottom: 20px;
   font-weight: bold;
   font-size: 15px;
   text-align: end;
@@ -363,6 +363,54 @@ a.post-nolike i{
   textarea.post-new-howto,.post-edit-howto{
     width: 90%;
   }
+  .posts_index {
+    margin: 10px;
+}
+  .post_body {
+    display: block;
+  }
+  .waimoku,.times {
+    font-size: 15px;
+  }
+  .search-box {
+    min-width: 0;
+    width: 85%;
+  }
+  .post_form_common_formbox {
+    width: 95%;
+  }
+  h1.post_form_common_page_title {
+    font-size: 25px;
+  }
+  .comment_show_card {
+    margin: 0;
+    width: 100%;
+  }
+  .post_show_title {
+    margin: 20px;
+    font-size: 20px;
+  }
+  .post_show_user {
+    display: block;
+  }
+  .post_show_introduce1 {
+    font-size: 13px;
+  }
+  .post_show_introduce2 {
+    font-size: 14px;
+  }
+  .post_user_image {
+    min-width: 0;
+    width: 50%;
+  }
+  .trix-content {
+    margin: 0px auto;
+    width: 98%;
+  }
+  .post_comment_index_list {
+    margin: 0 auto;
+    width: 98%;
+}
 }
 
 
