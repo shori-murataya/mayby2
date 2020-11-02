@@ -280,9 +280,9 @@ Devise.setup do |config|
     config.omniauth :twitter, Rails.application.credentials.twitter[:twitter_api_key], Rails.application.credentials.twitter[:twitter_api_secret_key], callback_url: "http://localhost:3000/users/auth/twitter/callback", :image_size => 'original'
   elsif Rails.env == 'production'
     # setting at Production environment(for deploy) 
-    config.omniauth :facebook, Rails.application.credentials.facebook[:facebook_id], Rails.application.credentials.facebook[:facebook_secret_key], :image_size => 'large', callback_url: "https://mayby.herokuapp.com/users/auth/facebook/callback"
-    config.omniauth :google_oauth2, Rails.application.credentials.google[:google_client_id], Rails.application.credentials.google[:google_client_secret], callback_url: "https://mayby.herokuapp.com/users/auth/google_oauth2/callback"
-    config.omniauth :twitter, Rails.application.credentials.twitter[:twitter_api_key], Rails.application.credentials.twitter[:twitter_api_secret_key], callback_url: "https://mayby.herokuapp.com/users/auth/twitter/callback", :image_size => 'original'    
+    config.omniauth :facebook, Rails.application.credentials.facebook[:facebook_id], Rails.application.credentials.facebook[:facebook_secret_key], :image_size => 'large', callback_url: "http://52.198.135.3/users/auth/facebook/callback"
+    config.omniauth :google_oauth2, Rails.application.credentials.google[:google_client_id], Rails.application.credentials.google[:google_client_secret], callback_url: "http://52.198.135.3/users/auth/google_oauth2/callback"
+    config.omniauth :twitter, Rails.application.credentials.twitter[:twitter_api_key], Rails.application.credentials.twitter[:twitter_api_secret_key], callback_url: "http://52.198.135.3/users/auth/twitter/callback", :image_size => 'original'    
   end
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
