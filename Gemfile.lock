@@ -92,6 +92,7 @@ GEM
     aws-sigv4 (1.2.2)
       aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.16)
+    bcrypt_pbkdf (1.0.1)
     better_errors (2.8.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -165,6 +166,7 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    ed25519 (1.2.4)
     erubi (1.9.0)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -448,6 +450,7 @@ DEPENDENCIES
   acts_as_follower!
   aws-sdk-s3
   bcrypt
+  bcrypt_pbkdf
   better_errors
   binding_of_caller
   bootsnap (>= 1.1.0)
@@ -465,6 +468,7 @@ DEPENDENCIES
   devise
   devise-i18n
   dotenv-rails
+  ed25519
   factory_bot_rails
   haml-rails
   image_processing (~> 1.2)
