@@ -40,6 +40,10 @@ group :development, :test do
   gem 'mysql2'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -63,6 +67,7 @@ end
 
 group :production do
   gem 'mysql2'
+  gem 'unicron'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

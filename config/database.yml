@@ -19,4 +19,6 @@ production:
   <<: *default
   database: mayby_aws_production
   username: mayby_aws_app
-  password: <%= ENV['MAYBY_AWS_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= Rails.application.credentials.db_pass %>
+  socket: /var/lib/mysql/mysql.sock
