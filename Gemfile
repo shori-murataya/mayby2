@@ -69,7 +69,10 @@ end
 
 group :production do
   gem 'mysql2'
-  gem 'unicron'
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
