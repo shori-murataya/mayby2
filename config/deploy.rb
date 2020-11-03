@@ -8,13 +8,16 @@ set :repo_url, "git@github.com:shori-murataya/mayby_aws.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/rails/mayby/aws"
+set :deploy_to, "/var/www/rails/mayby_aws"
 
-# シンボリックリンクをはるファイル。(※後述)
+# シンボリックリンクをはるファイル
 set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
 
-# シンボリックリンクをはるフォルダ。(※後述)
+# シンボリックリンクをはるフォルダ
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+
+# shared/config/master.keyの読み込み
+set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 # 保持するバージョンの個数(※後述)
 set :keep_releases, 5

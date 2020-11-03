@@ -20,5 +20,5 @@ production:
   database: mayby_aws_production
   username: mayby_aws_app
   username: root
-  password: <%= Rails.application.credentials.db_pass %>
+  password: <%= Rails.application.credentials.mysql_pass %>
   socket: /var/lib/mysql/mysql.sock
