@@ -9,7 +9,7 @@
           .card-body
             %h4.card-title= user.name
             %p.card-text
-              = render partial: 'users/num_of_follow', locals: { user: user}
+              = render partial: 'relationships/num_of_follow', locals: { user: user}
             = link_to "詳細", user_path(user), {class: "btn btn-primary"}
             - if user.current_user?(current_user)
               = link_to "編集", edit_user_registration_path, {class: "btn btn-primary"}

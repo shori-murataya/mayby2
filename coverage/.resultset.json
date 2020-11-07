@@ -21,6 +21,11 @@
           1,
           1,
           null,
+          1,
+          null,
+          null,
+          1,
+          null,
           null,
           1,
           1,
@@ -29,6 +34,21 @@
           null,
           1,
           20,
+          null,
+          null,
+          null,
+          1,
+          4,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          1,
+          10,
           null,
           null,
           1,
@@ -87,6 +107,12 @@
         ]
       },
       "/Users/muratashori/Desktop/mayby_aws/app/helpers/posts_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/muratashori/Desktop/mayby_aws/app/helpers/relationships_helper.rb": {
         "lines": [
           1,
           null
@@ -158,6 +184,14 @@
       "/Users/muratashori/Desktop/mayby_aws/app/models/like.rb": {
         "lines": [
           1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/muratashori/Desktop/mayby_aws/app/models/relationship.rb": {
+        "lines": [
           1,
           1,
           1,
@@ -310,14 +344,6 @@
           null,
           null,
           1,
-          4,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null,
-          1,
           null,
           null,
           1,
@@ -326,25 +352,8 @@
           1,
           null,
           1,
-          12,
+          6,
           null,
-          null,
-          null
-        ]
-      },
-      "/Users/muratashori/Desktop/mayby_aws/app/models/follow.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          0,
           null,
           null
         ]
@@ -410,6 +419,23 @@
           0,
           0,
           null,
+          null,
+          null
+        ]
+      },
+      "/Users/muratashori/Desktop/mayby_aws/app/controllers/relationships_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          4,
+          4,
+          null,
+          null,
+          1,
+          2,
+          2,
           null,
           null
         ]
@@ -493,6 +519,25 @@
         "branches": {
         }
       },
+      "/Users/muratashori/Desktop/mayby_aws/app/models/follow.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "branches": {
+        }
+      },
       "/Users/muratashori/Desktop/mayby_aws/app/validators/test_validator.rb": {
         "lines": [
           0,
@@ -534,6 +579,6 @@
         }
       }
     },
-    "timestamp": 1603696706
+    "timestamp": 1604737736
   }
 }

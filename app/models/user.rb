@@ -16,9 +16,14 @@ class User < ApplicationRecord
   validates :name, { presence: true }
   validates :image, blob: { content_type: :image, size_range: MAX_IMAGE_FILE_SIZE }
 
-  # setting for acts_as_follower
-  acts_as_followable
-  acts_as_follower
+  has_many :active_relationships, class_name: "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent: :destroy
+  has_many :passive_relationships, class_name:  "Relationship",
+                                  foreign_key: "followed_id",
+                                  dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
 
   #must_be_ordered
 
@@ -26,6 +31,21 @@ class User < ApplicationRecord
     self.id == user.id
   end
 
+  #フォローする
+  def follow(other_user)
+    following << other_user
+  end
+    
+  #フォロー解除する
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+  
+  #フォローしてたらtrue
+    def following?(other_user)
+      following.include?(other_user)
+    end
+  
   def followable?(user)
     self.id != user.id
   end

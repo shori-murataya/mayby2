@@ -6,7 +6,7 @@
         %h4.card-title= "#{ @user.name }さん"
         %p.card-text
           #js-follow-form.follow_box
-            = render partial: 'follow', locals: { user: @user }
+            = render partial: 'relationships/follow', locals: { user: @user }
       - if @user.current_user?(current_user)
         = link_to edit_user_registration_path, { class: "user_edit_from_show" } do
           %i.fas.fa-cog
@@ -27,8 +27,6 @@
                       %i.fas.fa-edit.rspec_post-edit
               .card-body
                 %p.card-text= simple_format(post.howto)
-                .visit_post_show
-                  = link_to '見に行く', post_path(post), { class: "btn btn-primary visit_post_show_btn" }
       -# ユーザーがコメントしたMayby
       %input.tab-switch#TAB-02{ type: "radio", name: "TAB" } 
       %label.rspec_comment-tab.tab-label{ for: "TAB-02" }

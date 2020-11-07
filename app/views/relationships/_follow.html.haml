@@ -1,0 +1,3 @@
+= render partial: 'relationships/num_of_follow', locals: { user: @user }
+- if user.followable?(current_user)
+  = render partial: 'relationships/follow_form', locals: { user: @user }

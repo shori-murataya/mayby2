@@ -75,7 +75,7 @@ RSpec.describe "ユーザー", type: :system do
       expect{
         click_on "フォローする"
         sleep 2
-      }.to change{ user.follow_count }.from(0).to(1) 
+      }.to change{ user.following.count }.from(0).to(1) 
     end
     it 'フォローを解除すること', js: true do
       click_on "フォローする"
@@ -83,7 +83,7 @@ RSpec.describe "ユーザー", type: :system do
       expect{
         click_on "フォロー外す"
         sleep 2
-      }.to change{ user.follow_count }.from(1).to(0) 
+      }.to change{ user.following.count }.from(1).to(0) 
     end
   end
 
@@ -99,7 +99,7 @@ RSpec.describe "ユーザー", type: :system do
       expect{
         click_on "フォローする"
         sleep 2
-      }.to change{ user.followers_count }.from(0).to(1) 
+      }.to change{ user.followers.count }.from(0).to(1) 
     end
     it 'フォロワーが減ること', js: true do
       click_on "フォローする"
@@ -107,7 +107,7 @@ RSpec.describe "ユーザー", type: :system do
       expect{
         click_on "フォロー外す"
         sleep 2
-      }.to change{ user.followers_count }.from(1).to(0) 
+      }.to change{ user.followers.count }.from(1).to(0) 
     end
   end
 

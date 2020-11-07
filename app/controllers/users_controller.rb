@@ -11,14 +11,6 @@ class UsersController < ApplicationController
     @user_comments = @user.comments.order(created_at: :desc)
   end
 
-  def follow
-    current_user.follow(@user)
-  end
-
-  def unfollow
-    current_user.stop_following(@user)
-  end
-
   def follow_list
   end
 
