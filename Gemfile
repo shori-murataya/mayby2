@@ -12,7 +12,6 @@ gem 'must_be_ordered'
 gem 'devise'
 gem 'devise-i18n'
 gem 'haml-rails'
-gem "acts_as_follower", github: "tcocca/acts_as_follower"
 gem 'bootstrap'
 gem 'dekiru'
 gem 'actiontext'
