@@ -49,5 +49,19 @@ RSpec.describe "Users through OmniAuth", type: :system do
         }.to change(User, :count).by(1)
       end
     end
+
+    context '無効なユーザーの場合' do
+      before do
+        OmniAuth.config.mock_auth[:facebook] = nil
+        Rails.application.env_config['omniauth.auth'] = set_omniauth :facebook
+        visit new_user_session_path
+      end
+      let!(:user) { FactoryBot.create(:user, email: 'mock@test.com') }
+      
+      it '登録できないこと', js: true do
+        expect{ click_link 'Facebookでログイン' }.to_not change{ Post.count }
+        expect(page).to have_content 'メールアドレスは既に使用されています。'
+      end
+    end
   end
 end

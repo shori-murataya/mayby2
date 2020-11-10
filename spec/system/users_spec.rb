@@ -128,4 +128,23 @@ RSpec.describe "ユーザー", type: :system do
       expect(page).to_not have_content 'Hanako'
     end
   end
+
+  context '管理ページアクセスの検証' do
+    let!(:admin_user) { FactoryBot.create(:user, admin: true)}
+    let!(:normal_user) { FactoryBot.create(:user, admin: false)}
+    before do
+      visit root_path
+    end
+
+    it '管理ユーザーはアクセスできること', js: true do
+      sign_in admin_user
+      visit rails_admin_path
+      expect(page).to have_content 'サイト管理'  
+    end
+    # it '一般ユーザーはアクセスでないこと', js: true do
+    #   sign_in normal_user
+    #   visit rails_admin_path
+    #   expect{ subject }.to raise_error(CanCan::AccessDenied)
+    # end
+  end
 end

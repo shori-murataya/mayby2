@@ -21,6 +21,7 @@ module Mayby
 
     # 日本語化
     config.i18n.default_locale = :ja
+    config.time_zone = 'Asia/Tokyo'
     # バリデーション失敗によるレイアウト崩れを防ぐ設定
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
     # DEPRECATION WARNING(カスタム親クラスは非推奨、将来削除される警告)

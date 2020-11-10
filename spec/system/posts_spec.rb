@@ -37,7 +37,7 @@ RSpec.describe 'ポスト', type: :system do
       find('.rspec_action_textarea').set('1人で悲しいです')
       find('label[for=post_num_of_people_二人]').click
       find('label[for=post_play_style_わいわい]').click
-      expect{ click_button "更新" }.to_not change{ Post.count }   
+      expect{ click_button "更新" }.to_not change{ Post.count }
       expect(find('.rspec_notice').text).to eq '変更を保存しました'
     end
     it 'ユーザー詳細ページから投稿を編集すること', js: true do
