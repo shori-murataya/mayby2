@@ -33,6 +33,7 @@ gem 'jbuilder'
 gem 'webpacker', '~> 4.0'
 gem 'mini_magick', '~> 4.8'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem "omniauth-rails_csrf_protection"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
